@@ -8,6 +8,6 @@ import javax.persistence.Id;
  */
 @Entity
 public class Train  extends EntityBase  {
-    private int trainNumber;
+    private String trainNumber;
     private int placesAmount;
 }

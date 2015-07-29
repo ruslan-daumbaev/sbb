@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by rdaumbae on 28.07.2015.
  */
 @Entity
-public class User  extends EntityBase {
+public class User extends EntityBase {
     private String firstName;
     private String lastName;
     private String loginName;
