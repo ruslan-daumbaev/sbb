@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 /**
  * Created by rdaumbae on 29.07.2015.
  */
-@Transactional
+
 @Service("usersService")
 public class UsersServiceImpl implements UsersService {
 

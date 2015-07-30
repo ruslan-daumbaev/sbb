@@ -10,4 +10,20 @@ import javax.persistence.Id;
 public class Train  extends EntityBase  {
     private String trainNumber;
     private int placesAmount;
+
+    public String getTrainNumber() {
+        return trainNumber;
+    }
+
+    public void setTrainNumber(String trainNumber) {
+        this.trainNumber = trainNumber;
+    }
+
+    public int getPlacesAmount() {
+        return placesAmount;
+    }
+
+    public void setPlacesAmount(int placesAmount) {
+        this.placesAmount = placesAmount;
+    }
 }
