@@ -3,15 +3,19 @@
 
     <persistence-unit name="persistenceUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.tsystems.sbb.entities.Train</class>
+        <class>com.tsystems.sbb.entities.User</class>
+        <class>com.tsystems.sbb.entities.Passenger</class>
+        <class>com.tsystems.sbb.entities.Ticket</class>
+        <class>com.tsystems.sbb.entities.Schedule</class>
+        <class>com.tsystems.sbb.entities.Station</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sbbproject"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="Password1234"/>
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hbm2ddl.auto" value="update"/>
+            <property name="hbm2ddl.auto" value="validate"/>
         </properties>
     </persistence-unit>
 </persistence>

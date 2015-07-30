@@ -16,7 +16,7 @@ create table Users (
 create table Trains (
 id int not null auto_increment,
 trainNumber varchar(10) not null, 
-palacesAmount int not null,
+placesAmount int not null,
 insDate datetime not null,
 updDate datetime not null,
 primary key (id)

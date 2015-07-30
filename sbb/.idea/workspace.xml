@@ -207,11 +207,9 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/.gitignore" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/WEB-INF/views/cp_employee/errors/404.jsp" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/WEB-INF/views/cp_employee/errors/404.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/controllers/AjaxDispatcher.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/security/AppUserDetailsServiceDAO.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/controllers/ClientController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/ClientServicesController.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/entities/Contract.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/DAO/API/ContractDAO.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/ContractDAOImplementation.java" />
@@ -235,20 +233,8 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/controllers/LoginController.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/META-INF/MANIFEST.MF" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/aspect/MainAspect.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_33.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_3_2_3_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_3_2_3_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_3_2_3_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_0_3_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_0_3_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_0_3_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_0_3_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_0_3_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_0_3_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_0_3_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_3.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/entities/Option.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/DAO/API/OptionDAO.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/OptionDAOImplementation.java" />
@@ -272,8 +258,8 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/services/implementation/TariffServiceImplementation.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/test/java/ru/tsystems/tproject/services/implementation/TariffServiceTest.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/utils/Test.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/contracts/TrainsService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/TrainsServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/DAL/contracts/TrainsRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/DAL/implementation/TrainsRepositoryImpl.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/utils/Locale/Translatable.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/entities/User.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/java/ru/tsystems/tproject/DAO/API/UserDAO.java" />
@@ -287,8 +273,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/scripts/ajax-client.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/ajax.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/scripts/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/spring/appServlet-servlet.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/application.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/sql/backup_script" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/beforetest.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/WEB-INF/views/cp_client/cp_client_balance.jsp" />
@@ -373,6 +357,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/scripts/form_script_1.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/form_script_2.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/scripts/form_script_2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/admin/index.jsp" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/jquery.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/scripts/jquery.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/jquery.maskedinput.js" />
@@ -414,8 +399,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/resources/sql/remove-data-user.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/classes/sql/remove-data-user.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/WEB-INF/classes/sql/remove-data-user.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/sbb.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/sbb_ear_exploded.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/schedule.jsp" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/select_domain-button.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/scripts/select_domain-button.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/WEB-INF/spring/spring-security.xml" />
@@ -430,6 +414,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/WEB-INF/views/cp_client/success.jsp" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/WEB-INF/views/cp_employee/success.jsp" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/t-project.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/tickets.jsp" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/sql/dumps/tproject_2014.10.17_11_54.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/sql/dumps/tproject_2014.10.17_15_22.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/sql/dumps/tproject_2014.10.17_17_42.sql" />
@@ -469,7 +454,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/sql/dumps/tproject_2014.11.01_13_53.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/sql/dumps/tproject_2014.11.06_14_35.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/sql/dumps/tproject_2014.11.06_21_39.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/trains.jsp" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/validate.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/scripts/validate.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/validateSearch.js" />
@@ -478,21 +462,15 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/scripts/wait.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/WEB-INF/web.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/WEB-INF/web.xml" />
-      <change type="DELETED" beforePath="C:\Github\sbb\web\WEB-INF\applicationContext.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Github\sbb\web\WEB-INF\dispatcher-servlet.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Github\sbb\.idea\libraries\Maven__org_hibernate_hibernate_core_4_3_10_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_4_3_6_Final.xml" />
-      <change type="MOVED" beforePath="C:\Github\sbb\.idea\libraries\Maven__org_hibernate_hibernate_entitymanager_4_3_10_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_4_3_6_Final.xml" />
-      <change type="MOVED" beforePath="C:\Github\sbb\web\index.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/LoginController.java" />
+      <change type="MOVED" beforePath="C:\Github\sbb\src\main\java\META-INF\persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/EntityBase.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/EntityBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Train.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Train.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/UsersServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/UsersServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/admin/login.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/admin/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/java/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/TrainsServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/TrainsServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/spring/appServlet-servlet.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/spring/appServlet-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sql/create_database_schema.sql" afterPath="$PROJECT_DIR$/src/main/resources/sql/create_database_schema.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sbb.iml" afterPath="$PROJECT_DIR$/sbb.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/sbb_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/sbb_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b03cf22c-1298-4494-b832-e73ab34368b8" name="Rejected commit: Default" comment="" />
@@ -531,6 +509,24 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - sbbproject@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="sbbproject" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="trains" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -538,6 +534,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.8076925">
+              <caret line="98" column="62" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="76" column="21" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UsersServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/UsersServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -548,57 +564,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java">
+      <file leaf-file-name="TrainsRepositoryImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/DAL/implementation/TrainsRepositoryImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientServicesController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientServicesController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/ClientServicesController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7766498">
-              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-              <folding>
-                <element signature="e#910#911#0" expanded="true" />
-                <element signature="e#960#961#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appServlet-servlet.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/spring/appServlet-servlet.xml">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrainsService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/contracts/TrainsService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -616,44 +597,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrainsServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/TrainsServiceImpl.java">
+      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#461#468#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsersService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/contracts/UsersService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+              <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Train.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Train.java">
+      <file leaf-file-name="TrainsServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/TrainsServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+              <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
               <folding>
-                <element signature="e#293#294#0" expanded="true" />
-                <element signature="e#327#328#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
-                <element signature="e#427#428#0" expanded="true" />
-                <element signature="e#463#464#0" expanded="true" />
-                <element signature="e#498#499#0" expanded="true" />
-                <element signature="e#551#552#0" expanded="true" />
-                <element signature="e#599#600#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#586#587#0" expanded="true" />
+                <element signature="e#645#646#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sbbproject.trains" pinned="false" current-in-tab="true">
+        <entry file="dbDummy://dbtable:/99f2453f/db1a4d78-09e8-4530-b0e9-c6b49f08327a/sbbproject..trains">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/admin/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.274509">
+              <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -682,7 +670,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Passanger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/EntityBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Schedule.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Station.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Ticket.java" />
@@ -693,7 +680,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/contracts/UsersService.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/views/admin/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/META-INF/security-context.xml" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/views/admin/index.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/UsersServiceImpl.java" />
@@ -701,16 +687,24 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/spring/security-context.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/spring/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/spring/appServlet-servlet.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/views/index.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/views/trains.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/contracts/TrainsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Train.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/TrainsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/ClientServicesController.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/views/schedule.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/views/tickets.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/DAL/contracts/TrainsRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/DAL/implementation/TrainsRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/spring/appServlet-servlet.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/EntityBase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Train.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/sql/create_database_schema.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/views/admin/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/TrainsServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -864,7 +858,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -913,26 +911,8 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sbb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sbb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1063,6 +1043,10 @@
               <option name="myItemId" value="DAL" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="implementation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1152,9 +1136,10 @@
       <recent name="C:\Github\sbb\src\main\resources\sql" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Github\sbb\src\main\resources\META-INF" />
+      <recent name="C:\Github\sbb\web\WEB-INF\spring" />
       <recent name="C:\Github\sbb\web" />
       <recent name="C:\Github\sbb\web\WEB-INF\views" />
-      <recent name="C:\Github\sbb\web\WEB-INF\spring" />
     </key>
   </component>
   <component name="RunManager" selected="JBoss Server.sbb-wildfly">
@@ -1524,7 +1509,7 @@
       <updated>1438089234707</updated>
       <workItem from="1438089239178" duration="7685000" />
       <workItem from="1438162722845" duration="25191000" />
-      <workItem from="1438261119900" duration="2494000" />
+      <workItem from="1438261119900" duration="11270000" />
     </task>
     <task id="LOCAL-00001" summary="add base classes">
       <created>1438174491377</created>
@@ -1532,11 +1517,17 @@
       <option name="project" value="LOCAL" />
       <updated>1438174491377</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add base classes">
+      <created>1438263642480</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1438263642480</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35370000" />
+    <option name="totallyTimeSpent" value="44146000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1549,16 +1540,16 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5030257" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.4969743" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16944024" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16944024" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.078364566" sideWeight="0.49394855" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2810903" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2657581" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24281392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21558245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1762481" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1452345" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1590,13 +1581,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java</url>
-          <line>17</line>
-          <properties />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
@@ -1606,42 +1590,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#li#0;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/UsersServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/spring/appServlet-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/persistence.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="43" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="43" />
@@ -1661,10 +1610,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding>
-            <element signature="e#910#911#0" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1684,7 +1630,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#li#0;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -1703,14 +1648,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="e#293#294#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-            <element signature="e#427#428#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#968#969#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="e#1080#1081#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1719,6 +1669,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1734,6 +1685,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1741,6 +1695,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1748,6 +1705,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1755,34 +1713,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/EntityBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Station.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Ticket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1790,20 +1726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/sql/create_database_schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Schedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1819,17 +1741,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/DAL/implementation/UsersRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#310#311#0" expanded="false" />
-            <element signature="e#337#338#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1877,41 +1788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="43" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Passenger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65384614">
-          <caret line="111" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding>
-            <element signature="n#li#0;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/trains.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-32.692307">
@@ -1933,27 +1809,180 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Train.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding>
-            <element signature="e#293#294#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-            <element signature="e#427#428#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/contracts/UsersService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/schedule.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/tickets.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/DAL/implementation/UsersRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="e#310#311#0" expanded="false" />
+            <element signature="e#337#338#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Schedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Station.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Passenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Ticket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/spring/appServlet-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="75" selection-start-line="45" selection-start-column="75" selection-end-line="45" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/dataSources.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/Train.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46153846">
+          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#968#969#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="e#1080#1081#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/DAL/contracts/TrainsRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/entities/EntityBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sql/create_database_schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30155212">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8076925">
+          <caret line="98" column="62" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="21" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1966,21 +1995,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/TrainsServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/DAL/implementation/TrainsRepositoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#461#468#0" expanded="true" />
-          </folding>
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/ClientServicesController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/admin/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.274509">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1996,30 +2030,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/spring/appServlet-servlet.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/services/implementation/TrainsServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/ClientServicesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7766498">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
           <folding>
-            <element signature="e#910#911#0" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/99f2453f/db1a4d78-09e8-4530-b0e9-c6b49f08327a/sbbproject..trains">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -2078,12 +2118,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>sbb</last-edited>
+          <last-edited>JPA|sbb</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.249742" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

@@ -7,9 +7,9 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" />
-          <factory-entry name="persistenceUnit" />
+          <factory-entry name="persistenceUnit" value="db1a4d78-09e8-4530-b0e9-c6b49f08327a" />
         </datasource-mapping>
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/java/META-INF/persistence.xml" />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
     </facet>
     <facet type="web" name="Web">
@@ -85,5 +85,7 @@
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:4.3.6.Final" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.33" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.3" level="project" />
   </component>
 </module>
