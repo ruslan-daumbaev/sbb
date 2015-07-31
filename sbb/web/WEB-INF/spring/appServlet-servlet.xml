@@ -57,8 +57,6 @@
 
     <bean class="com.tsystems.sbb.services.implementation.UsersServiceImpl" id="authService"/>
 
-    <bean class="com.tsystems.sbb.utils.EncoderUtil" id="encoder"/>
-
     <import resource="spring-security.xml"/>
 
 </beans>

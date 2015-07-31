@@ -72,10 +72,10 @@
       <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
           <li>
-            <a href="${pageContext.request.contextPath}/admin/trains"><i class="fa fa-dashboard fa-fw"></i>Trains</a>
+            <a href="${pageContext.request.contextPath}/admin/trains">Trains</a>
           </li>
           <li>
-            <a href="${pageContext.request.contextPath}/admin/stations"><i class="fa fa-dashboard fa-fw"></i>Stations</a>
+            <a href="${pageContext.request.contextPath}/admin/stations">Stations</a>
           </li>
         </ul>
       </div>
