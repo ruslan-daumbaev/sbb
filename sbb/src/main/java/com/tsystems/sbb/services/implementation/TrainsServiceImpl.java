@@ -9,18 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by rdaumbae on 30.07.2015.
- */
 @Service("trainsService")
 public class TrainsServiceImpl implements TrainsService {
 
-
     private TrainsRepository trainsRepository;
 
-    public List<Train> getAllTrains() {
-        return getTrainsRepository().getAllTrains();
-    }
 
     public TrainsRepository getTrainsRepository() {
         return trainsRepository;
@@ -29,5 +22,9 @@ public class TrainsServiceImpl implements TrainsService {
     @Autowired
     public void setTrainsRepository(TrainsRepository trainsRepository) {
         this.trainsRepository = trainsRepository;
+    }
+
+    public List<Train> getAllTrains() {
+        return getTrainsRepository().getAllTrains();
     }
 }

@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +20,7 @@
   <link href="<c:url value="/css/sb-admin-2.css" />" rel="stylesheet">
   <link href="<c:url value="/css/font-awesome.min.css" />" rel="stylesheet">
 
+  <script src="<c:url value="/js/jquery.min.js" />"></script>
   <script src="<c:url value="/js/sb-admin-2.js" />"></script>
   <script src="<c:url value="/js/bootstrap.min.js" />"></script>
   <script src="<c:url value="/js/metisMenu.min.js" />"></script>
@@ -37,14 +40,31 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="${pageContext.request.contextPath}">SBB Control Panel</a>
+      <a class="navbar-brand" href="${pageContext.request.contextPath}/admin">SBB Control Panel</a>
     </div>
     <ul class="nav navbar-top-links navbar-right">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
-        </a>
-        <!-- /.dropdown-messages -->
+
+      <li>
+        <sec:authorize access="isAuthenticated()">
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <div>
+                <sec:authentication property="principal.username" />
+              </div>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li><a href="#">User Profile</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <spring:url var="logoutUrl" value="j_spring_security_logout" />
+                <a href="${logoutUrl}">Logout</a>
+              </li>
+            </ul>
+            <!-- /.dropdown-user -->
+          </li>
+        </sec:authorize>
       </li>
       <!-- /.dropdown -->
     </ul>
@@ -52,10 +72,10 @@
       <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
           <li>
-            <a href="${pageContext.request.contextPath}/trains"><i class="fa fa-dashboard fa-fw"></i>Trains</a>
+            <a href="${pageContext.request.contextPath}/admin/trains"><i class="fa fa-dashboard fa-fw"></i>Trains</a>
           </li>
           <li>
-            <a href="${pageContext.request.contextPath}/schedule"><i class="fa fa-dashboard fa-fw"></i>Stations</a>
+            <a href="${pageContext.request.contextPath}/admin/stations"><i class="fa fa-dashboard fa-fw"></i>Stations</a>
           </li>
         </ul>
       </div>

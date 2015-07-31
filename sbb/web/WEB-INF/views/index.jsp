@@ -19,6 +19,7 @@
   <link href="<c:url value="/css/font-awesome.min.css" />" rel="stylesheet">
 
   <script src="<c:url value="/js/sb-admin-2.js" />"></script>
+  <script src="<c:url value="/js/jquery.min.js" />"></script>
   <script src="<c:url value="/js/bootstrap.min.js" />"></script>
   <script src="<c:url value="/js/metisMenu.min.js" />"></script>
 
@@ -37,61 +38,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">SBB</a>
+      <a class="navbar-brand" href="${pageContext.request.contextPath}">SBB</a>
     </div>
     <ul class="nav navbar-top-links navbar-right">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+      <li>
+        <a href="${pageContext.request.contextPath}/admin">
+          <div>Admin Panel</div>
         </a>
-        <ul class="dropdown-menu dropdown-messages">
-          <li>
-            <a href="#">
-              <div>
-                <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-              </div>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-            </a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="#">
-              <div>
-                <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-              </div>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-            </a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="#">
-              <div>
-                <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-              </div>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-            </a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a class="text-center" href="#">
-              <strong>Read All Messages</strong>
-              <i class="fa fa-angle-right"></i>
-            </a>
-          </li>
-        </ul>
-        <!-- /.dropdown-messages -->
       </li>
-      <!-- /.dropdown -->
     </ul>
+
     <div class="navbar-default sidebar" role="navigation">
       <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
