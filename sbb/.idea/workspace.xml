@@ -123,6 +123,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/lib/commons-logging-1.0.4.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/lib/commons-logging-1.1.3.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/lib/commons-pool-1.5.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/sql/models/diagram.mwb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/lib/dom4j-1.6.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/lib/hibernate-commons-annotations-4.0.1.Final.jar" />
@@ -257,6 +258,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/resources/sql/create-data-user.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/classes/sql/create-data-user.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/WEB-INF/classes/sql/create-data-user.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/debug.log" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/WEB-INF/views/denied.jsp" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/err.log" />
@@ -305,6 +307,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/resources/spring.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/classes/spring.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/WEB-INF/classes/spring.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/css/styles.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/WEB-INF/views/cp_client/success.jsp" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/WEB-INF/views/cp_employee/success.jsp" />
@@ -352,8 +355,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/validateSearch.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/wait.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/sbb/controllers/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/admin/trains.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/admin/trains.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b03cf22c-1298-4494-b832-e73ab34368b8" name="Rejected commit: Default" comment="" />
@@ -835,18 +836,8 @@
               <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sbb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sbb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -860,11 +851,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1292,7 +1279,7 @@
       <workItem from="1438089239178" duration="7685000" />
       <workItem from="1438162722845" duration="25191000" />
       <workItem from="1438261119900" duration="12302000" />
-      <workItem from="1438328067720" duration="27503000" />
+      <workItem from="1438328067720" duration="27583000" />
     </task>
     <task id="LOCAL-00001" summary="add base classes">
       <created>1438174491377</created>
@@ -1324,11 +1311,23 @@
       <option name="project" value="LOCAL" />
       <updated>1438360373553</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add base classes">
+      <created>1438610236244</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1438610236244</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add base classes">
+      <created>1438610280758</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1438610280758</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72681000" />
+    <option name="totallyTimeSpent" value="72761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1349,7 +1348,7 @@
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19591141" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1860817" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1860817" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17397882" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
