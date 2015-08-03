@@ -107,6 +107,7 @@
       <tr>
         <th>Train #</th>
         <th>Places</th>
+        <th></th>
       </tr>
       </thead>
       <tbody id="trainsTableBody">
@@ -157,30 +158,46 @@
   });
 
 
+  function onTrainsLoaded(data) {
+    var content = '';
+    var trains = data;
+
+    for (var i = 0; i< trains.length; i++) {
+      content += '<tr>';
+      content += '<td>'+trains[i].trainNumber+'</td>';
+      content += '<td>'+trains[i].placesAmount+'</td>';
+      content += '<td><a class="editTrainLink" href="">Edit</a></td>';
+      content += '</tr>';
+    }
+    $("#trainsTableBody").empty().append(content);
+  }
+
   $('#saveTrainButton').click(function(){
     var trainNum = $('#train-number').val();
     var placesAmount = $('#places-amount').val();
-    alert(trainNum + ' ' + placesAmount);
+    var json = { "trainNumber" : trainNum, "placesAmount" : placesAmount};
+    $.ajax({
+      url: '<c:url value="/admin/addNewTrain"/>',
+      type: 'POST',
+      dataType: 'json',
+      data: json,
+      success: onTrainsLoaded
+    })
+
     $('#addTrainWindow').modal('hide');
   });
+
+  $('#addTrainWindow').on('hidden.bs.modal', function (e) {
+    $('#train-number').val('');
+    $('#places-amount').val('');
+  })
 
   function loadTrains(){
     $.ajax({
       url: '<c:url value="/admin/trainsJson"/>',
       type: 'GET',
       dataType: 'json',
-      success: function(data) {
-        var content = '';
-        var trains = data;
-
-        for (var i = 0; i< trains.length; i++) {
-          content += '<tr>';
-          content += '<td>'+trains[i].trainNumber+'</td>';
-          content += '<td>'+trains[i].placesAmount+'</td>';
-          content += '</tr>';
-        }
-        $("#trainsTableBody").empty().append(content);
-      }
+      success: onTrainsLoaded
     })
   }
 

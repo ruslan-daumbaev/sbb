@@ -5,6 +5,7 @@ import com.tsystems.sbb.entities.Train;
 import com.tsystems.sbb.services.contracts.TrainsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,5 +27,10 @@ public class TrainsServiceImpl implements TrainsService {
 
     public List<Train> getAllTrains() {
         return getTrainsRepository().getAllTrains();
+    }
+
+    @Transactional
+    public void addTrain(Train train) {
+        trainsRepository.addTrain(train);
     }
 }

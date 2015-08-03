@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface TrainsRepository {
     List<Train> getAllTrains();
+
+    void addTrain(Train train);
 }

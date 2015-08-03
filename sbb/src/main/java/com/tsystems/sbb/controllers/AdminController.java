@@ -6,12 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -52,10 +50,17 @@ public class AdminController {
         return trainsService.getAllTrains();
     }
 
-    @RequestMapping(value = "/addTrainJson",
+    @RequestMapping(value = "/addNewTrain",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE )
-    public @ResponseBody Collection<Train> addNewTrain(Model uiModel){
+    public @ResponseBody Collection<Train> addNewTrain(@RequestParam String trainNumber,
+                                                       @RequestParam int placesAmount){
+        Train train = new Train();
+        train.setTrainNumber(trainNumber);
+        train.setPlacesAmount(placesAmount);
+        train.setInsDate(new Date());
+        train.setUpdDate(new Date());
+        trainsService.addTrain(train);
         return trainsService.getAllTrains();
     }
 

@@ -18,4 +18,8 @@ public class TrainsRepositoryImpl implements TrainsRepository {
     public List<Train> getAllTrains() {
         return entityManager.createQuery("select t from Train t", Train.class).getResultList();
     }
+
+    public void addTrain(Train train) {
+        entityManager.persist(train);
+    }
 }
