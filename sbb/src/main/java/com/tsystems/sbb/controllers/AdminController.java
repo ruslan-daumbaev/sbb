@@ -52,6 +52,13 @@ public class AdminController {
         return trainsService.getAllTrains();
     }
 
+    @RequestMapping(value = "/addTrainJson",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE )
+    public @ResponseBody Collection<Train> addNewTrain(Model uiModel){
+        return trainsService.getAllTrains();
+    }
+
     @Autowired
     public void setTrainsService(TrainsService trainsService) {
         this.trainsService = trainsService;
