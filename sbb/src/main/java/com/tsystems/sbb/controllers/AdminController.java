@@ -1,6 +1,7 @@
 package com.tsystems.sbb.controllers;
 
 import com.tsystems.sbb.entities.Train;
+import com.tsystems.sbb.models.TrainModel;
 import com.tsystems.sbb.services.contracts.TrainsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -25,14 +26,14 @@ public class AdminController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model uiModel){
-        List<Train> trains = trainsService.getAllTrains();
+        List<TrainModel> trains = trainsService.getAllTrains();
         uiModel.addAttribute("trains", trains);
         return "admin/index";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/trains")
      public String trains(Model uiModel){
-        List<Train> trains = trainsService.getAllTrains();
+        List<TrainModel> trains = trainsService.getAllTrains();
         uiModel.addAttribute("trains", trains);
         return "admin/trains";
     }
@@ -46,14 +47,14 @@ public class AdminController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE )
     public @ResponseBody
-    Collection<Train> trainsJson() {
+    Collection<TrainModel> trainsJson() {
         return trainsService.getAllTrains();
     }
 
     @RequestMapping(value = "/saveTrain",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE )
-    public @ResponseBody Collection<Train> saveTrain(@RequestParam int trainId,
+    public @ResponseBody Collection<TrainModel> saveTrain(@RequestParam int trainId,
                                                      @RequestParam String trainNumber,
                                                        @RequestParam int placesAmount){
 
@@ -65,7 +66,7 @@ public class AdminController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE )
     public @ResponseBody
-    Train getTrain(@RequestParam int trainId) {
+    TrainModel getTrain(@RequestParam int trainId) {
         return trainsService.getTrain(trainId);
     }
 

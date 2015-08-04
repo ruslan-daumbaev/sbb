@@ -2,11 +2,13 @@ package com.tsystems.sbb.services.implementation;
 
 import com.tsystems.sbb.DAL.contracts.TrainsRepository;
 import com.tsystems.sbb.entities.Train;
+import com.tsystems.sbb.models.TrainModel;
 import com.tsystems.sbb.services.contracts.TrainsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,8 +27,13 @@ public class TrainsServiceImpl implements TrainsService {
         this.trainsRepository = trainsRepository;
     }
 
-    public List<Train> getAllTrains() {
-        return getTrainsRepository().getAllTrains();
+    public List<TrainModel> getAllTrains() {
+        List<Train> trains = getTrainsRepository().getAllTrains();
+        List<TrainModel> trainModels = new ArrayList<TrainModel>(trains.size());
+        for (Train item : trains) {
+            trainModels.add(new TrainModel(item));
+        }
+        return trainModels;
     }
 
     @Transactional
@@ -46,7 +53,8 @@ public class TrainsServiceImpl implements TrainsService {
         trainsRepository.saveTrain(train);
     }
 
-    public Train getTrain(int trainId){
-        return trainsRepository.getTrain(trainId);
+    public TrainModel getTrain(int trainId){
+        Train train = trainsRepository.getTrain(trainId);
+        return new TrainModel(train);
     }
 }

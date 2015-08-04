@@ -111,7 +111,13 @@
       </tr>
       </thead>
       <tbody id="trainsTableBody">
-
+      <c:forEach items="${trains}" var="train">
+        <tr>
+          <td>${train.trainNumber}</td>
+          <td>${train.placesAmount}</td>
+          <td><button class="btn editTrainLink" id="trainId-${train.id}">Edit</button></td>
+        </tr>
+      </c:forEach>
       </tbody>
     </table>
   </div>
@@ -137,8 +143,8 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button id="saveTrainButton" type="button" class="btn btn-primary" min="1">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -152,10 +158,7 @@
     $("#refreshButton").click(function(){
       loadTrains();
     });
-    $("#addTrainButton").click(function(){
-
-    });
-    loadTrains();
+    $(".editTrainLink").click(addEditHandler);
   });
 
 
@@ -168,27 +171,12 @@
       content += '<tr>';
       content += '<td>'+trains[i].trainNumber+'</td>';
       content += '<td>'+trains[i].placesAmount+'</td>';
-      content += '<td><a class="editTrainLink" href="#" id="' + id + '">Edit</a></td>';
+      content += '<td><button class="btn editTrainLink" id="' + id + '">Edit</button></td>';
       content += '</tr>';
     }
 
     $("#trainsTableBody").empty().append(content);
-    $(".editTrainLink").click(function(){
-      var id = parseInt(this.id.split("-")[1]);
-      $.ajax({
-        url: '<c:url value="/admin/getTrain"/>',
-        type: 'GET',
-        dataType: 'json',
-        data: { "trainId": id },
-        success: function(train){
-          $('#train-id').val(train.id);
-          $('#train-number').val(train.trainNumber);
-          $('#places-amount').val(train.placesAmount);
-          $('#addTrainWindow').modal('show');
-        }
-      })
-
-    })
+    $(".editTrainLink").click(addEditHandler)
   }
 
   $('#saveTrainButton').click(function(){
@@ -220,6 +208,23 @@
       dataType: 'json',
       success: onTrainsLoaded
     })
+  }
+
+  function addEditHandler(){
+    var id = parseInt(this.id.split("-")[1]);
+    $.ajax({
+      url: '<c:url value="/admin/getTrain"/>',
+      type: 'GET',
+      dataType: 'json',
+      data: { "trainId": id },
+      success: function(train){
+        $('#train-id').val(train.id);
+        $('#train-number').val(train.trainNumber);
+        $('#places-amount').val(train.placesAmount);
+        $('#addTrainWindow').modal('show');
+      }
+    })
+
   }
 
 </script>

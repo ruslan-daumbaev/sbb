@@ -25,7 +25,7 @@ public class ClientServicesController {
 
     @RequestMapping(value = "/trains", method = RequestMethod.GET)
     public String trains(){
-        List<Train> trains =trainsService.getAllTrains();
+        //List<Train> trains =trainsService.getAllTrains();
         return "trains";
     }
 

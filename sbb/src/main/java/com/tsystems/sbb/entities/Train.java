@@ -2,6 +2,7 @@ package com.tsystems.sbb.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by rdaumbae on 28.07.2015.
@@ -11,8 +12,8 @@ import java.util.Date;
 public class Train extends EntityBase {
     private String trainNumber;
     private int placesAmount;
-    private Date insDate;
-    private Date updDate;
+
+    private List<Schedule> schedules;
 
     @Column(name = "trainNumber")
     public String getTrainNumber() {
@@ -32,22 +33,12 @@ public class Train extends EntityBase {
         this.placesAmount = placesAmount;
     }
 
-
-    @Column(name = "insDate")
-    public Date getInsDate() {
-        return insDate;
+    @OneToMany
+    public List<Schedule> getSchedules() {
+        return schedules;
     }
 
-    public void setInsDate(Date insDate) {
-        this.insDate = insDate;
-    }
-
-    @Column(name = "updDate")
-    public Date getUpdDate() {
-        return updDate;
-    }
-
-    public void setUpdDate(Date updDate) {
-        this.updDate = updDate;
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
     }
 }

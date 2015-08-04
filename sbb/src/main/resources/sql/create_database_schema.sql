@@ -10,6 +10,8 @@ create table Users (
  email varchar(50),
  isLocked bool default 0,
  lastLogin datetime,
+ insDate datetime not null,
+ updDate datetime not null,
  primary key (id)
 );
 
