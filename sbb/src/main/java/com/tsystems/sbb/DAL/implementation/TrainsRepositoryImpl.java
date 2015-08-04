@@ -16,10 +16,19 @@ public class TrainsRepositoryImpl implements TrainsRepository {
     private EntityManager entityManager;
 
     public List<Train> getAllTrains() {
-        return entityManager.createQuery("select t from Train t", Train.class).getResultList();
+        return entityManager.createQuery("select t from Train t order by insDate desc", Train.class).getResultList();
     }
 
-    public void addTrain(Train train) {
-        entityManager.persist(train);
+    public void saveTrain(Train train) {
+        if(train.getId() == 0){
+            entityManager.persist(train);
+        }
+        else{
+            entityManager.merge(train);
+        }
+    }
+
+    public Train getTrain(int trainId){
+        return entityManager.find(Train.class, trainId);
     }
 }

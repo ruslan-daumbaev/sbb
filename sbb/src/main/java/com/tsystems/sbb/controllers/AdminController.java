@@ -50,18 +50,23 @@ public class AdminController {
         return trainsService.getAllTrains();
     }
 
-    @RequestMapping(value = "/addNewTrain",
+    @RequestMapping(value = "/saveTrain",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE )
-    public @ResponseBody Collection<Train> addNewTrain(@RequestParam String trainNumber,
+    public @ResponseBody Collection<Train> saveTrain(@RequestParam int trainId,
+                                                     @RequestParam String trainNumber,
                                                        @RequestParam int placesAmount){
-        Train train = new Train();
-        train.setTrainNumber(trainNumber);
-        train.setPlacesAmount(placesAmount);
-        train.setInsDate(new Date());
-        train.setUpdDate(new Date());
-        trainsService.addTrain(train);
+
+        trainsService.addTrain(trainId, trainNumber, placesAmount);
         return trainsService.getAllTrains();
+    }
+
+    @RequestMapping(value = "/getTrain",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE )
+    public @ResponseBody
+    Train getTrain(@RequestParam int trainId) {
+        return trainsService.getTrain(trainId);
     }
 
     @Autowired

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service("trainsService")
@@ -30,7 +30,23 @@ public class TrainsServiceImpl implements TrainsService {
     }
 
     @Transactional
-    public void addTrain(Train train) {
-        trainsRepository.addTrain(train);
+    public void addTrain(int trainId, String trainNumber, int placesAmount) {
+        Train train;
+        if(trainId == 0){
+            train = new Train();
+            train.setInsDate(new Date());
+            train.setId(trainId);
+        }
+        else {
+            train = trainsRepository.getTrain(trainId);
+        }
+        train.setTrainNumber(trainNumber);
+        train.setPlacesAmount(placesAmount);
+        train.setUpdDate(new Date());
+        trainsRepository.saveTrain(train);
+    }
+
+    public Train getTrain(int trainId){
+        return trainsRepository.getTrain(trainId);
     }
 }

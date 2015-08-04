@@ -10,5 +10,7 @@ import java.util.List;
 public interface TrainsRepository {
     List<Train> getAllTrains();
 
-    void addTrain(Train train);
+    void saveTrain(Train train);
+
+    Train getTrain(int trainId);
 }

@@ -121,13 +121,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="exampleModalLabel">Add new train</h4>
+          <h4 class="modal-title" id="exampleModalLabel">Train details</h4>
         </div>
         <div class="modal-body">
           <form>
             <div class="form-group">
               <label for="train-number" class="control-label">Train number:</label>
               <input type="text" class="form-control" id="train-number">
+              <input type="hidden" id="train-id">
             </div>
             <div class="form-group">
               <label for="places-amount" class="control-label">Available places:</label>
@@ -137,7 +138,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button id="saveTrainButton" type="button" class="btn btn-primary" min="1">Add</button>
+          <button id="saveTrainButton" type="button" class="btn btn-primary" min="1">Save</button>
         </div>
       </div>
     </div>
@@ -163,21 +164,40 @@
     var trains = data;
 
     for (var i = 0; i< trains.length; i++) {
+      var id = "trainId-" + trains[i].id;
       content += '<tr>';
       content += '<td>'+trains[i].trainNumber+'</td>';
       content += '<td>'+trains[i].placesAmount+'</td>';
-      content += '<td><a class="editTrainLink" href="">Edit</a></td>';
+      content += '<td><a class="editTrainLink" href="#" id="' + id + '">Edit</a></td>';
       content += '</tr>';
     }
+
     $("#trainsTableBody").empty().append(content);
+    $(".editTrainLink").click(function(){
+      var id = parseInt(this.id.split("-")[1]);
+      $.ajax({
+        url: '<c:url value="/admin/getTrain"/>',
+        type: 'GET',
+        dataType: 'json',
+        data: { "trainId": id },
+        success: function(train){
+          $('#train-id').val(train.id);
+          $('#train-number').val(train.trainNumber);
+          $('#places-amount').val(train.placesAmount);
+          $('#addTrainWindow').modal('show');
+        }
+      })
+
+    })
   }
 
   $('#saveTrainButton').click(function(){
+    var trainId = $('#train-id').val();
     var trainNum = $('#train-number').val();
     var placesAmount = $('#places-amount').val();
-    var json = { "trainNumber" : trainNum, "placesAmount" : placesAmount};
+    var json = {"trainId": trainId, "trainNumber" : trainNum, "placesAmount" : placesAmount};
     $.ajax({
-      url: '<c:url value="/admin/addNewTrain"/>',
+      url: '<c:url value="/admin/saveTrain"/>',
       type: 'POST',
       dataType: 'json',
       data: json,
@@ -188,6 +208,7 @@
   });
 
   $('#addTrainWindow').on('hidden.bs.modal', function (e) {
+    $('#train-id').val(0);
     $('#train-number').val('');
     $('#places-amount').val('');
   })

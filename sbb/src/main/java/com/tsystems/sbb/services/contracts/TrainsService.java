@@ -10,5 +10,7 @@ import java.util.List;
 public interface TrainsService {
     List<Train> getAllTrains();
 
-    void addTrain(Train train);
+    void addTrain(int trainId, String trainNumber, int placesAmount);
+
+    Train getTrain(int trainId);
 }
