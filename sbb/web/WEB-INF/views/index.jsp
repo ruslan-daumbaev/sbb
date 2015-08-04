@@ -52,13 +52,13 @@
       <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
           <li>
-            <a href="${pageContext.request.contextPath}/trains"><i class="fa fa-dashboard fa-fw"></i>Search train</a>
+            <a href="${pageContext.request.contextPath}/trains"><i class="fa fa-search fa-fw"></i> Search train</a>
           </li>
           <li>
-            <a href="${pageContext.request.contextPath}/schedule"><i class="fa fa-dashboard fa-fw"></i>Schedule</a>
+            <a href="${pageContext.request.contextPath}/schedule"><i class="fa fa-table fa-fw"></i> Schedule</a>
           </li>
           <li>
-            <a href="${pageContext.request.contextPath}/tickets"><i class="fa fa-dashboard fa-fw"></i>Buy ticket</a>
+            <a href="${pageContext.request.contextPath}/tickets"><i class="fa fa-ticket fa-fw"></i> Buy ticket</a>
           </li>
         </ul>
       </div>

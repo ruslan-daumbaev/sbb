@@ -94,7 +94,7 @@
     <div>
       <p>
         <button type="button" class="btn btn-outline btn-default">Add station</button>
-        <button type="button" class="btn btn-outline btn-primary">Refresh</button>
+        <button type="button" class="btn btn-outline btn-default">Refresh</button>
       </p>
     </div>
 

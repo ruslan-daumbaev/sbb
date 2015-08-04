@@ -37,72 +37,27 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">SBB</a>
+      <a class="navbar-brand" href="${pageContext.request.contextPath}">SBB</a>
     </div>
     <ul class="nav navbar-top-links navbar-right">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+      <li>
+        <a href="${pageContext.request.contextPath}/admin">
+          <div>Admin Panel</div>
         </a>
-        <ul class="dropdown-menu dropdown-messages">
-          <li>
-            <a href="#">
-              <div>
-                <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-              </div>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-            </a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="#">
-              <div>
-                <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-              </div>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-            </a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="#">
-              <div>
-                <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-              </div>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-            </a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a class="text-center" href="#">
-              <strong>Read All Messages</strong>
-              <i class="fa fa-angle-right"></i>
-            </a>
-          </li>
-        </ul>
-        <!-- /.dropdown-messages -->
       </li>
-      <!-- /.dropdown -->
     </ul>
+
     <div class="navbar-default sidebar" role="navigation">
       <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
           <li>
-            <a href="${pageContext.request.contextPath}/trains"><i class="fa fa-dashboard fa-fw"></i>Search train</a>
+            <a><i class="fa fa-search fa-fw"></i> Search train</a>
           </li>
           <li>
-            <a href="${pageContext.request.contextPath}/schedule"><i class="fa fa-dashboard fa-fw"></i>Schedule</a>
+            <a href="${pageContext.request.contextPath}/schedule"><i class="fa fa-table fa-fw"></i> Schedule</a>
           </li>
           <li>
-            <a href="${pageContext.request.contextPath}/tickets"><i class="fa fa-dashboard fa-fw"></i>Buy ticket</a>
+            <a href="${pageContext.request.contextPath}/tickets"><i class="fa fa-ticket fa-fw"></i> Buy ticket</a>
           </li>
         </ul>
       </div>

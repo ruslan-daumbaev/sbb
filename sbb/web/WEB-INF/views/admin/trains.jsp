@@ -98,7 +98,7 @@
     <div>
       <p>
         <button id="addTrainButton" type="button" data-toggle="modal" data-target="#addTrainWindow" class="btn btn-outline btn-default">Add train</button>
-        <button id="refreshButton" type="button" class="btn btn-outline btn-primary">Refresh</button>
+        <button id="refreshButton" type="button" class="btn btn-outline btn-default">Refresh</button>
       </p>
     </div>
 
