@@ -10,9 +10,7 @@
         <class>com.tsystems.sbb.entities.Schedule</class>
         <class>com.tsystems.sbb.entities.Station</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sbbproject"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hbm2ddl.auto" value="validate"/>

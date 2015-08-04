@@ -1,7 +1,9 @@
 package com.tsystems.sbb.controllers;
 
 import com.tsystems.sbb.entities.Train;
+import com.tsystems.sbb.models.StationModel;
 import com.tsystems.sbb.models.TrainModel;
+import com.tsystems.sbb.services.contracts.StationsService;
 import com.tsystems.sbb.services.contracts.TrainsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -23,6 +25,7 @@ public class AdminController {
     //private final Logger logger = LoggerFactory.logger(AdminController.class);
 
     private TrainsService trainsService;
+    private StationsService stationsService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model uiModel){
@@ -40,6 +43,8 @@ public class AdminController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/stations")
     public String stations(Model uiModel){
+        List<StationModel> stations = stationsService.getAllStations();
+        uiModel.addAttribute("stations", stations);
         return "admin/stations";
     }
 
@@ -73,5 +78,10 @@ public class AdminController {
     @Autowired
     public void setTrainsService(TrainsService trainsService) {
         this.trainsService = trainsService;
+    }
+
+    @Autowired
+    public void setStationsService(StationsService stationsService) {
+        this.stationsService = stationsService;
     }
 }

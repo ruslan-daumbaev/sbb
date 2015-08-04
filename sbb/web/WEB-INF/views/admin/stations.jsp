@@ -102,20 +102,42 @@
       <thead>
       <tr>
         <th>Station name</th>
-        <th>Places</th>
+        <th>Create date</th>
       </tr>
       </thead>
       <tbody>
-      <c:forEach items="${trains}" var="train">
+      <c:forEach items="${stations}" var="station">
         <tr>
-          <td>${train.trainNumber}</td>
-          <td>${train.placesAmount}</td>
+          <td>${station.stationName}</td>
+          <td>${station.insDate}</td>
         </tr>
       </c:forEach>
       </tbody>
     </table>
   </div>
-
+  <div class="modal fade" id="addStationWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="exampleModalLabel">Station details</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="train-number" class="control-label">Station name:</label>
+              <input type="text" class="form-control" id="train-number">
+              <input type="hidden" id="train-id">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="saveTrainButton" type="button" class="btn btn-primary" min="1">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
