@@ -1,7 +1,10 @@
 package com.tsystems.sbb.services.implementation;
 
+import com.tsystems.sbb.DAL.contracts.StationsRepository;
 import com.tsystems.sbb.DAL.contracts.TrainsRepository;
+import com.tsystems.sbb.entities.Station;
 import com.tsystems.sbb.entities.Train;
+import com.tsystems.sbb.models.StationModel;
 import com.tsystems.sbb.models.TrainModel;
 import com.tsystems.sbb.services.contracts.TrainsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,7 @@ import java.util.List;
 public class TrainsServiceImpl implements TrainsService {
 
     private TrainsRepository trainsRepository;
+    private StationsRepository stationsRepository;
 
 
     public TrainsRepository getTrainsRepository() {
@@ -27,6 +31,14 @@ public class TrainsServiceImpl implements TrainsService {
         this.trainsRepository = trainsRepository;
     }
 
+    public StationsRepository getStationsRepository() {
+        return stationsRepository;
+    }
+
+    @Autowired
+    public void setStationsRepository(StationsRepository stationsRepository) {
+        this.stationsRepository = stationsRepository;
+    }
     public List<TrainModel> getAllTrains() {
         List<Train> trains = getTrainsRepository().getAllTrains();
         List<TrainModel> trainModels = new ArrayList<TrainModel>(trains.size());
@@ -55,6 +67,13 @@ public class TrainsServiceImpl implements TrainsService {
 
     public TrainModel getTrain(int trainId){
         Train train = trainsRepository.getTrain(trainId);
-        return new TrainModel(train);
+        List<Station> stations = stationsRepository.getStations();
+        TrainModel trainModel = train == null ? new TrainModel() : new TrainModel(train);
+        trainModel.setStations(new ArrayList<StationModel>(stations.size()));
+        for (Station item : stations) {
+            trainModel.getStations().add(new StationModel(item));
+        }
+        return trainModel;
     }
+
 }

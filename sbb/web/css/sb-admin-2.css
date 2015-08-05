@@ -352,3 +352,15 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+
+.modal-center{
+    top: 15%;
+}
+
+.input-common{
+    width: 400px;
+}
+
+.time-input{
+    line-height: normal;
+}

@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="forn" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,17 +19,23 @@
 
   <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
   <link href="<c:url value="/css/metisMenu.min.css" />" rel="stylesheet">
+  <link href="<c:url value="/css/dataTables.bootstrap.css" />" rel="stylesheet">
   <link href="<c:url value="/css/sb-admin-2.css" />" rel="stylesheet">
   <link href="<c:url value="/css/font-awesome.min.css" />" rel="stylesheet">
+  <link href="<c:url value="/css/ui.jqgrid-bootstrap.css" />" rel="stylesheet">
 
   <script src="<c:url value="/js/jquery.min.js" />"></script>
   <script src="<c:url value="/js/sb-admin-2.js" />"></script>
   <script src="<c:url value="/js/bootstrap.min.js" />"></script>
   <script src="<c:url value="/js/metisMenu.min.js" />"></script>
+  <script src="<c:url value="/js/jquery.dataTables.min.js" />"></script>
+  <script src="<c:url value="/js/jquery.jqGrid.min.js" />"></script>
 
 </head>
 
 <body>
+
+
 
 <div id="wrapper">
 
@@ -72,10 +80,10 @@
       <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
           <li>
-            <a href="${pageContext.request.contextPath}/admin/trains">Trains</a>
+            <a>Trains</a>
           </li>
           <li>
-            <a>Stations</a>
+            <a href="${pageContext.request.contextPath}/admin/stations">Stations</a>
           </li>
         </ul>
       </div>
@@ -86,92 +94,66 @@
   <div id="page-wrapper">
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="page-header">Stations</h3>
+        <h3 class="page-header">Train details</h3>
       </div>
       <!-- /.col-lg-12 -->
     </div>
 
     <div>
       <p>
-        <button id="addStationButton" type="button" data-toggle="modal" data-target="#addStationWindow" class="btn btn-outline btn-default">Add station</button>
-        <button id="refreshButton" type="button" class="btn btn-outline btn-default">Refresh</button>
+        <button id="addTrainButton" type="button" class="btn btn-outline btn-primary">Save</button>
+        <a href="<c:url value="/admin/trains"/>" id="cancelButton" type="button" class="btn btn-outline btn-default">Cancel</a>
       </p>
     </div>
 
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Station name</th>
-        <th>Create date</th>
-      </tr>
-      </thead>
-      <tbody>
-      <c:forEach items="${stations}" var="station">
-        <tr>
-          <td>${station.stationName}</td>
-          <td>${station.insDate}</td>
-        </tr>
-      </c:forEach>
-      </tbody>
-    </table>
-  </div>
-  <div class="modal fade  modal-center" id="addStationWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title" id="exampleModalLabel">Station details</h4>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="station-number" class="control-label">Station name:</label>
-              <input type="text" class="form-control" id="station-number">
-              <input type="hidden" id="station-id">
-            </div>
-            <div class="form-group">
-              <label for="stations-list" class="control-label">Station before:</label>
-              <select id="stations-list" class="form-control">
-
-              </select>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button id="saveStationButton" type="button" class="btn btn-primary" min="1">Save</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+    <div >
+      <div >
+        <form:form id="train-data-form" method="post" action="saveTrain" modelAttribute="trainModel">
+          <div class="form-group ">
+            <label for="trainNumber" class="control-label">Train number:</label>
+            <form:input type="text" path="trainNumber"
+                        class="form-control input-common" id="trainNumber" name="trainNumber"/>
+            <form:hidden path="id"/>
+          </div>
+          <div class="form-group ">
+            <label for="placesAmount" class="control-label">Available places:</label>
+            <forn:input type="number" path="placesAmount" class="form-control input-common" id="placesAmount"
+                        name="placesAmount"/>
+          </div>
+          <div class="form-group ">
+            <label for="stations-table" class="control-label">Stations:</label>
+            <table class="table table-striped table-bordered table-hover" id="stations-table" name="">
+              <thead>
+              <tr>
+                <th></th>
+                <th>Station name</th>
+                <th>Time</th>
+              </tr>
+              </thead>
+              <tbody id="stations-table-body">
+              <c:forEach items="${trainModel.stations}" var="station" varStatus="status">
+                <tr>
+                  <td><form:checkbox path="stations[${status.index}].isSelected"/></td>
+                  <td>${station.stationName}</td>
+                  <td>
+                    <form:input path="stations[${status.index}].trainTime"  type="time" class="time-input"/>
+                  </td>
+                </tr>
+              </c:forEach>
+              </tbody>
+            </table>
+          </div>
+        </form:form>
       </div>
     </div>
   </div>
+  <script>
+    $( "#addTrainButton" ).click(function() {
+      $( "#train-data-form" ).submit();
+    });
+  </script>
 
 </div>
-
-<script>
-  $('#addStationWindow').on('show.bs.modal', function (event) {
-    $('#station-number').val('');
-
-    $.ajax({
-      url: '<c:url value="/admin/stationsJson"/>',
-      type: 'GET',
-      dataType: 'json',
-      success: function(data){
-        var content = '';
-        var stations = data;
-
-        for (var i = 0; i< stations.length; i++) {
-          var id = "select-stationId-" + stations[i].id;
-          content += '<option>'+stations[i].stationName+'</option>';
-        }
-
-        $("#stations-list").empty().append(content);
-
-      }
-    })
-  })
-</script>
 
 </body>
 

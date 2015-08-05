@@ -20,12 +20,14 @@
   <link href="<c:url value="/css/dataTables.bootstrap.css" />" rel="stylesheet">
   <link href="<c:url value="/css/sb-admin-2.css" />" rel="stylesheet">
   <link href="<c:url value="/css/font-awesome.min.css" />" rel="stylesheet">
+  <link href="<c:url value="/css/ui.jqgrid-bootstrap.css" />" rel="stylesheet">
 
   <script src="<c:url value="/js/jquery.min.js" />"></script>
   <script src="<c:url value="/js/sb-admin-2.js" />"></script>
   <script src="<c:url value="/js/bootstrap.min.js" />"></script>
   <script src="<c:url value="/js/metisMenu.min.js" />"></script>
   <script src="<c:url value="/js/jquery.dataTables.min.js" />"></script>
+  <script src="<c:url value="/js/jquery.jqGrid.min.js" />"></script>
 
 </head>
 
@@ -97,7 +99,8 @@
 
     <div>
       <p>
-        <button id="addTrainButton" type="button" data-toggle="modal" data-target="#addTrainWindow" class="btn btn-outline btn-default">Add train</button>
+        <a href="${pageContext.request.contextPath}/admin/addTrain" id="addTrainButton" type="button" data-target="#addTrainWindow"
+           class="btn btn-outline btn-default">Add train</a>
         <button id="refreshButton" type="button" class="btn btn-outline btn-default">Refresh</button>
       </p>
     </div>
@@ -115,14 +118,14 @@
         <tr>
           <td>${train.trainNumber}</td>
           <td>${train.placesAmount}</td>
-          <td><button class="btn editTrainLink" id="trainId-${train.id}">Edit</button></td>
+          <td><a href="<c:url value="/admin/train"/>?trainId=${train.id}"  class="btn editTrainLink" id="trainId-${train.id}">Edit</a></td>
         </tr>
       </c:forEach>
       </tbody>
     </table>
   </div>
 
-  <div class="modal fade" id="addTrainWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal fade modal-center" id="addTrainWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -139,6 +142,21 @@
             <div class="form-group">
               <label for="places-amount" class="control-label">Available places:</label>
               <input type="number" class="form-control" id="places-amount"/>
+            </div>
+            <div class="form-group">
+              <label for="stations-table" class="control-label">Stations:</label>
+              <table class="table table-striped table-bordered table-hover" id="stations-table">
+                <thead>
+                <tr>
+                  <th></th>
+                  <th>Station name</th>
+                  <th>Time</th>
+                </tr>
+                </thead>
+                <tbody id="stations-table-body">
+
+                </tbody>
+              </table>
             </div>
           </form>
         </div>
@@ -158,7 +176,7 @@
     $("#refreshButton").click(function(){
       loadTrains();
     });
-    $(".editTrainLink").click(addEditHandler);
+    //$(".editTrainLink").click(addEditHandler);
   });
 
 
@@ -226,6 +244,32 @@
     })
 
   }
+
+  $('#addTrainWindow').on('show.bs.modal', function (event) {
+    var id = parseInt(this.id.split("-")[1]);
+    $.ajax({
+      url: '<c:url value="/admin/getTrain"/>',
+      type: 'GET',
+      dataType: 'json',
+      data: { "trainId": 0 },
+      success: function(train){
+        $('#train-id').val(train.id);
+        $('#train-number').val(train.trainNumber);
+        $('#places-amount').val(train.placesAmount);
+        var stations = train.stations;
+        var content = '';
+        for (var i = 0; i< stations.length; i++) {
+          content += '<tr>';
+          content += '<td><input type="checkbox"> </input></td>';
+          content += '<td>'+stations[i].stationName+'</td>';
+          content += '<td><input type="time"> </input></td>';
+          content += '</tr>';
+        }
+
+        $("#stations-table-body").empty().append(content);
+      }
+    })
+  })
 
 </script>
 </body>

@@ -22,15 +22,11 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
         <property name="jndiName" value="java:jboss/datasources/sbbproject"/>
     </bean>
 
-
     <tx:annotation-driven transaction-manager="transactionManager"/>
-    <context:component-scan base-package="com.tsystems.sbb"/>
-
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
@@ -42,7 +38,6 @@
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan" value="com.tsystems.sbb.entities"/>
     </bean>
-
 
     <bean id="usersRepository" autowire="byType"
           class="com.tsystems.sbb.DAL.implementation.UsersRepositoryImpl"

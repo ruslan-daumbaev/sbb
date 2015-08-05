@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Collection;
 import java.util.Date;
@@ -41,6 +42,20 @@ public class AdminController {
         return "admin/trains";
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/train")
+    public String train(int trainId, Model uiModel){
+        TrainModel model = trainsService.getTrain(trainId);
+        uiModel.addAttribute("trainModel", model);
+        return "admin/train";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/addTrain")
+    public String addTrain(Model uiModel){
+        TrainModel model = trainsService.getTrain(0);
+        uiModel.addAttribute("trainModel", model);
+        return "admin/train";
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/stations")
     public String stations(Model uiModel){
         List<StationModel> stations = stationsService.getAllStations();
@@ -48,23 +63,33 @@ public class AdminController {
         return "admin/stations";
     }
 
-    @RequestMapping(value = "/trainsJson",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE )
-    public @ResponseBody
-    Collection<TrainModel> trainsJson() {
+    @RequestMapping(value = "/stationsJson", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE )
+    public @ResponseBody Collection<StationModel> stationsJson() {
+
+        return stationsService.getAllStations();
+    }
+
+    @RequestMapping(value = "/trainsJson", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE )
+    public @ResponseBody Collection<TrainModel> trainsJson() {
+
         return trainsService.getAllTrains();
     }
 
     @RequestMapping(value = "/saveTrain",
-            method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE )
-    public @ResponseBody Collection<TrainModel> saveTrain(@RequestParam int trainId,
-                                                     @RequestParam String trainNumber,
-                                                       @RequestParam int placesAmount){
+            method = RequestMethod.POST)
+    public String saveTrain(@ModelAttribute("trainModel") TrainModel trainModel){
 
-        trainsService.addTrain(trainId, trainNumber, placesAmount);
-        return trainsService.getAllTrains();
+        trainsService.addTrain(trainModel.getId(), trainModel.getTrainNumber(), trainModel.getPlacesAmount());
+        return "redirect:trains";
+    }
+
+    @RequestMapping(value = "/addTrain",
+            method = RequestMethod.POST)
+    public String addTrain(@RequestParam String trainNumber,
+                            @RequestParam int placesAmount){
+
+        trainsService.addTrain(0, trainNumber, placesAmount);
+        return "admin/trains";
     }
 
     @RequestMapping(value = "/getTrain",
@@ -72,16 +97,19 @@ public class AdminController {
             produces = MediaType.APPLICATION_JSON_VALUE )
     public @ResponseBody
     TrainModel getTrain(@RequestParam int trainId) {
+
         return trainsService.getTrain(trainId);
     }
 
     @Autowired
     public void setTrainsService(TrainsService trainsService) {
+
         this.trainsService = trainsService;
     }
 
     @Autowired
     public void setStationsService(StationsService stationsService) {
+
         this.stationsService = stationsService;
     }
 }

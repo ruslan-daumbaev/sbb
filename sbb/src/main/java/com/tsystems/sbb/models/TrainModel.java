@@ -3,12 +3,16 @@ package com.tsystems.sbb.models;
 import com.tsystems.sbb.entities.Train;
 
 import java.util.Date;
+import java.util.List;
 
 public class TrainModel {
     private String trainNumber;
     private int placesAmount;
     private int id;
     private Date insDate;
+    private List<StationModel> stations;
+
+    public TrainModel(){}
 
     public TrainModel(Train train){
         trainNumber = train.getTrainNumber();
@@ -47,5 +51,13 @@ public class TrainModel {
 
     public void setInsDate(Date insDate) {
         this.insDate = insDate;
+    }
+
+    public List<StationModel> getStations() {
+        return stations;
+    }
+
+    public void setStations(List<StationModel> stations) {
+        this.stations = stations;
     }
 }
