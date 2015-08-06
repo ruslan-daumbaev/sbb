@@ -20,14 +20,12 @@
   <link href="<c:url value="/css/dataTables.bootstrap.css" />" rel="stylesheet">
   <link href="<c:url value="/css/sb-admin-2.css" />" rel="stylesheet">
   <link href="<c:url value="/css/font-awesome.min.css" />" rel="stylesheet">
-  <link href="<c:url value="/css/ui.jqgrid-bootstrap.css" />" rel="stylesheet">
 
   <script src="<c:url value="/js/jquery.min.js" />"></script>
   <script src="<c:url value="/js/sb-admin-2.js" />"></script>
   <script src="<c:url value="/js/bootstrap.min.js" />"></script>
   <script src="<c:url value="/js/metisMenu.min.js" />"></script>
   <script src="<c:url value="/js/jquery.dataTables.min.js" />"></script>
-  <script src="<c:url value="/js/jquery.jqGrid.min.js" />"></script>
 
 </head>
 
@@ -99,9 +97,8 @@
 
     <div>
       <p>
-        <a href="${pageContext.request.contextPath}/admin/addTrain" id="addTrainButton" type="button" data-target="#addTrainWindow"
-           class="btn btn-outline btn-default">Add train</a>
-        <button id="refreshButton" type="button" class="btn btn-outline btn-default">Refresh</button>
+        <a href="${pageContext.request.contextPath}/admin/addTrain" id="addTrainButton" type="button"
+           class="btn btn-outline btn-default">Add station</a>
       </p>
     </div>
 
@@ -125,153 +122,8 @@
     </table>
   </div>
 
-  <div class="modal fade modal-center" id="addTrainWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="exampleModalLabel">Train details</h4>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="train-number" class="control-label">Train number:</label>
-              <input type="text" class="form-control" id="train-number">
-              <input type="hidden" id="train-id">
-            </div>
-            <div class="form-group">
-              <label for="places-amount" class="control-label">Available places:</label>
-              <input type="number" class="form-control" id="places-amount"/>
-            </div>
-            <div class="form-group">
-              <label for="stations-table" class="control-label">Stations:</label>
-              <table class="table table-striped table-bordered table-hover" id="stations-table">
-                <thead>
-                <tr>
-                  <th></th>
-                  <th>Station name</th>
-                  <th>Time</th>
-                </tr>
-                </thead>
-                <tbody id="stations-table-body">
-
-                </tbody>
-              </table>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button id="saveTrainButton" type="button" class="btn btn-primary" min="1">Save</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
 
-<script>
-
-  $(document).ready(function(a){
-    $("#refreshButton").click(function(){
-      loadTrains();
-    });
-    //$(".editTrainLink").click(addEditHandler);
-  });
-
-
-  function onTrainsLoaded(data) {
-    var content = '';
-    var trains = data;
-
-    for (var i = 0; i< trains.length; i++) {
-      var id = "trainId-" + trains[i].id;
-      content += '<tr>';
-      content += '<td>'+trains[i].trainNumber+'</td>';
-      content += '<td>'+trains[i].placesAmount+'</td>';
-      content += '<td><button class="btn editTrainLink" id="' + id + '">Edit</button></td>';
-      content += '</tr>';
-    }
-
-    $("#trainsTableBody").empty().append(content);
-    $(".editTrainLink").click(addEditHandler)
-  }
-
-  $('#saveTrainButton').click(function(){
-    var trainId = $('#train-id').val();
-    var trainNum = $('#train-number').val();
-    var placesAmount = $('#places-amount').val();
-    var json = {"trainId": trainId, "trainNumber" : trainNum, "placesAmount" : placesAmount};
-    $.ajax({
-      url: '<c:url value="/admin/saveTrain"/>',
-      type: 'POST',
-      dataType: 'json',
-      data: json,
-      success: onTrainsLoaded
-    })
-
-    $('#addTrainWindow').modal('hide');
-  });
-
-  $('#addTrainWindow').on('hidden.bs.modal', function (e) {
-    $('#train-id').val(0);
-    $('#train-number').val('');
-    $('#places-amount').val('');
-  })
-
-  function loadTrains(){
-    $.ajax({
-      url: '<c:url value="/admin/trainsJson"/>',
-      type: 'GET',
-      dataType: 'json',
-      success: onTrainsLoaded
-    })
-  }
-
-  function addEditHandler(){
-    var id = parseInt(this.id.split("-")[1]);
-    $.ajax({
-      url: '<c:url value="/admin/getTrain"/>',
-      type: 'GET',
-      dataType: 'json',
-      data: { "trainId": id },
-      success: function(train){
-        $('#train-id').val(train.id);
-        $('#train-number').val(train.trainNumber);
-        $('#places-amount').val(train.placesAmount);
-        $('#addTrainWindow').modal('show');
-      }
-    })
-
-  }
-
-  $('#addTrainWindow').on('show.bs.modal', function (event) {
-    var id = parseInt(this.id.split("-")[1]);
-    $.ajax({
-      url: '<c:url value="/admin/getTrain"/>',
-      type: 'GET',
-      dataType: 'json',
-      data: { "trainId": 0 },
-      success: function(train){
-        $('#train-id').val(train.id);
-        $('#train-number').val(train.trainNumber);
-        $('#places-amount').val(train.placesAmount);
-        var stations = train.stations;
-        var content = '';
-        for (var i = 0; i< stations.length; i++) {
-          content += '<tr>';
-          content += '<td><input type="checkbox"> </input></td>';
-          content += '<td>'+stations[i].stationName+'</td>';
-          content += '<td><input type="time"> </input></td>';
-          content += '</tr>';
-        }
-
-        $("#stations-table-body").empty().append(content);
-      }
-    })
-  })
-
-</script>
 </body>
 
 </html>

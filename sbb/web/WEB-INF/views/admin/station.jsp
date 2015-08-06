@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="forn" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,17 +19,23 @@
 
   <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
   <link href="<c:url value="/css/metisMenu.min.css" />" rel="stylesheet">
+  <link href="<c:url value="/css/dataTables.bootstrap.css" />" rel="stylesheet">
   <link href="<c:url value="/css/sb-admin-2.css" />" rel="stylesheet">
   <link href="<c:url value="/css/font-awesome.min.css" />" rel="stylesheet">
+  <link href="<c:url value="/css/jquery.timepicker.min.css" />" rel="stylesheet">
 
   <script src="<c:url value="/js/jquery.min.js" />"></script>
   <script src="<c:url value="/js/sb-admin-2.js" />"></script>
   <script src="<c:url value="/js/bootstrap.min.js" />"></script>
   <script src="<c:url value="/js/metisMenu.min.js" />"></script>
+  <script src="<c:url value="/js/jquery.dataTables.min.js" />"></script>
+  <script src="<c:url value="/js/jquery.timepicker.min.js" />"></script>
 
 </head>
 
 <body>
+
+
 
 <div id="wrapper">
 
@@ -75,7 +83,7 @@
             <a href="${pageContext.request.contextPath}/admin/trains">Trains</a>
           </li>
           <li>
-            <a>Stations</a>
+            <a href="${pageContext.request.contextPath}/admin/stations">Stations</a>
           </li>
         </ul>
       </div>
@@ -86,42 +94,54 @@
   <div id="page-wrapper">
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="page-header">Stations</h3>
+        <h3 class="page-header">Station details</h3>
       </div>
       <!-- /.col-lg-12 -->
     </div>
 
     <div>
       <p>
-        <a href="${pageContext.request.contextPath}/admin/addStation" id="addStationButton" type="button"
-           class="btn btn-outline btn-default">Add train</a>
+        <button id="saveStationButton" type="button" class="btn btn-outline btn-primary">Save</button>
+        <a href="<c:url value="/admin/stations"/>" id="cancelButton" type="button" class="btn btn-outline btn-default">Cancel</a>
       </p>
     </div>
 
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Station name</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <c:forEach items="${stations}" var="station">
-        <tr>
-          <td>${station.stationName}</td>
-          <td>
-            <a href="<c:url value="/admin/station"/>?stationId=${station.id}"  class="btn editStationLink" id="stationId-${station.id}">Edit</a>
-          </td>
-        </tr>
-      </c:forEach>
-      </tbody>
-    </table>
+    <div >
+      <div >
+        <form:form id="station-data-form" method="post" action="saveStation" modelAttribute="stationModel">
+          <div class="form-group ">
+            <label for="stationName" class="control-label">Station name:</label>
+            <form:input type="text" path="stationName"
+                        class="form-control input-common" id="stationName" name="stationName"/>
+            <form:hidden path="id"/>
+          </div>
+
+          <div class="form-group ">
+
+
+          </div>
+        </form:form>
+      </div>
+    </div>
   </div>
+  <script>
+    $( "#saveStationButton" ).click(function() {
+      $( "#station-data-form" ).submit();
+    });
+
+    $(document).ready(function(){
+      $('.time-input').timepicker({
+        timeFormat: 'HH:mm',
+        startTime: new Date(0,0,0,0,0,0),
+        minTime: '00:00',
+        maxHour: 23,
+        maxMinutes: 59,
+        interval: 10
+      });
+    });
+  </script>
+
 </div>
-
-<script>
-
-</script>
 
 </body>
 

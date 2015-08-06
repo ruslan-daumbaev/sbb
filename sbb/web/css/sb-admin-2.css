@@ -363,4 +363,5 @@ table.dataTable thead .sorting:after {
 
 .time-input{
     line-height: normal;
+    width: 80px;
 }

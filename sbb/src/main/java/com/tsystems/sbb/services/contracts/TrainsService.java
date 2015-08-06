@@ -11,7 +11,7 @@ import java.util.List;
 public interface TrainsService {
     List<TrainModel> getAllTrains();
 
-    void addTrain(int trainId, String trainNumber, int placesAmount);
+    void addTrain(TrainModel trainModel);
 
     TrainModel getTrain(int trainId);
 }

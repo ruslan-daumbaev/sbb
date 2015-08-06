@@ -1,9 +1,6 @@
 package com.tsystems.sbb.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Timer;
 
@@ -14,10 +11,12 @@ import java.util.Timer;
 @Table(name = "schedules")
 public class Schedule extends EntityBase  {
     private Date trainTime;
-
     private Train train;
     private Station station;
+    private boolean isTrainStop;
 
+    @Column(name = "trainTime")
+    @Temporal(TemporalType.TIME)
     public Date getTrainTime() {
         return trainTime;
     }
@@ -27,6 +26,7 @@ public class Schedule extends EntityBase  {
     }
 
     @ManyToOne
+    @JoinColumn(name = "trainId", insertable = true, updatable = true)
     public Train getTrain() {
         return train;
     }
@@ -36,11 +36,21 @@ public class Schedule extends EntityBase  {
     }
 
     @ManyToOne
+    @JoinColumn(name = "stationId", insertable = true, updatable = true)
     public Station getStation() {
         return station;
     }
 
     public void setStation(Station station) {
         this.station = station;
+    }
+
+    @Column(name = "isTrainStop")
+    public boolean getIsTrainStop() {
+        return isTrainStop;
+    }
+
+    public void setIsTrainStop(boolean isTrainStop) {
+        this.isTrainStop = isTrainStop;
     }
 }

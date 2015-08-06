@@ -2,6 +2,7 @@ package com.tsystems.sbb.services.implementation;
 
 import com.tsystems.sbb.DAL.contracts.StationsRepository;
 import com.tsystems.sbb.DAL.contracts.TrainsRepository;
+import com.tsystems.sbb.entities.Schedule;
 import com.tsystems.sbb.entities.Station;
 import com.tsystems.sbb.entities.Train;
 import com.tsystems.sbb.models.StationModel;
@@ -40,7 +41,7 @@ public class TrainsServiceImpl implements TrainsService {
         this.stationsRepository = stationsRepository;
     }
     public List<TrainModel> getAllTrains() {
-        List<Train> trains = getTrainsRepository().getAllTrains();
+        List<Train> trains = getTrainsRepository().getEntities();
         List<TrainModel> trainModels = new ArrayList<TrainModel>(trains.size());
         for (Train item : trains) {
             trainModels.add(new TrainModel(item));
@@ -49,31 +50,71 @@ public class TrainsServiceImpl implements TrainsService {
     }
 
     @Transactional
-    public void addTrain(int trainId, String trainNumber, int placesAmount) {
+    public void addTrain(TrainModel trainModel) {
+
         Train train;
+        int trainId = trainModel.getId();
+        String trainNumber = trainModel.getTrainNumber();
+        int placesAmount = trainModel.getPlacesAmount();
+
         if(trainId == 0){
             train = new Train();
+            train.setSchedules(new ArrayList<Schedule>());
             train.setInsDate(new Date());
             train.setId(trainId);
         }
         else {
-            train = trainsRepository.getTrain(trainId);
+            train = trainsRepository.getTrainWithSchedules(trainId);
         }
+
         train.setTrainNumber(trainNumber);
         train.setPlacesAmount(placesAmount);
         train.setUpdDate(new Date());
-        trainsRepository.saveTrain(train);
+        if(trainModel.getStations() != null){
+            for (StationModel stationModel : trainModel.getStations()) {
+                Station station = stationsRepository.getEntity(stationModel.getId());
+                Schedule schedule = findSchedule(train, stationModel);
+
+                schedule.setUpdDate(new Date());
+                schedule.setIsTrainStop(stationModel.getIsSelected());
+                schedule.setTrain(train);
+                schedule.setStation(station);
+                schedule.setTrainTime(stationModel.getTrainDateTime());
+                train.getSchedules().add(schedule);
+            }
+        }
+        trainsRepository.saveEntity(train);
     }
 
     public TrainModel getTrain(int trainId){
-        Train train = trainsRepository.getTrain(trainId);
-        List<Station> stations = stationsRepository.getStations();
+        Train train = trainsRepository.getTrainWithSchedules(trainId);
+        List<Station> stations = stationsRepository.getEntities();
         TrainModel trainModel = train == null ? new TrainModel() : new TrainModel(train);
         trainModel.setStations(new ArrayList<StationModel>(stations.size()));
         for (Station item : stations) {
-            trainModel.getStations().add(new StationModel(item));
+            StationModel stationModel = new StationModel(item);
+            trainModel.getStations().add(stationModel);
+            if(train != null && train.getSchedules() != null){
+                for (Schedule schedule: train.getSchedules()){
+                    if(schedule.getStation().getId() == item.getId()){
+                        stationModel.setIsSelected(schedule.getIsTrainStop());
+                        stationModel.setTrainTimeFromDate(schedule.getTrainTime());
+                    }
+                }
+            }
         }
         return trainModel;
+    }
+
+    private Schedule findSchedule(Train train, StationModel stationModel){
+        for (Schedule existSchedule: train.getSchedules()){
+            if(existSchedule.getStation().getId() == stationModel.getId()){
+                return existSchedule;
+            }
+        }
+        Schedule schedule = new Schedule();
+        schedule.setInsDate(new Date());
+        return schedule;
     }
 
 }

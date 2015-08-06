@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by rdaumbae on 29.07.2015.
  */
-public interface UsersRepository {
+public interface UsersRepository  {
 
     List<User> getAllUsers();
 

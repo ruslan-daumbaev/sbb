@@ -22,14 +22,14 @@
   <link href="<c:url value="/css/dataTables.bootstrap.css" />" rel="stylesheet">
   <link href="<c:url value="/css/sb-admin-2.css" />" rel="stylesheet">
   <link href="<c:url value="/css/font-awesome.min.css" />" rel="stylesheet">
-  <link href="<c:url value="/css/ui.jqgrid-bootstrap.css" />" rel="stylesheet">
+  <link href="<c:url value="/css/jquery.timepicker.min.css" />" rel="stylesheet">
 
   <script src="<c:url value="/js/jquery.min.js" />"></script>
   <script src="<c:url value="/js/sb-admin-2.js" />"></script>
   <script src="<c:url value="/js/bootstrap.min.js" />"></script>
   <script src="<c:url value="/js/metisMenu.min.js" />"></script>
   <script src="<c:url value="/js/jquery.dataTables.min.js" />"></script>
-  <script src="<c:url value="/js/jquery.jqGrid.min.js" />"></script>
+  <script src="<c:url value="/js/jquery.timepicker.min.js" />"></script>
 
 </head>
 
@@ -80,7 +80,7 @@
       <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
           <li>
-            <a>Trains</a>
+            <a href="${pageContext.request.contextPath}/admin/trains">Trains</a>
           </li>
           <li>
             <a href="${pageContext.request.contextPath}/admin/stations">Stations</a>
@@ -134,9 +134,12 @@
               <c:forEach items="${trainModel.stations}" var="station" varStatus="status">
                 <tr>
                   <td><form:checkbox path="stations[${status.index}].isSelected"/></td>
-                  <td>${station.stationName}</td>
                   <td>
-                    <form:input path="stations[${status.index}].trainTime"  type="time" class="time-input"/>
+                      ${station.stationName}
+                    <form:hidden path="stations[${status.index}].id"/>
+                  </td>
+                  <td>
+                    <form:input path="stations[${status.index}].trainTime"  class="time-input"/>
                   </td>
                 </tr>
               </c:forEach>
@@ -150,6 +153,17 @@
   <script>
     $( "#addTrainButton" ).click(function() {
       $( "#train-data-form" ).submit();
+    });
+
+    $(document).ready(function(){
+      $('.time-input').timepicker({
+        timeFormat: 'HH:mm',
+        startTime: new Date(0,0,0,0,0,0),
+        minTime: '00:00',
+        maxHour: 23,
+        maxMinutes: 59,
+        interval: 10
+      });
     });
   </script>
 

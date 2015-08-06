@@ -7,6 +7,7 @@ import com.tsystems.sbb.services.contracts.StationsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +27,7 @@ public class StationsServiceImpl implements StationsService {
     }
 
     public List<StationModel> getAllStations() {
-        List<Station> stations = getStationsRepository().getStations();
+        List<Station> stations = getStationsRepository().getEntities();
         List<StationModel> stationModels = new ArrayList<StationModel>(stations.size());
         for (Station item : stations) {
             stationModels.add(new StationModel(item));
@@ -34,8 +35,11 @@ public class StationsServiceImpl implements StationsService {
         return stationModels;
     }
 
-    public void addStation(int stationId, String stationName) {
+    @Transactional
+    public void addStation(StationModel stationModel) {
 
+        int stationId = stationModel.getId();
+        String stationName = stationModel.getStationName();
         Station station;
         if(stationId == 0){
             station = new Station();
@@ -43,15 +47,18 @@ public class StationsServiceImpl implements StationsService {
             station.setId(stationId);
         }
         else {
-            station = getStationsRepository().getStation(stationId);
+            station = getStationsRepository().getEntity(stationId);
         }
         station.setStationName(stationName);
         station.setUpdDate(new Date());
-        getStationsRepository().saveStation(station);
+        getStationsRepository().saveEntity(station);
     }
 
     public StationModel getStation(int stationId) {
-        Station station = getStationsRepository().getStation(stationId);
+        Station station = getStationsRepository().getEntity(stationId);
+        if(station == null){
+            return new StationModel();
+        }
         return new StationModel(station);
     }
 

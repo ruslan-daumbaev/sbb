@@ -58,10 +58,11 @@ create table Schedules (
 id int not null auto_increment,
 trainId int not null,
 stationId int not null,
-trainTime time not null,
+trainTime time null,
 insDate datetime not null,
 updDate datetime not null,
+isTrainStop bool not null DEFAULT 0,
 primary key (id),
 constraint `fk_schedule_train` FOREIGN KEY (`trainId`) REFERENCES `Trains` (`id`),
-constraint `fk_schedule_station` FOREIGN KEY (`stationId`) REFERENCES `Schedules` (`id`)
+constraint `fk_schedule_station` FOREIGN KEY (`stationId`) REFERENCES `Stations` (`id`)
 );

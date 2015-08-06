@@ -21,13 +21,13 @@
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="trainId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="stationId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="trainTime" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92"/>
+      <column name="trainTime" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
       <column name="insDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="isTrainStop" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="fk_schedule_station" columns="stationId" ref-table="schedules" ref-schema="" ref-catalog="sbbproject" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_schedule_station" columns="stationId" ref-table="stations" ref-schema="" ref-catalog="sbbproject" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_schedule_train" columns="trainId" ref-table="trains" ref-schema="" ref-catalog="sbbproject" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="fk_schedule_station" table="schedules" schema="" catalog="sbbproject" columns="stationId"/>
       <index name="fk_schedule_station" unique="false" columns="stationId"/>
       <index name="fk_schedule_train" unique="false" columns="trainId"/>
     </table>
@@ -37,6 +37,7 @@
       <column name="insDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="fk_schedule_station" table="schedules" schema="" catalog="sbbproject" columns="stationId"/>
     </table>
     <table name="tickets" schema="" catalog="sbbproject" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -69,8 +70,8 @@
       <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
       <column name="isLocked" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
       <column name="lastLogin" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
-      <column name="insDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
-      <column name="updDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="insDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
   </data-source>

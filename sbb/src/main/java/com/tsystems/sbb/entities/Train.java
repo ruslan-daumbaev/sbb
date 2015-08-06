@@ -33,7 +33,7 @@ public class Train extends EntityBase {
         this.placesAmount = placesAmount;
     }
 
-    @OneToMany
+    @OneToMany(mappedBy = "train", cascade=CascadeType.ALL, orphanRemoval=true)
     public List<Schedule> getSchedules() {
         return schedules;
     }

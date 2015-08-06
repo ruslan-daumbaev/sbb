@@ -63,6 +63,28 @@ public class AdminController {
         return "admin/stations";
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/station")
+    public String station(int stationId, Model uiModel){
+        StationModel model = stationsService.getStation(stationId);
+        uiModel.addAttribute("stationModel", model);
+        return "admin/station";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/addStation")
+    public String addStation(Model uiModel){
+        StationModel model = stationsService.getStation(0);
+        uiModel.addAttribute("stationModel", model);
+        return "admin/station";
+    }
+
+    @RequestMapping(value = "/saveStation",
+            method = RequestMethod.POST)
+    public String saveStation(@ModelAttribute("stationModel") StationModel stationModel){
+
+        stationsService.addStation(stationModel);
+        return "redirect:stations";
+    }
+
     @RequestMapping(value = "/stationsJson", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE )
     public @ResponseBody Collection<StationModel> stationsJson() {
 
@@ -79,17 +101,8 @@ public class AdminController {
             method = RequestMethod.POST)
     public String saveTrain(@ModelAttribute("trainModel") TrainModel trainModel){
 
-        trainsService.addTrain(trainModel.getId(), trainModel.getTrainNumber(), trainModel.getPlacesAmount());
+        trainsService.addTrain(trainModel);
         return "redirect:trains";
-    }
-
-    @RequestMapping(value = "/addTrain",
-            method = RequestMethod.POST)
-    public String addTrain(@RequestParam String trainNumber,
-                            @RequestParam int placesAmount){
-
-        trainsService.addTrain(0, trainNumber, placesAmount);
-        return "admin/trains";
     }
 
     @RequestMapping(value = "/getTrain",
