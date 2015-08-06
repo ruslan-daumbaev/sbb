@@ -25,8 +25,17 @@ public class ClientServicesController {
 
     @RequestMapping(value = "/trains", method = RequestMethod.GET)
     public String trains(){
-        //List<Train> trains =trainsService.getAllTrains();
         return "trains";
+    }
+
+    @RequestMapping(value = "/schedule", method = RequestMethod.GET)
+    public String schedule(){
+        return "schedule";
+    }
+
+    @RequestMapping(value = "/tickets", method = RequestMethod.GET)
+    public String tickets(){
+        return "tickets";
     }
 
     @Autowired

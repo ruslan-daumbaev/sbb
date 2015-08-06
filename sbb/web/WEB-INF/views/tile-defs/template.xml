@@ -1,0 +1,10 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="defaultTemplate" template="/WEB-INF/views/template/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/template/navigation.jsp" />
+    </definition>
+    <definition name="adminTemplate" template="/WEB-INF/views/template/admin_template.jsp">
+        <put-attribute name="admin_header" value="/WEB-INF/views/template/admin_navigation.jsp" />
+    </definition>
+</tiles-definitions>

@@ -22,6 +22,14 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/views/tile-defs/template.xml</value>
+            </list>
+        </property>
+    </bean>
+
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
         <property name="jndiName" value="java:jboss/datasources/sbbproject"/>
     </bean>

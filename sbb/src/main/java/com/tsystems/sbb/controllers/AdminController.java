@@ -114,6 +114,11 @@ public class AdminController {
         return trainsService.getTrain(trainId);
     }
 
+    @RequestMapping(value = "/stationSchedule", method = RequestMethod.GET)
+    public String stationSchedule(@RequestParam int trainId) {
+        return "admin/schedule";
+    }
+
     @Autowired
     public void setTrainsService(TrainsService trainsService) {
 
