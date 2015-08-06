@@ -4,28 +4,7 @@
 <%@ taglib prefix="forn" uri="http://www.springframework.org/tags/form" %>
 <tiles:insertDefinition name="adminTemplate">
   <tiles:putAttribute name="content">
-      <script>
-          $( "#addTrainButton" ).click(function() {
-              $( "#train-data-form" ).submit();
-          });
 
-          $(document).ready(function(){
-              $('.time-input').timepicker({
-                  timeFormat: 'HH:mm',
-                  startTime: new Date(0,0,0,0,0,0),
-                  minTime: '00:00',
-                  maxHour: 23,
-                  maxMinutes: 59,
-                  interval: 10
-              });
-
-              $('.station-checkbox').click(function(){
-                  var id = this.id;
-                  var datePickerId = "#stationDp-" + id.split('-')[1];
-                  $(datePickerId).prop('disabled', !this.checked);
-              });
-          });
-      </script>
     <div class="row">
       <div class="col-lg-12">
         <h3 class="page-header">Train details</h3>
@@ -85,6 +64,28 @@
         </form:form>
       </div>
     </div>
+      <script>
+          $( "#addTrainButton" ).click(function() {
+              $( "#train-data-form" ).submit();
+          });
+
+          $(document).ready(function(){
+              $('.time-input').timepicker({
+                  timeFormat: 'HH:mm',
+                  startTime: new Date(0,0,0,0,0,0),
+                  minTime: '00:00',
+                  maxHour: 23,
+                  maxMinutes: 59,
+                  interval: 10
+              });
+
+              $('.station-checkbox').click(function(){
+                  var id = this.id;
+                  var datePickerId = "#stationDp-" + id.split('-')[1];
+                  $(datePickerId).prop('disabled', !this.checked);
+              });
+          });
+      </script>
   </tiles:putAttribute>
 </tiles:insertDefinition>
 

@@ -35,7 +35,7 @@
             <a href="<c:url value="/admin/station"/>?stationId=${station.id}"  class="btn editStationLink" id="stationId-${station.id}">Edit</a>
           </td>
             <td>
-            <a href="<c:url value="/admin/stationSchedule"/>?stationId=${station.id}"  class="btn editStationLink" id="stationIdSchedule-${station.id}">Edit</a>
+            <a href="<c:url value="/admin/stationSchedule"/>?stationId=${station.id}"  class="btn editStationLink" id="stationIdSchedule-${station.id}">Schedule</a>
           </td>
         </tr>
       </c:forEach>

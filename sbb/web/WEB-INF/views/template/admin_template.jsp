@@ -20,11 +20,13 @@
   <link href="<c:url value="/css/metisMenu.min.css" />" rel="stylesheet">
   <link href="<c:url value="/css/sb-admin-2.css" />" rel="stylesheet">
   <link href="<c:url value="/css/font-awesome.min.css" />" rel="stylesheet">
+  <link href="<c:url value="/css/jquery.timepicker.min.css" />" rel="stylesheet">
 
   <script src="<c:url value="/js/jquery.min.js" />"></script>
   <script src="<c:url value="/js/sb-admin-2.js" />"></script>
   <script src="<c:url value="/js/bootstrap.min.js" />"></script>
   <script src="<c:url value="/js/metisMenu.min.js" />"></script>
+  <script src="<c:url value="/js/jquery.timepicker.min.js" />"></script>
 
 </head>
 
