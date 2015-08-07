@@ -143,11 +143,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/lib/oro-2.0.8.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/images/parts.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/images/preloader-32.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/sort_asc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/sort_asc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/sort_both.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/sort_desc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/sort_desc_disabled.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/lib/spring-aop-1.2.6.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/lib/spring-beans-1.2.6.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/lib/spring-beans-4.1.1.RELEASE.jar" />
@@ -262,9 +257,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/resources/sql/create-data-user.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/classes/sql/create-data-user.sql" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/target/mobile/WEB-INF/classes/sql/create-data-user.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/dataTables.bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/dataTables.responsive.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/dataTables.responsive.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/debug.log" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/WEB-INF/views/denied.jsp" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/err.log" />
@@ -360,9 +352,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/validateSearch.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/scripts/wait.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../t-project/mobile/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/template/admin_template.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/template/admin_template.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/admin/stations.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/admin/stations.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/admin/trains.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/admin/trains.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b03cf22c-1298-4494-b832-e73ab34368b8" name="Rejected commit: Default" comment="" />
@@ -1229,7 +1218,7 @@
       <workItem from="1438261119900" duration="12302000" />
       <workItem from="1438328067720" duration="43121000" />
       <workItem from="1438692385083" duration="53620000" />
-      <workItem from="1438875045480" duration="25592000" />
+      <workItem from="1438875045480" duration="25614000" />
     </task>
     <task id="LOCAL-00001" summary="add base classes">
       <created>1438174491377</created>
@@ -1363,11 +1352,17 @@
       <option name="project" value="LOCAL" />
       <updated>1438954950269</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="add trains edit functionality">
+      <created>1438963134178</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1438963134178</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167511000" />
+    <option name="totallyTimeSpent" value="167533000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
