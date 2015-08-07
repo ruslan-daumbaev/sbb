@@ -3,6 +3,7 @@ package com.tsystems.sbb.DAL.implementation;
 import com.tsystems.sbb.DAL.contracts.BaseRepository;
 import com.tsystems.sbb.entities.EntityBase;
 import com.tsystems.sbb.entities.Train;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

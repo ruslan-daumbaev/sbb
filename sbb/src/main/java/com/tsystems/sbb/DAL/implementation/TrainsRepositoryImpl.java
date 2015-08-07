@@ -2,15 +2,14 @@ package com.tsystems.sbb.DAL.implementation;
 
 import com.tsystems.sbb.DAL.contracts.TrainsRepository;
 import com.tsystems.sbb.entities.Train;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-/**
- * Created by rdaumbae on 30.07.2015.
- */
+@Repository
 public class TrainsRepositoryImpl extends BaseRepositoryImpl implements TrainsRepository {
     public List<Train> getEntities() {
         return entityManager.createQuery("select t from Train t order by insDate desc", Train.class).getResultList();

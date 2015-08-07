@@ -11,4 +11,6 @@ public interface StationsService {
     void addStation(StationModel stationModel);
 
     StationModel getStation(int stationId);
+
+    StationModel getStationSchedule(int stationId);
 }

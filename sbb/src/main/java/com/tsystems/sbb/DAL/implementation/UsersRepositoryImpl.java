@@ -2,14 +2,13 @@ package com.tsystems.sbb.DAL.implementation;
 
 import com.tsystems.sbb.DAL.contracts.UsersRepository;
 import com.tsystems.sbb.entities.User;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-/**
- * Created by rdaumbae on 29.07.2015.
- */
+@Repository
 public class UsersRepositoryImpl implements UsersRepository {
 
     @PersistenceContext

@@ -1,10 +1,11 @@
 package com.tsystems.sbb.models;
 
 import com.tsystems.sbb.entities.Station;
+import com.tsystems.sbb.utils.DateUtil;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class StationModel {
     public static final String TIME_PATTERN = "HH:mm";
@@ -13,6 +14,7 @@ public class StationModel {
     private Date insDate;
     private boolean isSelected;
     private String trainTime;
+    private List<ScheduleModel> schedules;
 
     public StationModel(){}
 
@@ -63,20 +65,18 @@ public class StationModel {
     }
 
     public void setTrainTimeFromDate(Date trainDateTime){
-        if(trainDateTime == null)
-            return;
-        SimpleDateFormat df = new SimpleDateFormat(TIME_PATTERN);
-        trainTime = df.format(trainDateTime);
+        trainTime = DateUtil.convertTrainTimeToString(trainDateTime);
     }
 
     public Date getTrainDateTime(){
-        if(trainTime == null) return null;
-        SimpleDateFormat formatter = new SimpleDateFormat(TIME_PATTERN);
-        try {
-            return formatter.parse(trainTime);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return DateUtil.convertTrainTimeToDate(trainTime);
+    }
+
+    public List<ScheduleModel> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(List<ScheduleModel> schedules) {
+        this.schedules = schedules;
     }
 }

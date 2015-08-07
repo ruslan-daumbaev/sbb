@@ -115,7 +115,9 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/stationSchedule", method = RequestMethod.GET)
-    public String stationSchedule(@RequestParam int trainId) {
+    public String stationSchedule(@RequestParam int stationId, Model uiModel) {
+        StationModel stationModel = stationsService.getStationSchedule(stationId);
+        uiModel.addAttribute("stationModel", stationModel);
         return "admin/schedule";
     }
 

@@ -47,18 +47,6 @@
         <property name="packagesToScan" value="com.tsystems.sbb.entities"/>
     </bean>
 
-    <bean id="usersRepository" autowire="byType"
-          class="com.tsystems.sbb.DAL.implementation.UsersRepositoryImpl"
-          lazy-init="true"/>
-
-    <bean id="trainsRepository" autowire="byType"
-          class="com.tsystems.sbb.DAL.implementation.TrainsRepositoryImpl"
-          lazy-init="true"/>
-
-    <bean id="stationsRepository" autowire="byType"
-          class="com.tsystems.sbb.DAL.implementation.StationsRepositoryImpl"
-          lazy-init="true"/>
-
     <bean class="com.tsystems.sbb.services.implementation.UsersServiceImpl" id="authService"/>
 
     <import resource="spring-security.xml"/>
