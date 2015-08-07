@@ -34,23 +34,33 @@ primary key (id)
 
 
 create table Passengers (
-id int not null auto_increment,
-firstName varchar(50),
-lastName varchar(50),
-birthDate date,
-insDate datetime not null,
-updDate datetime not null,
-primary key (id)
+ id int not null auto_increment,
+ firstName varchar(50),
+ lastName varchar(50),
+ birthDate date,
+ insDate datetime not null,
+ updDate datetime not null,
+ primary key (id)
+);
+
+create table Trips (
+ id int not null auto_increment,
+ tripDate date,
+ trainId int,
+ insDate datetime not null,
+ updDate datetime not null,
+ primary key (id),
+ constraint `fk_trips_train` FOREIGN KEY (`trainId`) REFERENCES `Trains` (`id`)
 );
 
 create table Tickets (
 id int not null auto_increment,
-trainId int not null,
+tripId int not null,
 passengerId int not null,
 insDate datetime not null,
 updDate datetime not null,
 primary key (id),
-constraint `fk_ticket_train` FOREIGN KEY (`trainId`) REFERENCES `Trains` (`id`),
+constraint `fk_ticket_trip` FOREIGN KEY (`tripId`) REFERENCES `Trips` (`id`),
 constraint `fk_ticket_passenger` FOREIGN KEY (`passengerId`) REFERENCES `Passengers` (`id`)
 );
 

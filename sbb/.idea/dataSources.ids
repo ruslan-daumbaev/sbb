@@ -41,15 +41,15 @@
     </table>
     <table name="tickets" schema="" catalog="sbbproject" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="trainId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tripId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="passengerId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="insDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="fk_ticket_passenger" columns="passengerId" ref-table="passengers" ref-schema="" ref-catalog="sbbproject" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="fk_ticket_train" columns="trainId" ref-table="trains" ref-schema="" ref-catalog="sbbproject" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_ticket_trip" columns="tripId" ref-table="trips" ref-schema="" ref-catalog="sbbproject" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fk_ticket_passenger" unique="false" columns="passengerId"/>
-      <index name="fk_ticket_train" unique="false" columns="trainId"/>
+      <index name="fk_ticket_trip" unique="false" columns="tripId"/>
     </table>
     <table name="trains" schema="" catalog="sbbproject" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -59,7 +59,18 @@
       <column name="updDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="fk_schedule_train" table="schedules" schema="" catalog="sbbproject" columns="trainId"/>
-      <exported-key name="fk_ticket_train" table="tickets" schema="" catalog="sbbproject" columns="trainId"/>
+      <exported-key name="fk_trips_train" table="trips" schema="" catalog="sbbproject" columns="trainId"/>
+    </table>
+    <table name="trips" schema="" catalog="sbbproject" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tripDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="trainId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="insDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk_trips_train" columns="trainId" ref-table="trains" ref-schema="" ref-catalog="sbbproject" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_ticket_trip" table="tickets" schema="" catalog="sbbproject" columns="tripId"/>
+      <index name="fk_trips_train" unique="false" columns="trainId"/>
     </table>
     <table name="users" schema="" catalog="sbbproject" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>

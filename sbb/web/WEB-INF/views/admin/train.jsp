@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="forn" uri="http://www.springframework.org/tags/form" %>
 <tiles:insertDefinition name="adminTemplate">
   <tiles:putAttribute name="content">
 
@@ -31,13 +30,13 @@
           </div>
           <div class="form-group ">
             <label for="placesAmount" class="control-label">Available places:</label>
-            <forn:input type="number" path="placesAmount" class="form-control input-common" id="placesAmount"
+            <form:input type="number" path="placesAmount" class="form-control input-common" id="placesAmount"
                         name="placesAmount"/>
             <span><form:errors path="${placesAmount}"/></span>
           </div>
           <div class="form-group ">
             <label for="stations-table" class="control-label">Stations:</label>
-            <table class="table table-striped table-bordered table-hover" id="stations-table" name="">
+            <table class="table table-striped table-bordered table-hover" id="stations-table">
               <thead>
               <tr>
                 <th></th>

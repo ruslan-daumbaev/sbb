@@ -9,6 +9,7 @@ import java.util.Date;
 
 public class ScheduleModel {
     private int id;
+    private int trainId;
     private String trainTime;
     private String trainNumber;
 
@@ -19,6 +20,7 @@ public class ScheduleModel {
         setId(schedule.getId());
         if(schedule.getTrain() != null){
             setTrainNumber(schedule.getTrain().getTrainNumber());
+            setTrainId(schedule.getTrain().getId());
         }
     }
 
@@ -48,6 +50,14 @@ public class ScheduleModel {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getTrainId() {
+        return trainId;
+    }
+
+    public void setTrainId(int trainId) {
+        this.trainId = trainId;
     }
 
     public static class ScheduleTrainTimeComparator implements Comparator<ScheduleModel> {

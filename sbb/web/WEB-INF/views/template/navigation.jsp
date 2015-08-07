@@ -27,9 +27,6 @@
         <li>
           <a href="${pageContext.request.contextPath}/schedule"><i class="fa fa-table fa-fw"></i> Schedule</a>
         </li>
-        <li>
-          <a href="${pageContext.request.contextPath}/tickets"><i class="fa fa-ticket fa-fw"></i> Buy ticket</a>
-        </li>
       </ul>
     </div>
     <!-- /.sidebar-collapse -->

@@ -6,6 +6,7 @@
         <class>com.tsystems.sbb.entities.Train</class>
         <class>com.tsystems.sbb.entities.User</class>
         <class>com.tsystems.sbb.entities.Passenger</class>
+        <class>com.tsystems.sbb.entities.Trip</class>
         <class>com.tsystems.sbb.entities.Ticket</class>
         <class>com.tsystems.sbb.entities.Schedule</class>
         <class>com.tsystems.sbb.entities.Station</class>
