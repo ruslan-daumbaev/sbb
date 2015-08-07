@@ -19,7 +19,7 @@
       </p>
     </div>
 
-    <table class="table table-striped table-bordered table-hover">
+    <table id="stations-table" class="table table-striped table-bordered table-hover">
       <thead>
       <tr>
         <th>Station name</th>
@@ -41,6 +41,29 @@
       </c:forEach>
       </tbody>
     </table>
+
+      <script>
+          $(document).ready(function(){
+              $('#stations-table').DataTable({
+                  "paging": false,
+                  "info": false,
+                  "columnDefs": [
+                      {
+                          "targets": [ 1 ],
+                          "visible": true,
+                          "searchable": false,
+                          "orderable": false
+                      },
+                      {
+                          "targets": [ 2 ],
+                          "visible": true,
+                          "searchable": false,
+                          "orderable": false
+                      }
+                  ]
+              } );
+          })
+      </script>
 
 </tiles:putAttribute>
 </tiles:insertDefinition>

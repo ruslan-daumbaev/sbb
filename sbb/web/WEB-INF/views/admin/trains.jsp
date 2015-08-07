@@ -27,7 +27,7 @@
       <tbody id="trainsTableBody">
       <c:forEach items="${trains}" var="train">
         <tr>
-          <td>${train.trainNumber}</td>
+          <td >${train.trainNumber}</td>
           <td>${train.placesAmount}</td>
           <td><a href="<c:url value="/admin/train"/>?trainId=${train.id}"  class="btn editTrainLink" id="trainId-${train.id}">Edit</a></td>
         </tr>
@@ -35,5 +35,21 @@
       </tbody>
     </table>
 
+      <script>
+          $(document).ready(function(){
+              $('#trainsTable').DataTable({
+                  "paging": false,
+                  "info": false,
+                  "columnDefs": [
+                      {
+                          "targets": [ 2 ],
+                          "visible": true,
+                          "searchable": false,
+                          "orderable": false
+                      }
+                  ]
+              } );
+          })
+      </script>
   </tiles:putAttribute>
 </tiles:insertDefinition>
