@@ -40,6 +40,9 @@
     <div class="sidebar-nav navbar-collapse">
       <ul class="nav" id="side-menu">
         <li>
+          <a href="${pageContext.request.contextPath}/admin/trips">Trips</a>
+        </li>
+        <li>
           <a href="${pageContext.request.contextPath}/admin/trains">Trains</a>
         </li>
         <li>

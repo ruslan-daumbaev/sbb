@@ -3,6 +3,7 @@ package com.tsystems.sbb.controllers;
 import com.tsystems.sbb.entities.Train;
 import com.tsystems.sbb.models.StationModel;
 import com.tsystems.sbb.models.TrainModel;
+import com.tsystems.sbb.models.TripModel;
 import com.tsystems.sbb.services.contracts.StationsService;
 import com.tsystems.sbb.services.contracts.TrainsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 /**
  * Created by rdaumbae on 29.07.2015.
@@ -36,6 +34,13 @@ public class AdminController {
         List<TrainModel> trains = trainsService.getAllTrains();
         uiModel.addAttribute("trains", trains);
         return "admin/index";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/trips")
+    public String trips(Model uiModel){
+        List<TripModel> trips = new ArrayList<TripModel>(); //trainsService.getAllTrains();
+        uiModel.addAttribute("trips", trips);
+        return "admin/trips";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/trains")
