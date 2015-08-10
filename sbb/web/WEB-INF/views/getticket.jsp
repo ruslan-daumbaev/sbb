@@ -21,21 +21,34 @@
 
     <div >
       <div >
-        <form:form id="train-data-form" method="post" action="confirmTicket" modelAttribute="ticketModel">
+        <form:form id="ticket-data-form" method="post" servletRelativeAction="/confirmTicket" modelAttribute="ticketModel">
           <div class="form-group ">
             <label for="trainNumber" class="control-label">Train number:</label>
-            <form:label id="trainNumber" class="control-label" path="trainNumber"></form:label>
+            <label id="trainNumber" class="control-label">${ticketModel.trainNumber}</label>
             <form:hidden path="trainId"/>
+            <form:hidden path="scheduleId"/>
+            <form:hidden path="trainNumber"/>
           </div>
+
           <div class="form-group ">
             <label for="stationName" class="control-label">From station:</label>
-            <form:label id="stationName" class="control-label" path="stationName"></form:label>
+            <label id="stationName" class="control-label">${ticketModel.stationName}</label>
+            <form:hidden path="stationName"/>
 
+          </div>
+          <div class="form-group ">
+            <label for="stationName" class="control-label">Trip date:</label>
+            <form:input id="tripDate" type="text" class="form-control input-common" path="tripDate" ></form:input>
+            <form:hidden path="tripDate"/>
+          </div>
+          <div class="form-group ">
+            <label for="stationName" class="control-label">Train time:</label>
+            <label id="trainTime" class="control-label" >${ticketModel.trainTime}</label>
           </div>
           <div class="form-group ">
             <label for="firstName" class="control-label">First name:</label>
             <form:input type="text" path="firstName"
-                        class="form-control input-common" id="firstName" name="firstName"/>
+                        class="form-control input-common" id="firstName" name="firstName"  />
           </div>
           <div class="form-group ">
             <label for="lastName" class="control-label">Last name:</label>
@@ -44,12 +57,24 @@
           </div>
           <div class="form-group ">
             <label for="birthDate" class="control-label">Birth date:</label>
-            <form:input type="text" path="birthDate"
-                        class="form-control input-common" id="birthDate" name="birthDate"/>
+            <form:input type="text" path="birthDateString"
+                        class="form-control input-common" id="birthDate"/>
           </div>
         </form:form>
       </div>
     </div>
+    <script>
+      $( "#buyTicketButton" ).click(function() {
+        $( "#ticket-data-form" ).submit();
+      })
+      $(function() {
+        $( "#birthDate" ).datepicker({ dateFormat: 'dd/mm/yy' });
+      });
+
+      $(function() {
+        $( "#tripDate" ).datepicker({ dateFormat: 'dd/mm/yy' });
+      });
+    </script>
 
   </tiles:putAttribute>
 </tiles:insertDefinition>

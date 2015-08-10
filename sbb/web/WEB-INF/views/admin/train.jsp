@@ -20,7 +20,7 @@
 
     <div >
       <div >
-        <form:form id="train-data-form" method="post" action="saveTrain" modelAttribute="trainModel">
+        <form:form id="train-data-form" method="post" servletRelativeAction="/admin/saveTrain" modelAttribute="trainModel">
           <div class="form-group ">
             <label for="trainNumber" class="control-label">Train number:</label>
             <form:input type="text" path="trainNumber"

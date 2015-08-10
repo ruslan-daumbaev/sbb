@@ -17,20 +17,11 @@ import java.util.List;
 
 @Service("stationsService")
 public class StationsServiceImpl implements StationsService {
-
+    @Autowired
     private StationsRepository stationsRepository;
 
-    public StationsRepository getStationsRepository() {
-        return stationsRepository;
-    }
-
-    @Autowired
-    public void setStationsRepository(StationsRepository stationsRepository) {
-        this.stationsRepository = stationsRepository;
-    }
-
     public List<StationModel> getAllStations() {
-        List<Station> stations = getStationsRepository().getEntities();
+        List<Station> stations = stationsRepository.getEntities();
         List<StationModel> stationModels = new ArrayList<StationModel>(stations.size());
         for (Station item : stations) {
             stationModels.add(new StationModel(item));
@@ -50,15 +41,15 @@ public class StationsServiceImpl implements StationsService {
             station.setId(stationId);
         }
         else {
-            station = getStationsRepository().getEntity(stationId);
+            station = stationsRepository.getEntity(stationId);
         }
         station.setStationName(stationName);
         station.setUpdDate(new Date());
-        getStationsRepository().saveEntity(station);
+        stationsRepository.saveEntity(station);
     }
 
     public StationModel getStation(int stationId) {
-        Station station = getStationsRepository().getEntity(stationId);
+        Station station = stationsRepository.getEntity(stationId);
         if(station == null){
             return new StationModel();
         }
@@ -66,7 +57,7 @@ public class StationsServiceImpl implements StationsService {
     }
 
     public StationModel getStationSchedule(int stationId) {
-        Station station = getStationsRepository().getStationWithSchedules(stationId);
+        Station station = stationsRepository.getStationWithSchedules(stationId);
         StationModel stationModel = new StationModel(station);
         List<ScheduleModel> scheduleModels = new ArrayList<ScheduleModel>();
         if(station.getSchedules() != null){

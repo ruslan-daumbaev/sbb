@@ -14,6 +14,7 @@ public class Train extends EntityBase {
     private int placesAmount;
 
     private List<Schedule> schedules;
+    private List<Trip> trips;
 
     @Column(name = "trainNumber")
     public String getTrainNumber() {
@@ -40,5 +41,14 @@ public class Train extends EntityBase {
 
     public void setSchedules(List<Schedule> schedules) {
         this.schedules = schedules;
+    }
+
+    @OneToMany(mappedBy = "train", cascade=CascadeType.ALL, orphanRemoval=true)
+    public List<Trip> getTrips() {
+        return trips;
+    }
+
+    public void setTrips(List<Trip> trips) {
+        this.trips = trips;
     }
 }

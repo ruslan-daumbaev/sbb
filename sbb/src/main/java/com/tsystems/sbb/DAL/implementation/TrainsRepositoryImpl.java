@@ -33,4 +33,14 @@ public class TrainsRepositoryImpl extends BaseRepositoryImpl implements TrainsRe
             return null;
         }
     }
+
+    public Train getTrainWithTrips(int trainId) {
+        try{
+            return entityManager.createQuery("select t from Train t left join fetch t.trips where t.id=:trainId", Train.class).
+                setParameter("trainId", trainId).getSingleResult();
+        }
+        catch (NoResultException e){
+            return null;
+        }
+    }
 }

@@ -29,7 +29,7 @@
         <tr>
           <td >${train.trainNumber}</td>
           <td>${train.placesAmount}</td>
-          <td><a href="<c:url value="/admin/train"/>?trainId=${train.id}"  class="btn editTrainLink" id="trainId-${train.id}">Edit</a></td>
+          <td><a href="<c:url value="/admin/train/"/>${train.id}"  class="btn editTrainLink" id="trainId-${train.id}">Edit</a></td>
         </tr>
       </c:forEach>
       </tbody>

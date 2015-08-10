@@ -25,7 +25,10 @@ import java.util.Locale;
 public class AdminController {
     //private final Logger logger = LoggerFactory.logger(AdminController.class);
 
+    @Autowired
     private TrainsService trainsService;
+
+    @Autowired
     private StationsService stationsService;
 
     @RequestMapping(method = RequestMethod.GET)
@@ -42,8 +45,8 @@ public class AdminController {
         return "admin/trains";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/train")
-    public String train(int trainId, Model uiModel){
+    @RequestMapping(method = RequestMethod.GET, value = "/train/{trainId}")
+    public String train(@PathVariable(value="trainId") int trainId, Model uiModel){
         TrainModel model = trainsService.getTrain(trainId);
         uiModel.addAttribute("trainModel", model);
         return "admin/train";
@@ -63,8 +66,8 @@ public class AdminController {
         return "admin/stations";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/station")
-    public String station(int stationId, Model uiModel){
+    @RequestMapping(method = RequestMethod.GET, value = "/station/{stationId}")
+    public String station(@PathVariable(value="stationId") int stationId, Model uiModel){
         StationModel model = stationsService.getStation(stationId);
         uiModel.addAttribute("stationModel", model);
         return "admin/station";
@@ -114,22 +117,10 @@ public class AdminController {
         return trainsService.getTrain(trainId);
     }
 
-    @RequestMapping(value = "/stationSchedule", method = RequestMethod.GET)
-    public String stationSchedule(@RequestParam int stationId, Model uiModel) {
+    @RequestMapping(value = "/stationSchedule/{stationId}", method = RequestMethod.GET)
+    public String stationSchedule(@PathVariable(value="stationId")  int stationId, Model uiModel) {
         StationModel stationModel = stationsService.getStationSchedule(stationId);
         uiModel.addAttribute("stationModel", stationModel);
         return "admin/schedule";
-    }
-
-    @Autowired
-    public void setTrainsService(TrainsService trainsService) {
-
-        this.trainsService = trainsService;
-    }
-
-    @Autowired
-    public void setStationsService(StationsService stationsService) {
-
-        this.stationsService = stationsService;
     }
 }

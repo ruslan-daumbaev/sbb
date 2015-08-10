@@ -69,7 +69,7 @@
                   content += '<tr>';
                   content += '<td>'+schedules[i].trainNumber+'</td>';
                   content += '<td>'+schedules[i].trainTime+'</td>';
-                  content += '<td><a href="buyTicket?trainId='+schedules[i].trainId+'&stationId='+ stationId +'">Buy ticket</a></td>';
+                  content += '<td><a href="buyTicket/' +schedules[i].id+'">Buy ticket</a></td>';
                   content += '</tr>';
                 }
                 $('#stations-table-body').empty().append(content);

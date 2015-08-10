@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface TrainsRepository extends BaseRepository<Train> {
     Train getTrainWithSchedules(int trainId);
+
+    Train getTrainWithTrips(int trainId);
 }

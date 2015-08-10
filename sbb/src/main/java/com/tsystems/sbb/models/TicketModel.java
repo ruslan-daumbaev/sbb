@@ -1,16 +1,22 @@
 package com.tsystems.sbb.models;
 
 import com.tsystems.sbb.entities.Ticket;
+import com.tsystems.sbb.utils.DateUtil;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TicketModel {
+    public static final String TRIP_DATE_FORMAT = "dd/MM/yyyy";
     private String firstName;
     private String lastName;
-    private Date birthDate;
+    private String birthDateString;
     private int trainId;
+    private int scheduleId;
     private String trainNumber;
+    private String trainTime;
     private String stationName;
+    private String tripDate;
 
     public TicketModel(){
 
@@ -33,11 +39,7 @@ public class TicketModel {
     }
 
     public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+        return DateUtil.convertStringToDate(birthDateString, "dd/MM/yyyy");
     }
 
     public String getTrainNumber() {
@@ -62,5 +64,49 @@ public class TicketModel {
 
     public void setTrainId(int trainId) {
         this.trainId = trainId;
+    }
+
+    public String getTripDate() {
+        return tripDate;
+    }
+
+    public Date getTripDateTime() {
+        return DateUtil.convertStringToDate(tripDate, TRIP_DATE_FORMAT);
+    }
+
+    public void setTripDate(String tripDate) {
+        this.tripDate = tripDate;
+    }
+
+    public void setTripDate(Date tripDate) {
+        this.tripDate = DateUtil.convertDateTimeToString(tripDate, TRIP_DATE_FORMAT);;
+    }
+
+    public int getScheduleId() {
+        return scheduleId;
+    }
+
+    public void setScheduleId(int scheduleId) {
+        this.scheduleId = scheduleId;
+    }
+
+    public String getBirthDateString() {
+        return birthDateString;
+    }
+
+    public void setBirthDateString(String birthDateString) {
+        this.birthDateString = birthDateString;
+    }
+
+    public String getTrainTime() {
+        return trainTime;
+    }
+
+    public void setTrainTime(String trainTime) {
+        this.trainTime = trainTime;
+    }
+
+    public void setTrainDateTime(Date trainDateTime){
+        this.trainTime = DateUtil.convertTrainTimeToString(trainDateTime);
     }
 }

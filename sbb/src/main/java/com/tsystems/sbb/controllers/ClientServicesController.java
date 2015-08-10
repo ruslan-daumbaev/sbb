@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
@@ -25,8 +22,11 @@ import java.util.List;
 @Controller
 public class ClientServicesController {
 
+    @Autowired
     private TrainsService trainsService;
+    @Autowired
     private StationsService stationsService;
+    @Autowired
     private TicketsService ticketsService;
 
     @RequestMapping(method = RequestMethod.GET)
@@ -58,31 +58,19 @@ public class ClientServicesController {
         return "tickets";
     }
 
-    @RequestMapping(value = "/buyTicket", method = RequestMethod.GET)
-    public String buyTicket(@RequestParam int trainId, @RequestParam int stationId, Model uiModel){
-        TicketModel ticketModel = ticketsService.getDataForTicket(trainId);
+    @RequestMapping(value = "/buyTicket/{scheduleId}", method = RequestMethod.GET)
+    public String buyTicket(@PathVariable(value="scheduleId") int scheduleId, Model uiModel){
+        TicketModel ticketModel = ticketsService.getDataForTicket(scheduleId);
+        if(ticketModel == null)
+            return "redirect:index";
         uiModel.addAttribute("ticketModel", ticketModel);
         return "getticket";
     }
 
     @RequestMapping(value = "/confirmTicket", method = RequestMethod.POST)
-    public String confirmTicket(){
-
-        return "trains";
+    public String confirmTicket(@ModelAttribute("ticketModel") TicketModel ticketModel){
+        ticketsService.confirmTicket(ticketModel);
+        return "redirect:trains";
     }
 
-    @Autowired
-    public void setTrainsService(TrainsService trainsService) {
-        this.trainsService = trainsService;
-    }
-
-    @Autowired
-    public void setTicketsService(TicketsService ticketsService) {
-        this.ticketsService = ticketsService;
-    }
-
-    @Autowired
-    public void setStationsService(StationsService stationsService) {
-        this.stationsService = stationsService;
-    }
 }

@@ -2,6 +2,7 @@ package com.tsystems.sbb.services.implementation;
 
 import com.tsystems.sbb.DAL.contracts.StationsRepository;
 import com.tsystems.sbb.DAL.contracts.TrainsRepository;
+import com.tsystems.sbb.DAL.contracts.TripsRepository;
 import com.tsystems.sbb.entities.Schedule;
 import com.tsystems.sbb.entities.Station;
 import com.tsystems.sbb.entities.Train;
@@ -18,30 +19,15 @@ import java.util.List;
 
 @Service("trainsService")
 public class TrainsServiceImpl implements TrainsService {
-
+    @Autowired
     private TrainsRepository trainsRepository;
+
+    @Autowired
     private StationsRepository stationsRepository;
 
 
-    public TrainsRepository getTrainsRepository() {
-        return trainsRepository;
-    }
-
-    @Autowired
-    public void setTrainsRepository(TrainsRepository trainsRepository) {
-        this.trainsRepository = trainsRepository;
-    }
-
-    public StationsRepository getStationsRepository() {
-        return stationsRepository;
-    }
-
-    @Autowired
-    public void setStationsRepository(StationsRepository stationsRepository) {
-        this.stationsRepository = stationsRepository;
-    }
     public List<TrainModel> getAllTrains() {
-        List<Train> trains = getTrainsRepository().getEntities();
+        List<Train> trains = trainsRepository.getEntities();
         List<TrainModel> trainModels = new ArrayList<TrainModel>(trains.size());
         for (Train item : trains) {
             trainModels.add(new TrainModel(item));

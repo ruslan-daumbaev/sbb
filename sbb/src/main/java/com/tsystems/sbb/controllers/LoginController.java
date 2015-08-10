@@ -23,11 +23,4 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping("/loginFail")
-    public String loginFail(Model uiModel, Locale locale) {
-        //logger.info("Login failed detected");
-        uiModel.addAttribute("message", "Invalid authentication data");
-        return "login";
-    }
-
 }

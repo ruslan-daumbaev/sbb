@@ -22,7 +22,7 @@
 
     <div >
       <div >
-        <form:form id="station-data-form" method="post" action="saveStation" modelAttribute="stationModel">
+        <form:form id="station-data-form" method="post" servletRelativeAction="/admin/saveStation" modelAttribute="stationModel">
           <div class="form-group ">
             <label for="stationName" class="control-label">Station name:</label>
             <form:input type="text" path="stationName"
