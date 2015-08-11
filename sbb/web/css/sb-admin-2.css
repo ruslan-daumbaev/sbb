@@ -369,3 +369,7 @@ table.dataTable thead .sorting:after {
 .hidden-table{
     display: none;
 }
+
+.validation-error{
+    color: red;
+}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - sbbproject@localhost" uuid="db1a4d78-09e8-4530-b0e9-c6b49f08327a">
-    <database-info product="MySQL" version="5.6.25-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+  <data-source name="MySQL - sbbproject@localhost" uuid="66e42f49-df05-4d27-92ee-7df68ba34ba5">
+    <database-info product="MySQL" version="5.6.26-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -59,18 +59,19 @@
       <column name="updDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="fk_schedule_train" table="schedules" schema="" catalog="sbbproject" columns="trainId"/>
-      <exported-key name="fk_trips_train" table="trips" schema="" catalog="sbbproject" columns="trainId"/>
+      <exported-key name="fk_trips_trains" table="trips" schema="" catalog="sbbproject" columns="trainId"/>
     </table>
     <table name="trips" schema="" catalog="sbbproject" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="tripDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="tripTime" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
       <column name="trainId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="insDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="fk_trips_train" columns="trainId" ref-table="trains" ref-schema="" ref-catalog="sbbproject" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_trips_trains" columns="trainId" ref-table="trains" ref-schema="" ref-catalog="sbbproject" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="fk_ticket_trip" table="tickets" schema="" catalog="sbbproject" columns="tripId"/>
-      <index name="fk_trips_train" unique="false" columns="trainId"/>
+      <index name="fk_trips_trains" unique="false" columns="trainId"/>
     </table>
     <table name="users" schema="" catalog="sbbproject" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>

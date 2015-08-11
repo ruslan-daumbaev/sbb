@@ -43,27 +43,6 @@ create table Passengers (
  primary key (id)
 );
 
-create table Trips (
- id int not null auto_increment,
- tripDate date,
- trainId int,
- insDate datetime not null,
- updDate datetime not null,
- primary key (id),
- constraint `fk_trips_train` FOREIGN KEY (`trainId`) REFERENCES `Trains` (`id`)
-);
-
-create table Tickets (
-id int not null auto_increment,
-tripId int not null,
-passengerId int not null,
-insDate datetime not null,
-updDate datetime not null,
-primary key (id),
-constraint `fk_ticket_trip` FOREIGN KEY (`tripId`) REFERENCES `Trips` (`id`),
-constraint `fk_ticket_passenger` FOREIGN KEY (`passengerId`) REFERENCES `Passengers` (`id`)
-);
-
 create table Schedules (
 id int not null auto_increment,
 trainId int not null,
@@ -76,3 +55,29 @@ primary key (id),
 constraint `fk_schedule_train` FOREIGN KEY (`trainId`) REFERENCES `Trains` (`id`),
 constraint `fk_schedule_station` FOREIGN KEY (`stationId`) REFERENCES `Stations` (`id`)
 );
+
+
+create table Trips (
+ id int not null auto_increment,
+ tripDate date,
+ tripTime time,
+ trainId int,
+ insDate datetime not null,
+ updDate datetime not null,
+ primary key (id),
+ constraint `fk_trips_trains` FOREIGN KEY (`trainId`) REFERENCES `Trains` (`id`)
+);
+
+
+
+create table Tickets (
+ id int not null auto_increment,
+ tripId int not null,
+ passengerId int not null,
+ insDate datetime not null,
+ updDate datetime not null,
+ primary key (id),
+ constraint `fk_ticket_trip` FOREIGN KEY (`tripId`) REFERENCES `Trips` (`id`),
+ constraint `fk_ticket_passenger` FOREIGN KEY (`passengerId`) REFERENCES `Passengers` (`id`)
+);
+

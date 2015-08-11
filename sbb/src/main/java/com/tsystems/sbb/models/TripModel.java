@@ -1,11 +1,15 @@
 package com.tsystems.sbb.models;
 
+import com.tsystems.sbb.utils.DateUtil;
+
+import java.util.Calendar;
 import java.util.Date;
 
 public class TripModel {
     private int tripId;
     private String trainNumber;
-    private Date tripDate;
+    private String tripDate;
+    private String tripTime;
 
     public int getTripId() {
         return tripId;
@@ -23,11 +27,19 @@ public class TripModel {
         this.trainNumber = trainNumber;
     }
 
-    public Date getTripDate() {
+    public String getTripDate() {
         return tripDate;
     }
 
     public void setTripDate(Date tripDate) {
-        this.tripDate = tripDate;
+        this.tripDate = DateUtil.convertDateTimeToString(tripDate, "dd.MM.yyyy");
+    }
+
+    public String getTripTime() {
+        return tripTime;
+    }
+
+    public void setTripTime(Date tripTime) {
+        this.tripTime = DateUtil.convertDateTimeToString(tripTime, "HH:mm");
     }
 }

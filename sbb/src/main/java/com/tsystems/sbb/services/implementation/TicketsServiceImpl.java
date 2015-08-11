@@ -2,6 +2,7 @@ package com.tsystems.sbb.services.implementation;
 
 import com.tsystems.sbb.DAL.contracts.*;
 import com.tsystems.sbb.entities.*;
+import com.tsystems.sbb.exceptions.PassenegerRegisteredException;
 import com.tsystems.sbb.models.TicketModel;
 import com.tsystems.sbb.services.contracts.TicketsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,6 @@ import java.util.List;
 @Service("ticketsService")
 public class TicketsServiceImpl implements TicketsService {
 
-    @Autowired
-    private TrainsRepository trainsRepository;
     @Autowired
     private TicketsRepository ticketsRepository;
     @Autowired
@@ -55,18 +54,25 @@ public class TicketsServiceImpl implements TicketsService {
     }
 
     @Transactional
-    public void confirmTicket(TicketModel ticketModel) {
+    public void confirmTicket(TicketModel ticketModel) throws PassenegerRegisteredException {
         Trip trip = tripsRepository.findTripByTripDateAndTrainId(ticketModel.getTripDateTime(),
                 ticketModel.getTrainId());
-        Train train = trainsRepository.getEntity(ticketModel.getTrainId());
-        //passengersRepository.findByFirstNameAndLastNameAndBirthDate()
+        Schedule schedule = schedulesRepository.findOne(ticketModel.getScheduleId());
         if(trip == null)
         {
             trip = new Trip();
             trip.setInsDate(new Date());
             trip.setTripDate(ticketModel.getTripDateTime());
             trip.setTickets(new ArrayList<Ticket>());
-            trip.setTrain(train);
+            trip.setTrain(schedule.getTrain());
+        }
+        else {
+            List<Ticket> tickets = ticketsRepository.findByTripIdAndPassengerFirstNameAndPassengerLastNameAndPassengerBirthDate(trip.getId(),
+                    ticketModel.getFirstName(), ticketModel.getLastName(),
+                    ticketModel.getBirthDate());
+            if(tickets.size() > 0){
+                throw new PassenegerRegisteredException("Passenger with provided info has been already registered for this trip");
+            }
         }
         trip.setUpdDate(new Date());
         tripsRepository.save(trip);

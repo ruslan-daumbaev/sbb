@@ -1,6 +1,8 @@
 package com.tsystems.sbb.controllers;
 
 import com.tsystems.sbb.entities.Train;
+import com.tsystems.sbb.exceptions.PassenegerRegisteredException;
+import com.tsystems.sbb.models.ScheduleModel;
 import com.tsystems.sbb.models.StationModel;
 import com.tsystems.sbb.models.TicketModel;
 import com.tsystems.sbb.models.TrainModel;
@@ -11,8 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -36,8 +42,18 @@ public class ClientServicesController {
     }
 
     @RequestMapping(value = "/trains", method = RequestMethod.GET)
-    public String trains(){
+    public String trains(Model uiModel){
+        List<StationModel> stationModels = stationsService.getAllStations();
+        uiModel.addAttribute("stationModels", stationModels);
         return "trains";
+    }
+
+    @RequestMapping(value = "/findTrainsJson", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE )
+    public @ResponseBody
+    List<ScheduleModel> findTrainsJson(@RequestParam int stationFirstId, @RequestParam  int stationSecondId) {
+
+        return new ArrayList<ScheduleModel>();
+        //return stationsService.getStationSchedule(stationId);
     }
 
     @RequestMapping(value = "/schedule", method = RequestMethod.GET)
@@ -67,10 +83,28 @@ public class ClientServicesController {
         return "getticket";
     }
 
-    @RequestMapping(value = "/confirmTicket", method = RequestMethod.POST)
-    public String confirmTicket(@ModelAttribute("ticketModel") TicketModel ticketModel){
-        ticketsService.confirmTicket(ticketModel);
-        return "redirect:trains";
+    @RequestMapping(value = "/buyTicket/{scheduleId}", method = RequestMethod.POST)
+    public String confirmTicket(@PathVariable(value="scheduleId") int scheduleId,
+                                @Valid @ModelAttribute("ticketModel") TicketModel ticketModel,
+                                BindingResult result,
+                                RedirectAttributes redirectAttributes){
+       // try {
+        if(result.hasErrors()){
+            redirectAttributes.addFlashAttribute("errors", result);
+            redirectAttributes.addFlashAttribute("ticketModel", ticketModel);
+            //return "redirect:/buyTicket/"+ticketModel.getScheduleId();
+            return "getticket";
+        }
+        try{
+            ticketsService.confirmTicket(ticketModel);
+        } catch (PassenegerRegisteredException e) {
+            result.reject(e.getMessage());
+            redirectAttributes.addFlashAttribute("errors", result);
+            redirectAttributes.addFlashAttribute("ticketModel", ticketModel);
+            //return "redirect:/buyTicket/"+ticketModel.getScheduleId();
+            return "getticket";
+        }
+        return "redirect:/trains";
     }
 
 }

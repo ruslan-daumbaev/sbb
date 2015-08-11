@@ -1,7 +1,6 @@
 package com.tsystems.sbb.entities;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,6 +42,7 @@ public class Train extends EntityBase {
         this.schedules = schedules;
     }
 
+
     @OneToMany(mappedBy = "train", cascade=CascadeType.ALL, orphanRemoval=true)
     public List<Trip> getTrips() {
         return trips;
@@ -51,4 +51,5 @@ public class Train extends EntityBase {
     public void setTrips(List<Trip> trips) {
         this.trips = trips;
     }
+
 }

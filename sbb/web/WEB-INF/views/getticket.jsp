@@ -21,7 +21,7 @@
 
     <div >
       <div >
-        <form:form id="ticket-data-form" method="post" servletRelativeAction="/confirmTicket" modelAttribute="ticketModel">
+        <form:form id="ticket-data-form" method="post" servletRelativeAction="" modelAttribute="ticketModel">
           <div class="form-group ">
             <label for="trainNumber" class="control-label">Train number:</label>
             <label id="trainNumber" class="control-label">${ticketModel.trainNumber}</label>
@@ -39,27 +39,31 @@
           <div class="form-group ">
             <label for="stationName" class="control-label">Trip date:</label>
             <form:input id="tripDate" type="text" class="form-control input-common" path="tripDate" ></form:input>
-            <form:hidden path="tripDate"/>
           </div>
           <div class="form-group ">
             <label for="stationName" class="control-label">Train time:</label>
             <label id="trainTime" class="control-label" >${ticketModel.trainTime}</label>
+            <form:hidden path="trainTime"/>
           </div>
           <div class="form-group ">
             <label for="firstName" class="control-label">First name:</label>
             <form:input type="text" path="firstName"
                         class="form-control input-common" id="firstName" name="firstName"  />
+            <form:errors path="firstName" class="validation-error"/>
           </div>
           <div class="form-group ">
             <label for="lastName" class="control-label">Last name:</label>
             <form:input type="text" path="lastName"
                         class="form-control input-common" id="lastName" name="lastName"/>
+            <form:errors path="lastName" class="validation-error"/>
           </div>
           <div class="form-group ">
             <label for="birthDate" class="control-label">Birth date:</label>
             <form:input type="text" path="birthDateString"
                         class="form-control input-common" id="birthDate"/>
+            <form:errors path="birthDateString" class="validation-error"/>
           </div>
+          <form:errors class="validation-error" />
         </form:form>
       </div>
     </div>

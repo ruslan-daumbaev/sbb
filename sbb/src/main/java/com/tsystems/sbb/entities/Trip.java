@@ -38,4 +38,6 @@ public class Trip extends EntityBase {
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
+
+
 }

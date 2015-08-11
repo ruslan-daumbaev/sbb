@@ -2,6 +2,7 @@ package com.tsystems.sbb.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Timer;
 
 /**
@@ -14,6 +15,7 @@ public class Schedule extends EntityBase  {
     private Train train;
     private Station station;
     private boolean isTrainStop;
+
 
     @Column(name = "trainTime")
     @Temporal(TemporalType.TIME)
@@ -53,4 +55,5 @@ public class Schedule extends EntityBase  {
     public void setIsTrainStop(boolean isTrainStop) {
         this.isTrainStop = isTrainStop;
     }
+
 }

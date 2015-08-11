@@ -1,46 +1,20 @@
 package com.tsystems.sbb.models;
 
+import com.tsystems.sbb.entities.Passenger;
 import com.tsystems.sbb.entities.Ticket;
 import com.tsystems.sbb.utils.DateUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TicketModel {
+public class TicketModel extends PassengerModel {
     public static final String TRIP_DATE_FORMAT = "dd/MM/yyyy";
-    private String firstName;
-    private String lastName;
-    private String birthDateString;
     private int trainId;
     private int scheduleId;
     private String trainNumber;
     private String trainTime;
     private String stationName;
     private String tripDate;
-
-    public TicketModel(){
-
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Date getBirthDate() {
-        return DateUtil.convertStringToDate(birthDateString, "dd/MM/yyyy");
-    }
 
     public String getTrainNumber() {
         return trainNumber;
@@ -90,16 +64,12 @@ public class TicketModel {
         this.scheduleId = scheduleId;
     }
 
-    public String getBirthDateString() {
-        return birthDateString;
-    }
-
-    public void setBirthDateString(String birthDateString) {
-        this.birthDateString = birthDateString;
-    }
-
     public String getTrainTime() {
         return trainTime;
+    }
+
+    public Date getTrainDateTime() {
+        return DateUtil.convertTrainTimeToDate(trainTime);
     }
 
     public void setTrainTime(String trainTime) {

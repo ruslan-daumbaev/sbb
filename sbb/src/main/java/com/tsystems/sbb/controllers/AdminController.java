@@ -3,9 +3,11 @@ package com.tsystems.sbb.controllers;
 import com.tsystems.sbb.entities.Train;
 import com.tsystems.sbb.models.StationModel;
 import com.tsystems.sbb.models.TrainModel;
+import com.tsystems.sbb.models.TripDetailsModel;
 import com.tsystems.sbb.models.TripModel;
 import com.tsystems.sbb.services.contracts.StationsService;
 import com.tsystems.sbb.services.contracts.TrainsService;
+import com.tsystems.sbb.services.contracts.TripsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -29,18 +31,26 @@ public class AdminController {
     @Autowired
     private StationsService stationsService;
 
+    @Autowired
+    private TripsService tripsService;
+
     @RequestMapping(method = RequestMethod.GET)
-    public String index(Model uiModel){
-        List<TrainModel> trains = trainsService.getAllTrains();
-        uiModel.addAttribute("trains", trains);
-        return "admin/index";
+    public String index(){
+        return "redirect:admin/trips";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/trips")
     public String trips(Model uiModel){
-        List<TripModel> trips = new ArrayList<TripModel>(); //trainsService.getAllTrains();
+        List<TripModel> trips = tripsService.getCurrentTrips();
         uiModel.addAttribute("trips", trips);
         return "admin/trips";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/trip/{tripId}")
+    public String trip(@PathVariable(value="tripId") int tripId, Model uiModel){
+        TripDetailsModel tripDetailsModel = tripsService.getTripDetails(tripId);
+        uiModel.addAttribute("tripDetailsModel", tripDetailsModel);
+        return "admin/trip";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/trains")

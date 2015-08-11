@@ -9,7 +9,7 @@
       <!-- /.col-lg-12 -->
     </div>
 
-    <table class="table">
+    <table class="table table-striped table-bordered table-hover">
       <thead>
       <tr>
         <th>Train #</th>
@@ -18,11 +18,11 @@
       </tr>
       </thead>
       <tbody>
-      <c:forEach items="${trains}" var="train">
+      <c:forEach items="${trips}" var="trip">
         <tr>
-          <td>${train.trainNumber}</td>
-          <td>${train.tripDate}</td>
-          <td></td>
+          <td>${trip.trainNumber}</td>
+          <td>${trip.tripDate}</td>
+          <td><a href="<c:url value="/admin/trip/"/>${trip.tripId}"  class="btn" id="trainId-${trip.tripId}">Show details</a></td>
         </tr>
       </c:forEach>
       </tbody>
