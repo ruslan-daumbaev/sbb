@@ -23,10 +23,10 @@
       </p>
     </div>
 
-    <div >
-      <div >
+    <div>
         <div class="form-group hidden" id="trains-panel">
           <label for="trains-table" class="control-label">Trains:</label>
+
           <table id="trains-table" class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
@@ -39,15 +39,32 @@
 
             </tbody>
           </table>
+
         </div>
-      </div>
+        <div id="wait" class="wait-indicator">
+          <label></label>
+        </div>
     </div>
     <script>
+
+      $("#wait").css("display", "none");
+
+      $(document).ajaxStart(function(){
+        $("#wait").css("display", "block");
+        $('#stations-select').prop('disabled', true);
+      });
+
+      $(document).ajaxComplete(function(){
+        $("#wait").css("display", "none");
+        $('#stations-select').prop('disabled', false);
+      });
+
       $('#trains-panel').hide();
       $(document).ready(function(){
 
         $('#stations-select').change(function() {
 
+          $('#trains-panel').hide();
           if ($(this).val() === '0') {
             $('#trains-panel').hide();
           }
@@ -77,8 +94,6 @@
                 $('#trains-panel').show();
               }
             });
-
-
           }
         });
       });

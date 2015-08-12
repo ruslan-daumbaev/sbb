@@ -1,5 +1,6 @@
 package com.tsystems.sbb.DAL.implementation;
 import com.tsystems.sbb.DAL.contracts.TripsRepositoryCustom;
+import com.tsystems.sbb.entities.Schedule;
 import com.tsystems.sbb.entities.Trip;
 import org.joda.time.LocalDate;
 import org.springframework.stereotype.Repository;
@@ -18,17 +19,16 @@ public class TripsRepositoryImpl implements TripsRepositoryCustom {
 
         return entityManager.createQuery("select t from Trip t " +
                         "join fetch t.train tr " +
-                       // "join fetch tr.sc tr " +
                         "where t.tripDate >=:currentDate",
                 Trip.class).setParameter("currentDate", localDate.toDate()).getResultList();
     }
 
-    @Override
     public Trip getTripDetails(int tripId) {
         return entityManager.createQuery("select t from Trip t " +
-                        //"join fetch t.schedule sc " +
                         "join fetch t.train tr " +
                         "where t.id =:id",
                 Trip.class).setParameter("id", tripId).getSingleResult();
     }
+
+
 }

@@ -3,6 +3,7 @@ package com.tsystems.sbb.DAL.implementation;
 import com.tsystems.sbb.DAL.contracts.StationsRepository;
 import com.tsystems.sbb.entities.Station;
 import com.tsystems.sbb.entities.Train;
+import com.tsystems.sbb.exceptions.ResourceNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -20,7 +21,12 @@ public class StationsRepositoryImpl implements StationsRepository {
     }
 
     public Station getEntity(int entityId) {
-        return entityManager.find(Station.class, entityId);
+        try{
+            return entityManager.find(Station.class, entityId);
+        }
+        catch (NoResultException e){
+            throw new ResourceNotFoundException();
+        }
     }
 
     public void saveEntity(Station entity) {
@@ -40,7 +46,7 @@ public class StationsRepositoryImpl implements StationsRepository {
                     setParameter("stationId", stationId).getSingleResult();
         }
         catch (NoResultException e){
-            return null;
+            throw new ResourceNotFoundException();
         }
     }
 }

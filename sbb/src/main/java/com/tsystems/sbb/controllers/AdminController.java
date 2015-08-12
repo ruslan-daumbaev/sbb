@@ -90,7 +90,7 @@ public class AdminController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/addStation")
     public String addStation(Model uiModel){
-        StationModel model = stationsService.getStation(0);
+        StationModel model = new StationModel();;
         uiModel.addAttribute("stationModel", model);
         return "admin/station";
     }

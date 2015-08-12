@@ -361,6 +361,28 @@ table.dataTable thead .sorting:after {
     width: 400px;
 }
 
+.input-train-search{
+    width: 200px;
+    display: inline;
+    height: initial;
+    padding: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.train-search-time-input{
+    width: 80px;
+}
+
+.train-search-label{
+    width: 100px;
+}
+
+.time-seacrh-line{
+    margin-top: 10px;
+}
+
 .time-input{
     line-height: normal;
     width: 80px;
@@ -372,4 +394,12 @@ table.dataTable thead .sorting:after {
 
 .validation-error{
     color: red;
+}
+
+.wait-indicator{
+    margin-top: 100px;
+    height: 100px;
+    background-image: url("./../images/wait-indicator.gif");
+    background-repeat: no-repeat;
+    background-position: center;
 }

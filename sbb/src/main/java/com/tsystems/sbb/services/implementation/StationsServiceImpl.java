@@ -50,9 +50,6 @@ public class StationsServiceImpl implements StationsService {
 
     public StationModel getStation(int stationId) {
         Station station = stationsRepository.getEntity(stationId);
-        if(station == null){
-            return new StationModel();
-        }
         return new StationModel(station);
     }
 

@@ -3,6 +3,7 @@ package com.tsystems.sbb.services.implementation;
 import com.tsystems.sbb.DAL.contracts.*;
 import com.tsystems.sbb.entities.*;
 import com.tsystems.sbb.exceptions.PassenegerRegisteredException;
+import com.tsystems.sbb.exceptions.ResourceNotFoundException;
 import com.tsystems.sbb.models.TicketModel;
 import com.tsystems.sbb.services.contracts.TicketsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class TicketsServiceImpl implements TicketsService {
 
     public TicketModel getDataForTicket(int scheduleId) {
         Schedule schedule = schedulesRepository.findOne(scheduleId);
-        if(schedule == null) return null;
+        if(schedule == null) throw new ResourceNotFoundException();
         TicketModel ticketModel = new TicketModel();
         Train train = schedule.getTrain();
         ticketModel.setScheduleId(scheduleId);

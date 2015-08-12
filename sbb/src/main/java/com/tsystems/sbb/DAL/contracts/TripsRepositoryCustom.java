@@ -1,5 +1,6 @@
 package com.tsystems.sbb.DAL.contracts;
 
+import com.tsystems.sbb.entities.Schedule;
 import com.tsystems.sbb.entities.Trip;
 
 import java.util.List;

@@ -50,9 +50,9 @@ public class ClientServicesController {
 
     @RequestMapping(value = "/findTrainsJson", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE )
     public @ResponseBody
-    List<ScheduleModel> findTrainsJson(@RequestParam int stationFirstId, @RequestParam  int stationSecondId) {
-
-        return new ArrayList<ScheduleModel>();
+    List<ScheduleModel> findTrainsJson(@RequestParam int stationFirstId, @RequestParam  int stationSecondId,
+                                       @RequestParam  String timeFrom, @RequestParam String timeTo) {
+        return trainsService.findTrainsByParams(stationFirstId, stationSecondId, timeFrom, timeTo);
         //return stationsService.getStationSchedule(stationId);
     }
 

@@ -6,9 +6,12 @@ import com.tsystems.sbb.DAL.contracts.TripsRepository;
 import com.tsystems.sbb.entities.Schedule;
 import com.tsystems.sbb.entities.Station;
 import com.tsystems.sbb.entities.Train;
+import com.tsystems.sbb.models.ScheduleModel;
 import com.tsystems.sbb.models.StationModel;
 import com.tsystems.sbb.models.TrainModel;
 import com.tsystems.sbb.services.contracts.TrainsService;
+import org.joda.time.LocalTime;
+import org.joda.time.ReadableInstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -90,6 +93,25 @@ public class TrainsServiceImpl implements TrainsService {
             }
         }
         return trainModel;
+    }
+
+    public List<ScheduleModel> findTrainsByParams(int fromStationId,
+                                                  int toStationId, String fromTime, String toTime) {
+        if(fromStationId == 0 || toStationId == 0){
+            return new ArrayList<ScheduleModel>();
+        }
+        LocalTime fromDateTime = (fromTime != null && !fromTime.isEmpty()) ? new LocalTime(fromTime) : new LocalTime("00:00");
+        LocalTime toDateTime = (toTime != null  && !toTime.isEmpty()) ? new LocalTime(toTime) : new LocalTime("23:59");
+        List<Schedule> schedules = trainsRepository.getTrainsByParams(fromStationId, toStationId, fromDateTime.toDateTimeToday().toDate(),
+                toDateTime.toDateTimeToday().toDate());
+        List<ScheduleModel> scheduleModels = new ArrayList<ScheduleModel>(schedules.size());
+        for(Schedule schedule: schedules){
+            if(schedule.getIsTrainStop() == false || schedule.getTrainTime() == null)
+                continue;
+            ScheduleModel scheduleModel = new ScheduleModel(schedule);
+            scheduleModels.add(scheduleModel);
+        }
+        return scheduleModels;
     }
 
     private Schedule findSchedule(Train train, StationModel stationModel){

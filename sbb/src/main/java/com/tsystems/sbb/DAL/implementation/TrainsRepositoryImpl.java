@@ -1,13 +1,13 @@
 package com.tsystems.sbb.DAL.implementation;
 
 import com.tsystems.sbb.DAL.contracts.TrainsRepository;
+import com.tsystems.sbb.entities.Schedule;
 import com.tsystems.sbb.entities.Train;
+import com.tsystems.sbb.exceptions.ResourceNotFoundException;
 import org.springframework.stereotype.Repository;
-
-import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Date;
 
 @Repository
 public class TrainsRepositoryImpl extends BaseRepositoryImpl implements TrainsRepository {
@@ -30,7 +30,7 @@ public class TrainsRepositoryImpl extends BaseRepositoryImpl implements TrainsRe
                 setParameter("trainId", trainId).getSingleResult();
         }
         catch (NoResultException e){
-            return null;
+            throw new ResourceNotFoundException();
         }
     }
 
@@ -40,7 +40,19 @@ public class TrainsRepositoryImpl extends BaseRepositoryImpl implements TrainsRe
                 setParameter("trainId", trainId).getSingleResult();
         }
         catch (NoResultException e){
-            return null;
+            throw new ResourceNotFoundException();
         }
+    }
+
+    public List<Schedule> getTrainsByParams(int fromStationId,
+                                            int toStationId, Date fromTime, Date toTime){
+        return entityManager.createQuery("select s from Schedule s " +
+                "where station.id =:fromStation or station.id=:toStation " +
+                "and isTrainStop = true and s.trainTime is not null " +
+                "and s.trainTime >= :fromTime and s.trainTime <= :toTime " +
+                        "group by s.train.id having count(s.train.id) > 1", Schedule.class)
+                .setParameter("fromStation", fromStationId)
+                .setParameter("toStation", toStationId).setParameter("fromTime", fromTime)
+                .setParameter("toTime", toTime).getResultList();
     }
 }
