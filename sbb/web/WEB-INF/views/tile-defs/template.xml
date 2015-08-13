@@ -2,6 +2,7 @@
 
 <tiles-definitions>
     <definition name="defaultTemplate" template="/WEB-INF/views/template/template.jsp">
+        <put-attribute name="modalDialog" value="/WEB-INF/views/template/modal.jsp" />
         <put-attribute name="header" value="/WEB-INF/views/template/navigation.jsp" />
     </definition>
     <definition name="adminTemplate" template="/WEB-INF/views/template/admin_template.jsp">

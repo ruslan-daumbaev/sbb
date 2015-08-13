@@ -26,6 +26,7 @@
   <script src="<c:url value="/js/metisMenu.min.js" />"></script>
   <script src="<c:url value="/js/sb-admin-2.js" />"></script>
   <script src="<c:url value="/js/jquery-ui.min.js" />"></script>
+  <script src="<c:url value="/js/jquery.validate.min.js" />"></script>
 
   <script src="<c:url value="/js/jquery.timepicker.min.js" />"></script>
 
@@ -33,14 +34,19 @@
 
 <body>
 
+<tiles:insertAttribute name="modalDialog" />
 <div>
-  <tiles:insertAttribute name="header" />
-</div>
 
-<div id="page-wrapper">
-  <tiles:insertAttribute name="content" />
-</div>
+  <div>
+    <tiles:insertAttribute name="header" />
+  </div>
 
+
+  <div id="page-wrapper">
+    <tiles:insertAttribute name="content" />
+  </div>
+
+</div>
 
 </body>
 

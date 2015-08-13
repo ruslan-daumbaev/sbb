@@ -100,14 +100,24 @@ public class TrainsServiceImpl implements TrainsService {
         if(fromStationId == 0 || toStationId == 0){
             return new ArrayList<ScheduleModel>();
         }
-        LocalTime fromDateTime = (fromTime != null && !fromTime.isEmpty()) ? new LocalTime(fromTime) : new LocalTime("00:00");
-        LocalTime toDateTime = (toTime != null  && !toTime.isEmpty()) ? new LocalTime(toTime) : new LocalTime("23:59");
+        LocalTime fromDateTime = (fromTime != null && !fromTime.isEmpty())
+                ? new LocalTime(fromTime) : new LocalTime("00:00");
+        LocalTime toDateTime = (toTime != null  && !toTime.isEmpty())
+                ? new LocalTime(toTime) : new LocalTime("23:59");
         List<Schedule> schedules = trainsRepository.getTrainsByParams(fromStationId, toStationId, fromDateTime.toDateTimeToday().toDate(),
                 toDateTime.toDateTimeToday().toDate());
         List<ScheduleModel> scheduleModels = new ArrayList<ScheduleModel>(schedules.size());
+
         for(Schedule schedule: schedules){
             if(schedule.getIsTrainStop() == false || schedule.getTrainTime() == null)
+            {
                 continue;
+            }
+            LocalTime fromEnt = new LocalTime(schedule.getTrainTime());
+            if(fromEnt.isBefore(fromDateTime) || fromEnt.isAfter(toDateTime))
+            {
+                continue;
+            }
             ScheduleModel scheduleModel = new ScheduleModel(schedule);
             scheduleModels.add(scheduleModel);
         }

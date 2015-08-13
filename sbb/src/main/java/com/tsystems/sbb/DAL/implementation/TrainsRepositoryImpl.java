@@ -49,10 +49,12 @@ public class TrainsRepositoryImpl extends BaseRepositoryImpl implements TrainsRe
         return entityManager.createQuery("select s from Schedule s " +
                 "where station.id =:fromStation or station.id=:toStation " +
                 "and isTrainStop = true and s.trainTime is not null " +
-                "and s.trainTime >= :fromTime and s.trainTime <= :toTime " +
+                //"and s.trainTime >= :fromTime and s.trainTime <= :toTime " +
                         "group by s.train.id having count(s.train.id) > 1", Schedule.class)
                 .setParameter("fromStation", fromStationId)
-                .setParameter("toStation", toStationId).setParameter("fromTime", fromTime)
-                .setParameter("toTime", toTime).getResultList();
+                .setParameter("toStation", toStationId)
+                //.setParameter("fromTime", fromTime)
+                //.setParameter("toTime", toTime)
+                .getResultList();
     }
 }

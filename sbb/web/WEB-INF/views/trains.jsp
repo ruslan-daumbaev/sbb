@@ -3,9 +3,59 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <tiles:insertDefinition name="defaultTemplate">
+  <tiles:putAttribute name="modalDialog">
+    <div id="dialog-form" title="Ticket details" class="dialog-window">
+      <form id="ticket-data-form" method="post">
+        <div class="form-group ">
+          <label for="trainNumber" class="control-label">Train number:</label>
+          <label id="trainNumber-lbl" class="control-label"></label>
+          <input type="hidden" id="trainId" name="trainId"/>
+          <input type="hidden" id="scheduleId" name="scheduleId"/>
+          <input type="hidden" id="trainNumber" name="trainNumber"/>
+        </div>
+
+        <div class="form-group ">
+          <label for="stationName" class="control-label">From station:</label>
+          <label id="stationName-lbl" class="control-label"></label>
+          <input type="hidden" id="stationName"/>
+
+        </div>
+        <div class="form-group ">
+          <label for="stationName" class="control-label">Trip date:</label>
+          <input id="tripDate" type="text" class="form-control input-common" name="tripDate" />
+        </div>
+        <div class="form-group ">
+          <label for="stationName" class="control-label">Train time:</label>
+          <label id="trainTime-lbl" class="control-label" ></label>
+          <input type="hidden" id="trainTime"/>
+        </div>
+        <div class="form-group ">
+          <label for="firstName" class="control-label">First name:</label>
+          <input type="text" autofocus=""
+                 class="form-control input-common" id="firstName" name="firstName"  />
+        </div>
+        <div class="form-group ">
+          <label for="lastName" class="control-label">Last name:</label>
+          <input type="text"
+                 class="form-control input-common" id="lastName" name="lastName"/>
+        </div>
+        <div class="form-group ">
+          <label for="birthDateString" class="control-label">Birth date:</label>
+          <input type="text"
+                 class="form-control input-common" id="birthDateString"/>
+        </div>
+        <label id="confirm-errors" class="control-label validation-error"></label>
+      </form>
+    </div>
+
+    <div id="dialog-message" title="Ticket reserved" class="dialog-window">
+      <p >
+        <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+        <span id="messageText"></span>
+      </p>
+    </div>
+  </tiles:putAttribute>
   <tiles:putAttribute name="content">
-
-
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
@@ -75,6 +125,99 @@
     </div>
 
     <script>
+
+      dialog = $( "#dialog-form" ).dialog({
+        autoOpen: false,
+        height: 580,
+        width: 440,
+        modal: true,
+        resizable: false,
+        buttons: {
+          "Confirm": confirmTicket,
+          Cancel: function() {
+            dialog.dialog( "close" );
+          }
+        }
+      });
+
+      confirmDialog = $( "#dialog-message" ).dialog({
+        modal: true,
+        autoOpen: false,
+        resizable: false,
+        buttons: {
+          Ok: function() {
+            $( this ).dialog( "close" );
+          }
+        }
+      });
+
+      function confirmTicket() {
+        var valid = false;
+        if($("#ticket-data-form" ).valid()){
+          var trainId = $('#trainId').val();
+          var scheduleId = $('#scheduleId').val();
+          var firstName = $('#firstName').val();
+          var lastName = $('#lastName').val();
+          var birthDateString = $('#birthDateString').val();
+          var tripDate = $('#tripDate').val();
+
+          $.ajax({
+            url: '${pageContext.request.contextPath}/confirmTicket',
+            type: 'POST',
+            global: false,
+            data: {
+              "trainId": trainId,
+              "scheduleId": scheduleId,
+              "firstName": firstName,
+              "lastName": lastName,
+              "birthDateString": birthDateString,
+              "tripDate": tripDate
+            },
+            dataType: 'json',
+            success: function(data) {
+              if(data.isOk){
+                dialog.dialog("close");
+                showDialog('Your ticket has been reserved successfully. Thank you for using SBB service portal!', 'Ticket reserved');
+                valid = true;
+              }
+              else{
+                showDialog(data.errorMessage, 'Confirmation error');
+                $('#comfirm-errors').empty().append(data.errorMessage);
+              }
+            },
+            error: function(e){
+              $('#comfirm-errors').empty().append(e.message);
+            }
+          });
+        }
+        return valid;
+      }
+
+
+      function showDialog(messageText, title){
+        $('#messageText').empty().append(messageText);
+        $('#dialog-message').attr('title', title);
+        confirmDialog.dialog("open");
+      }
+
+      function loadTicketData(scheduleId){
+        $.ajax({
+          url: '${pageContext.request.contextPath}/getTicketData/'+scheduleId,
+          type: 'GET',
+          global: false,
+          dataType: 'json',
+          success: function(data) {
+            $('#trainId').val(data.trainId);
+            $('#scheduleId').val(data.scheduleId);
+            $('#trainNumber-lbl').html(data.trainNumber);
+            $('#trainTime-lbl').html(data.trainTime);
+            $('#stationName-lbl').html(data.stationName);
+            $('#tripDate').val(data.tripDate);
+            dialog.dialog("open");
+          }
+        });
+      }
+
       $('#trains-panel').hide();
 
       $("#wait").css("display", "none");
@@ -107,12 +250,38 @@
           maxMinutes: 59,
           interval: 10
         });
+
+        $('#ticket-data-form').validate({
+          // rules & options,
+          rules: {
+            firstName: {
+              required: true
+            },
+            lastName: {
+              required: true
+            },
+            birthDateString: {
+              required: true
+            }
+          },
+          submitHandler: function(form) {
+            return false;
+          }
+        });
+      });
+
+      $(function() {
+        $( "#birthDateString" ).datepicker({ dateFormat: 'dd/mm/yy' });
+      });
+
+      $(function() {
+        $( "#tripDate" ).datepicker({ dateFormat: 'dd/mm/yy' });
       });
 
       function findTrains(stationFirstId, stationSecondId, timeFrom, timeTo){
         $('#trains-panel').hide();
         $.ajax({
-          url: '<c:url value="/findTrainsJson"/>',
+          url: '${pageContext.request.contextPath}/findTrainsJson',
           type: 'GET',
           data: {
             'stationFirstId': stationFirstId,
@@ -132,10 +301,14 @@
                 content += '<tr>';
                 content += '<td>'+schedules[i].trainNumber+'</td>';
                 content += '<td>'+schedules[i].trainTime+'</td>';
-                content += '<td><a href="buyTicket/' +schedules[i].id+'">Buy ticket</a></td>';
+                content += '<td><button class="buy-ticket btn btn-default" id="buyticket-' + schedules[i].id+'">Buy ticket</button></td>';
                 content += '</tr>';
               }
               $('#stations-table-body').empty().append(content);
+              $( ".buy-ticket" ).button().on( "click", function() {
+                var scheduleId = this.id.split('-')[1];
+                loadTicketData(scheduleId);
+              });
               $('#trains-panel').removeClass('hidden');
               $('#trains-panel').show();
             }

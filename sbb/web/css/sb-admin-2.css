@@ -394,6 +394,12 @@ table.dataTable thead .sorting:after {
 
 .validation-error{
     color: red;
+    font-size: 11px;
+}
+
+.error{
+    color: red;
+    font-size: 11px;
 }
 
 .wait-indicator{
@@ -402,4 +408,8 @@ table.dataTable thead .sorting:after {
     background-image: url("./../images/wait-indicator.gif");
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.dialog-window{
+    display: none;
 }

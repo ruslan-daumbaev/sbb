@@ -2,10 +2,7 @@ package com.tsystems.sbb.controllers;
 
 import com.tsystems.sbb.entities.Train;
 import com.tsystems.sbb.exceptions.PassenegerRegisteredException;
-import com.tsystems.sbb.models.ScheduleModel;
-import com.tsystems.sbb.models.StationModel;
-import com.tsystems.sbb.models.TicketModel;
-import com.tsystems.sbb.models.TrainModel;
+import com.tsystems.sbb.models.*;
 import com.tsystems.sbb.services.contracts.StationsService;
 import com.tsystems.sbb.services.contracts.TicketsService;
 import com.tsystems.sbb.services.contracts.TrainsService;
@@ -74,6 +71,11 @@ public class ClientServicesController {
         return "tickets";
     }
 
+    @RequestMapping(value = "/getTicketData/{scheduleId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody TicketModel getTicketData(@PathVariable(value = "scheduleId") int scheduleId){
+        return ticketsService.getDataForTicket(scheduleId);
+    }
+
     @RequestMapping(value = "/buyTicket/{scheduleId}", method = RequestMethod.GET)
     public String buyTicket(@PathVariable(value="scheduleId") int scheduleId, Model uiModel){
         TicketModel ticketModel = ticketsService.getDataForTicket(scheduleId);
@@ -83,28 +85,26 @@ public class ClientServicesController {
         return "getticket";
     }
 
-    @RequestMapping(value = "/buyTicket/{scheduleId}", method = RequestMethod.POST)
-    public String confirmTicket(@PathVariable(value="scheduleId") int scheduleId,
-                                @Valid @ModelAttribute("ticketModel") TicketModel ticketModel,
-                                BindingResult result,
-                                RedirectAttributes redirectAttributes){
-       // try {
+    @RequestMapping(value = "/confirmTicket", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    ConfirmTicketResult confirmTicket(@Valid @ModelAttribute("ticketModel") TicketModel ticketModel,
+                                BindingResult result){
+        ConfirmTicketResult confirmResult = new ConfirmTicketResult();
+        confirmResult.setIsOk(true);
         if(result.hasErrors()){
-            redirectAttributes.addFlashAttribute("errors", result);
-            redirectAttributes.addFlashAttribute("ticketModel", ticketModel);
-            //return "redirect:/buyTicket/"+ticketModel.getScheduleId();
-            return "getticket";
+            confirmResult.setErrorMessage(result.toString());
+            confirmResult.setIsOk(false);
         }
-        try{
-            ticketsService.confirmTicket(ticketModel);
-        } catch (PassenegerRegisteredException e) {
-            result.reject(e.getMessage());
-            redirectAttributes.addFlashAttribute("errors", result);
-            redirectAttributes.addFlashAttribute("ticketModel", ticketModel);
-            //return "redirect:/buyTicket/"+ticketModel.getScheduleId();
-            return "getticket";
+        else{
+            try{
+                ticketsService.confirmTicket(ticketModel);
+            } catch (PassenegerRegisteredException e) {
+                confirmResult.setErrorMessage(e.getMessage());
+                confirmResult.setIsOk(false);
+            }
         }
-        return "redirect:/trains";
+
+        return confirmResult;
     }
 
 }
