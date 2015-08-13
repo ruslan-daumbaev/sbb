@@ -2,10 +2,12 @@ package com.tsystems.sbb.services.implementation;
 
 import com.tsystems.sbb.DAL.contracts.*;
 import com.tsystems.sbb.entities.*;
-import com.tsystems.sbb.exceptions.PassenegerRegisteredException;
-import com.tsystems.sbb.exceptions.ResourceNotFoundException;
+import com.tsystems.sbb.exceptions.*;
 import com.tsystems.sbb.models.TicketModel;
 import com.tsystems.sbb.services.contracts.TicketsService;
+import org.joda.time.DateTime;
+import org.joda.time.LocalTime;
+import org.joda.time.Minutes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,10 +57,23 @@ public class TicketsServiceImpl implements TicketsService {
     }
 
     @Transactional
-    public void confirmTicket(TicketModel ticketModel) throws PassenegerRegisteredException {
+    public void confirmTicket(TicketModel ticketModel) throws TicketException {
         Trip trip = tripsRepository.findTripByTripDateAndTrainId(ticketModel.getTripDateTime(),
                 ticketModel.getTrainId());
         Schedule schedule = schedulesRepository.findOne(ticketModel.getScheduleId());
+        DateTime tripDateTime = new DateTime(ticketModel.getTripDateTime());
+        LocalTime trainTime = new LocalTime(schedule.getTrainTime());
+        tripDateTime = tripDateTime
+                .withHourOfDay(trainTime.getHourOfDay())
+                .withMinuteOfHour(trainTime.getMinuteOfHour())
+                .withSecondOfMinute(0);
+
+        boolean result = Minutes.minutesBetween(new DateTime(), tripDateTime)
+                .isGreaterThan(Minutes.minutes(10));
+        if(!result){
+            throw new RegistrationClosedException();
+        }
+
         if(trip == null)
         {
             trip = new Trip();
@@ -68,11 +83,16 @@ public class TicketsServiceImpl implements TicketsService {
             trip.setTrain(schedule.getTrain());
         }
         else {
+
+            int ticketsCount = ticketsRepository.getTicketsCountByTripId(trip.getId());
+            if(ticketsCount >= schedule.getTrain().getPlacesAmount()){
+                throw new NoFreePlacesException();
+            }
             List<Ticket> tickets = ticketsRepository.findByTripIdAndPassengerFirstNameAndPassengerLastNameAndPassengerBirthDate(trip.getId(),
                     ticketModel.getFirstName(), ticketModel.getLastName(),
                     ticketModel.getBirthDate());
             if(tickets.size() > 0){
-                throw new PassenegerRegisteredException("Passenger with provided info has been already registered for this trip");
+                throw new PassenegerRegisteredException();
             }
         }
         trip.setUpdDate(new Date());

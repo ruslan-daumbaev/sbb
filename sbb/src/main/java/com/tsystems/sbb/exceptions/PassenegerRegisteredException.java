@@ -1,8 +1,8 @@
 package com.tsystems.sbb.exceptions;
 
-public class PassenegerRegisteredException extends RuntimeException  {
+public class PassenegerRegisteredException extends TicketException  {
 
-    public PassenegerRegisteredException(String message){
-        super(message);
+    public PassenegerRegisteredException(){
+        super("Passenger with provided info has been already registered for this trip");
     }
 }

@@ -2,7 +2,6 @@ package com.tsystems.sbb.services.implementation;
 
 import com.tsystems.sbb.DAL.contracts.StationsRepository;
 import com.tsystems.sbb.DAL.contracts.TrainsRepository;
-import com.tsystems.sbb.DAL.contracts.TripsRepository;
 import com.tsystems.sbb.entities.Schedule;
 import com.tsystems.sbb.entities.Station;
 import com.tsystems.sbb.entities.Train;
@@ -11,7 +10,6 @@ import com.tsystems.sbb.models.StationModel;
 import com.tsystems.sbb.models.TrainModel;
 import com.tsystems.sbb.services.contracts.TrainsService;
 import org.joda.time.LocalTime;
-import org.joda.time.ReadableInstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,8 +28,8 @@ public class TrainsServiceImpl implements TrainsService {
 
 
     public List<TrainModel> getAllTrains() {
-        List<Train> trains = trainsRepository.getEntities();
-        List<TrainModel> trainModels = new ArrayList<TrainModel>(trains.size());
+        Iterable<Train> trains = trainsRepository.findAll();
+        List<TrainModel> trainModels = new ArrayList<TrainModel>();
         for (Train item : trains) {
             trainModels.add(new TrainModel(item));
         }
@@ -39,7 +37,7 @@ public class TrainsServiceImpl implements TrainsService {
     }
 
     @Transactional
-    public void addTrain(TrainModel trainModel) {
+    public void saveTrain(TrainModel trainModel) {
 
         Train train;
         int trainId = trainModel.getId();
@@ -61,7 +59,7 @@ public class TrainsServiceImpl implements TrainsService {
         train.setUpdDate(new Date());
         if(trainModel.getStations() != null){
             for (StationModel stationModel : trainModel.getStations()) {
-                Station station = stationsRepository.getEntity(stationModel.getId());
+                Station station = stationsRepository.findOne(stationModel.getId());
                 Schedule schedule = findSchedule(train, stationModel);
 
                 schedule.setUpdDate(new Date());
@@ -72,14 +70,14 @@ public class TrainsServiceImpl implements TrainsService {
                 train.getSchedules().add(schedule);
             }
         }
-        trainsRepository.saveEntity(train);
+        trainsRepository.save(train);
     }
 
     public TrainModel getTrain(int trainId){
         Train train = trainsRepository.getTrainWithSchedules(trainId);
-        List<Station> stations = stationsRepository.getEntities();
+        Iterable<Station> stations = stationsRepository.findAll();
         TrainModel trainModel = train == null ? new TrainModel() : new TrainModel(train);
-        trainModel.setStations(new ArrayList<StationModel>(stations.size()));
+        trainModel.setStations(new ArrayList<StationModel>());
         for (Station item : stations) {
             StationModel stationModel = new StationModel(item);
             trainModel.getStations().add(stationModel);
@@ -104,12 +102,11 @@ public class TrainsServiceImpl implements TrainsService {
                 ? new LocalTime(fromTime) : new LocalTime("00:00");
         LocalTime toDateTime = (toTime != null  && !toTime.isEmpty())
                 ? new LocalTime(toTime) : new LocalTime("23:59");
-        List<Schedule> schedules = trainsRepository.getTrainsByParams(fromStationId, toStationId, fromDateTime.toDateTimeToday().toDate(),
-                toDateTime.toDateTimeToday().toDate());
+        List<Schedule> schedules = trainsRepository.getTrainsByParams(fromStationId, toStationId);
         List<ScheduleModel> scheduleModels = new ArrayList<ScheduleModel>(schedules.size());
 
         for(Schedule schedule: schedules){
-            if(schedule.getIsTrainStop() == false || schedule.getTrainTime() == null)
+            if(!schedule.getIsTrainStop() || schedule.getTrainTime() == null)
             {
                 continue;
             }

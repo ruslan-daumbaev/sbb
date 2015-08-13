@@ -1,28 +1,18 @@
 package com.tsystems.sbb.DAL.implementation;
-
-import com.tsystems.sbb.DAL.contracts.TrainsRepository;
+import com.tsystems.sbb.DAL.contracts.TrainsRepositoryCustom;
 import com.tsystems.sbb.entities.Schedule;
 import com.tsystems.sbb.entities.Train;
 import com.tsystems.sbb.exceptions.ResourceNotFoundException;
 import org.springframework.stereotype.Repository;
+import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Date;
 
 @Repository
-public class TrainsRepositoryImpl extends BaseRepositoryImpl implements TrainsRepository {
-    public List<Train> getEntities() {
-        return entityManager.createQuery("select t from Train t order by insDate desc", Train.class).getResultList();
-    }
-
-    public void saveEntity(Train entity) {
-        saveEntityBase(entity);
-    }
-
-    public Train getEntity(int entityId){
-
-        return entityManager.find(Train.class, entityId);
-    }
+public class TrainsRepositoryImpl implements TrainsRepositoryCustom {
+    @PersistenceContext
+    private EntityManager entityManager;
 
     public Train getTrainWithSchedules(int trainId) {
         try{
@@ -45,16 +35,13 @@ public class TrainsRepositoryImpl extends BaseRepositoryImpl implements TrainsRe
     }
 
     public List<Schedule> getTrainsByParams(int fromStationId,
-                                            int toStationId, Date fromTime, Date toTime){
+                                            int toStationId){
         return entityManager.createQuery("select s from Schedule s " +
                 "where station.id =:fromStation or station.id=:toStation " +
                 "and isTrainStop = true and s.trainTime is not null " +
-                //"and s.trainTime >= :fromTime and s.trainTime <= :toTime " +
-                        "group by s.train.id having count(s.train.id) > 1", Schedule.class)
+                        "group by s.train.id having count(s.train.id) > 1 order by s.trainTime", Schedule.class)
                 .setParameter("fromStation", fromStationId)
                 .setParameter("toStation", toStationId)
-                //.setParameter("fromTime", fromTime)
-                //.setParameter("toTime", toTime)
                 .getResultList();
     }
 }

@@ -35,7 +35,6 @@ public class TripsServiceImpl implements TripsService {
         return tripModels;
     }
 
-    @Override
     public TripDetailsModel getTripDetails(int tripId) {
         TripDetailsModel tripDetailsModel = new TripDetailsModel();
         Trip trip = tripsRepository.getTripDetails(tripId);

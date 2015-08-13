@@ -16,7 +16,7 @@ public class TripsRepositoryImpl implements TripsRepositoryCustom {
 
     public List<Trip> getCurrentTrips() {
         LocalDate localDate = new LocalDate();
-
+        localDate.minusDays(5);
         return entityManager.createQuery("select t from Trip t " +
                         "join fetch t.train tr " +
                         "where t.tripDate >=:currentDate",

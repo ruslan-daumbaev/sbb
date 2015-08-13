@@ -8,7 +8,7 @@ import java.util.List;
 public interface StationsService {
     List<StationModel> getAllStations();
 
-    void addStation(StationModel stationModel);
+    void saveStation(StationModel stationModel);
 
     StationModel getStation(int stationId);
 

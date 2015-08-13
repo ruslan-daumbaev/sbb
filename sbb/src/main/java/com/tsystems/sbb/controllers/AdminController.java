@@ -1,6 +1,5 @@
 package com.tsystems.sbb.controllers;
 
-import com.tsystems.sbb.entities.Train;
 import com.tsystems.sbb.models.StationModel;
 import com.tsystems.sbb.models.TrainModel;
 import com.tsystems.sbb.models.TripDetailsModel;
@@ -13,7 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.*;
 
@@ -99,7 +97,7 @@ public class AdminController {
             method = RequestMethod.POST)
     public String saveStation(@ModelAttribute("stationModel") StationModel stationModel){
 
-        stationsService.addStation(stationModel);
+        stationsService.saveStation(stationModel);
         return "redirect:stations";
     }
 
@@ -119,7 +117,7 @@ public class AdminController {
             method = RequestMethod.POST)
     public String saveTrain(@ModelAttribute("trainModel") TrainModel trainModel){
 
-        trainsService.addTrain(trainModel);
+        trainsService.saveTrain(trainModel);
         return "redirect:trains";
     }
 

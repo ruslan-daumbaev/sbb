@@ -2,6 +2,7 @@ package com.tsystems.sbb.controllers;
 
 import com.tsystems.sbb.entities.Train;
 import com.tsystems.sbb.exceptions.PassenegerRegisteredException;
+import com.tsystems.sbb.exceptions.TicketException;
 import com.tsystems.sbb.models.*;
 import com.tsystems.sbb.services.contracts.StationsService;
 import com.tsystems.sbb.services.contracts.TicketsService;
@@ -50,7 +51,6 @@ public class ClientServicesController {
     List<ScheduleModel> findTrainsJson(@RequestParam int stationFirstId, @RequestParam  int stationSecondId,
                                        @RequestParam  String timeFrom, @RequestParam String timeTo) {
         return trainsService.findTrainsByParams(stationFirstId, stationSecondId, timeFrom, timeTo);
-        //return stationsService.getStationSchedule(stationId);
     }
 
     @RequestMapping(value = "/schedule", method = RequestMethod.GET)
@@ -98,7 +98,7 @@ public class ClientServicesController {
         else{
             try{
                 ticketsService.confirmTicket(ticketModel);
-            } catch (PassenegerRegisteredException e) {
+            } catch (TicketException e) {
                 confirmResult.setErrorMessage(e.getMessage());
                 confirmResult.setIsOk(false);
             }

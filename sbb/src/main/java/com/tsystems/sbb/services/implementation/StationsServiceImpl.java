@@ -21,8 +21,8 @@ public class StationsServiceImpl implements StationsService {
     private StationsRepository stationsRepository;
 
     public List<StationModel> getAllStations() {
-        List<Station> stations = stationsRepository.getEntities();
-        List<StationModel> stationModels = new ArrayList<StationModel>(stations.size());
+        Iterable<Station> stations = stationsRepository.findAll();
+        List<StationModel> stationModels = new ArrayList<StationModel>();
         for (Station item : stations) {
             stationModels.add(new StationModel(item));
         }
@@ -30,7 +30,7 @@ public class StationsServiceImpl implements StationsService {
     }
 
     @Transactional
-    public void addStation(StationModel stationModel) {
+    public void saveStation(StationModel stationModel) {
 
         int stationId = stationModel.getId();
         String stationName = stationModel.getStationName();
@@ -41,15 +41,15 @@ public class StationsServiceImpl implements StationsService {
             station.setId(stationId);
         }
         else {
-            station = stationsRepository.getEntity(stationId);
+            station = stationsRepository.findOne(stationId);
         }
         station.setStationName(stationName);
         station.setUpdDate(new Date());
-        stationsRepository.saveEntity(station);
+        stationsRepository.save(station);
     }
 
     public StationModel getStation(int stationId) {
-        Station station = stationsRepository.getEntity(stationId);
+        Station station = stationsRepository.findOne(stationId);
         return new StationModel(station);
     }
 
