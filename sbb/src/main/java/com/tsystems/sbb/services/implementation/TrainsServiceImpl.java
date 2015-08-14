@@ -74,7 +74,10 @@ public class TrainsServiceImpl implements TrainsService {
     }
 
     public TrainModel getTrain(int trainId){
-        Train train = trainsRepository.getTrainWithSchedules(trainId);
+        Train train = null;
+        if(trainId != 0){
+            train = trainsRepository.getTrainWithSchedules(trainId);
+        }
         Iterable<Station> stations = stationsRepository.findAll();
         TrainModel trainModel = train == null ? new TrainModel() : new TrainModel(train);
         trainModel.setStations(new ArrayList<StationModel>());
