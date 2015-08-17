@@ -26,7 +26,9 @@
           <div class="form-group ">
             <label for="stationName" class="control-label">Station name:</label>
             <form:input type="text" path="stationName"
-                        class="form-control input-common" id="stationName" name="stationName"/>
+                        class="form-control input-common" id="stationName" name="stationName"
+                        maxlength="50"
+                    required="required"/>
             <form:hidden path="id"/>
           </div>
 
@@ -51,6 +53,19 @@
         maxMinutes: 59,
         interval: 10
       });
+
+      $('#station-data-form').validate({
+        rules: {
+          stationName: {
+            required: true,
+            maxlength: 50
+          }
+        },
+        submitHandler: function(form) {
+          return false;
+        }
+      });
+
     });
   </script>
 </tiles:putAttribute>

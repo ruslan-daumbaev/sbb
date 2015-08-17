@@ -15,4 +15,6 @@ public interface TrainsService {
 
     List<ScheduleModel> findTrainsByParams(int fromStationId, int toStationId,
                                            String fromTime, String toTime);
+
+    public boolean checkTrainNumber(String trainNumber);
 }

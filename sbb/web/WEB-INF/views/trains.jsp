@@ -15,33 +15,27 @@
         </div>
 
         <div class="form-group ">
-          <label for="stationName" class="control-label">From station:</label>
-          <label id="stationName-lbl" class="control-label"></label>
-          <input type="hidden" id="stationName"/>
-
+          <label for="tripDate" class="control-label">Trip date:</label>
+          <input id="tripDate" type="text" readonly="readonly" class="form-control input-common" name="tripDate" />
         </div>
         <div class="form-group ">
-          <label for="stationName" class="control-label">Trip date:</label>
-          <input id="tripDate" type="text" class="form-control input-common" name="tripDate" />
-        </div>
-        <div class="form-group ">
-          <label for="stationName" class="control-label">Train time:</label>
+          <label for="trainTime-lbl" class="control-label">Train time:</label>
           <label id="trainTime-lbl" class="control-label" ></label>
           <input type="hidden" id="trainTime"/>
         </div>
         <div class="form-group ">
           <label for="firstName" class="control-label">First name:</label>
-          <input type="text" autofocus=""
+          <input type="text" autofocus="" required="required"
                  class="form-control input-common" id="firstName" name="firstName"  />
         </div>
         <div class="form-group ">
           <label for="lastName" class="control-label">Last name:</label>
-          <input type="text"
+          <input type="text" required="required"
                  class="form-control input-common" id="lastName" name="lastName"/>
         </div>
         <div class="form-group ">
           <label for="birthDateString" class="control-label">Birth date:</label>
-          <input type="text"
+          <input type="text" required="required"
                  class="form-control input-common" id="birthDateString"/>
         </div>
         <label id="confirm-errors" class="control-label validation-error"></label>
@@ -211,7 +205,6 @@
             $('#scheduleId').val(data.scheduleId);
             $('#trainNumber-lbl').html(data.trainNumber);
             $('#trainTime-lbl').html(data.trainTime);
-            $('#stationName-lbl').html(data.stationName);
             $('#tripDate').val(data.tripDate);
             dialog.dialog("open");
           }
@@ -271,11 +264,13 @@
       });
 
       $(function() {
-        $( "#birthDateString" ).datepicker({ dateFormat: 'dd/mm/yy' });
+        $( "#birthDateString" ).datepicker({ dateFormat: 'dd/mm/yy',
+          maxDate: new Date() });
       });
 
       $(function() {
-        $( "#tripDate" ).datepicker({ dateFormat: 'dd/mm/yy' });
+        $( "#tripDate" ).datepicker({ dateFormat: 'dd/mm/yy',
+          minDate: new Date()  });
       });
 
       function findTrains(stationFirstId, stationSecondId, timeFrom, timeTo){

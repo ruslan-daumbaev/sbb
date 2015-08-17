@@ -3,11 +3,15 @@ package com.tsystems.sbb.services.implementation;
 import com.tsystems.sbb.DAL.contracts.*;
 import com.tsystems.sbb.entities.*;
 import com.tsystems.sbb.exceptions.*;
+import com.tsystems.sbb.models.ReportModel;
 import com.tsystems.sbb.models.TicketModel;
+import com.tsystems.sbb.models.TicketReportModel;
 import com.tsystems.sbb.services.contracts.TicketsService;
 import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
 import org.joda.time.Minutes;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -113,6 +117,27 @@ public class TicketsServiceImpl implements TicketsService {
         ticket.setTrip(trip);
         ticket.setPassenger(passenger);
         ticketsRepository.save(ticket);
+    }
+
+    @Override
+    public ReportModel getTicketsByDate(String fromDate, String toDate) {
+
+        DateTimeFormatter dtf = DateTimeFormat.forPattern("dd.MM.yyyy");
+
+        DateTime dateTimeFrom = DateTime.parse(fromDate, dtf);
+        DateTime dateTimeTo = DateTime.parse(toDate, dtf);
+
+        ReportModel reportModel = new ReportModel();
+        List<Ticket> tickets = ticketsRepository.findTicketsByInsDate(dateTimeFrom.toDate(), dateTimeTo.toDate());
+        for(Ticket ticket: tickets){
+            TicketReportModel ticketReportModel = new TicketReportModel();
+            ticketReportModel.setTicketDate(ticket.getInsDate());
+            ticketReportModel.setFirstName(ticket.getPassenger().getFirstName());
+            ticketReportModel.setLastName(ticket.getPassenger().getLastName());
+            ticketReportModel.setTrainNumber(ticket.getTrip().getTrain().getTrainNumber());
+            reportModel.addTicket(ticketReportModel);
+        }
+        return reportModel;
     }
 
 }

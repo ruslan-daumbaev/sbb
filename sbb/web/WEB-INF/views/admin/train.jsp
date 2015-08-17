@@ -2,6 +2,14 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <tiles:insertDefinition name="adminTemplate">
+    <tiles:putAttribute name="modalDialog">
+        <div id="dialog-message" title="" class="dialog-window">
+            <p >
+                <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+                <span id="messageText"></span>
+            </p>
+        </div>
+    </tiles:putAttribute>
   <tiles:putAttribute name="content">
 
     <div class="row">
@@ -24,6 +32,8 @@
           <div class="form-group ">
             <label for="trainNumber" class="control-label">Train number:</label>
             <form:input type="text" path="trainNumber"
+                        maxlength="10"
+                        required="required"
                         class="form-control input-common" id="trainNumber" name="trainNumber"/>
             <form:hidden path="id"/>
             <span><form:errors path="${trainNumber}"/></span>
@@ -64,6 +74,24 @@
       </div>
     </div>
       <script>
+
+          confirmDialog = $( "#dialog-message" ).dialog({
+              modal: true,
+              autoOpen: false,
+              resizable: false,
+              buttons: {
+                  Ok: function() {
+                      $( this ).dialog( "close" );
+                  }
+              }
+          });
+
+          function showDialog(messageText, title){
+              $('#messageText').empty().append(messageText);
+              $('#dialog-message').attr('title', title);
+              confirmDialog.dialog("open");
+          }
+
           $( "#addTrainButton" ).click(function() {
               $( "#train-data-form" ).submit();
           });
@@ -82,6 +110,23 @@
                   var id = this.id;
                   var datePickerId = "#stationDp-" + id.split('-')[1];
                   $(datePickerId).prop('disabled', !this.checked);
+              });
+
+              $('#train-data-form').validate({
+                  rules: {
+                      trainNumber: {
+                          required: true,
+                          maxlength: 10
+                      },
+                      placesAmount: {
+                          required: true,
+                          maxlength: 6,
+                          digits: true
+                      }
+                  },
+                  submitHandler: function(form) {
+                      return false;
+                  }
               });
           });
       </script>

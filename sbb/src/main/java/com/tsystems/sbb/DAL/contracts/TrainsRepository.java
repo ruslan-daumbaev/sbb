@@ -3,6 +3,7 @@ package com.tsystems.sbb.DAL.contracts;
 import com.tsystems.sbb.entities.Schedule;
 import com.tsystems.sbb.entities.Station;
 import com.tsystems.sbb.entities.Train;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -13,4 +14,6 @@ import java.util.Date;
  */
 public interface TrainsRepository extends CrudRepository<Train, Integer>, TrainsRepositoryCustom {
 
+    @Query("select count (t) from Train t where t.trainNumber=?1")
+    int getTrainsCountWithTrainNumber(String trainNumber);
 }

@@ -9,6 +9,7 @@
        <http use-expressions="true">
               <intercept-url pattern='/admin/**' access='authenticated' />
               <intercept-url pattern='/login' access='permitAll' />
+              <intercept-url pattern='/report' access='permitAll' />
               <form-login login-page="/login" authentication-failure-url="/login"
                           default-target-url="/admin" />
               <logout logout-success-url="/login"/>

@@ -124,10 +124,16 @@ public class AdminController {
     @RequestMapping(value = "/getTrain",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE )
-    public @ResponseBody
-    TrainModel getTrain(@RequestParam int trainId) {
+         public @ResponseBody
+         TrainModel getTrain(@RequestParam int trainId) {
 
         return trainsService.getTrain(trainId);
+    }
+
+    @RequestMapping(value = "/checkTrainNumber", method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE )
+    public @ResponseBody boolean checkTrainNumber(@RequestParam String trainNumber) {
+        return trainsService.checkTrainNumber(trainNumber);
     }
 
     @RequestMapping(value = "/stationSchedule/{stationId}", method = RequestMethod.GET)

@@ -124,6 +124,11 @@ public class TrainsServiceImpl implements TrainsService {
         return scheduleModels;
     }
 
+    @Override
+    public boolean checkTrainNumber(String trainNumber) {
+        return trainsRepository.getTrainsCountWithTrainNumber(trainNumber) == 0;
+    }
+
     private Schedule findSchedule(Train train, StationModel stationModel){
         for (Schedule existSchedule: train.getSchedules()){
             if(existSchedule.getStation().getId() == stationModel.getId()){
