@@ -54,6 +54,14 @@
 
     <bean class="com.tsystems.sbb.services.implementation.UsersServiceImpl" id="authService"/>
 
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>messages</value>
+            </list>
+        </property>
+    </bean>
+
     <jpa:repositories base-package="com.tsystems.sbb.DAL"
                       entity-manager-factory-ref="entityManagerFactory"
                       transaction-manager-ref="transactionManager"/>

@@ -402,6 +402,11 @@ table.dataTable thead .sorting:after {
     font-size: 11px;
 }
 
+.bad-credentials-text{
+    color: red;
+    font-size: 14px;
+}
+
 .wait-indicator{
     margin-top: 100px;
     height: 100px;

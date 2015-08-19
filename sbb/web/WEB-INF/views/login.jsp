@@ -53,7 +53,9 @@
             </fieldset>
           </form>
         <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
-          <div class="label-warning">
+          <p/>
+          <div class="bad-credentials-text">
+
                ${SPRING_SECURITY_LAST_EXCEPTION.message}
           </div>
         </c:if>
