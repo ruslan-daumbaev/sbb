@@ -35,11 +35,11 @@ public class TicketsServiceImpl implements TicketsService {
 
     public TicketModel getDataForTicket(int scheduleId) {
         Schedule schedule = schedulesRepository.findOne(scheduleId);
-        if(schedule == null) throw new ResourceNotFoundException();
+        if (schedule == null) throw new ResourceNotFoundException("Schedule", scheduleId);
         TicketModel ticketModel = new TicketModel();
         Train train = schedule.getTrain();
         ticketModel.setScheduleId(scheduleId);
-        if(train != null){
+        if (train != null) {
             ticketModel.setTrainNumber(train.getTrainNumber());
             ticketModel.setTrainId(train.getId());
             Calendar cal = Calendar.getInstance();
@@ -54,7 +54,7 @@ public class TicketsServiceImpl implements TicketsService {
             ticketModel.setTrainDateTime(schedule.getTrainTime());
         }
         Station station = schedule.getStation();
-        if(station != null){
+        if (station != null) {
             ticketModel.setStationName(station.getStationName());
         }
         return ticketModel;
@@ -74,28 +74,26 @@ public class TicketsServiceImpl implements TicketsService {
 
         boolean result = Minutes.minutesBetween(new DateTime(), tripDateTime)
                 .isGreaterThan(Minutes.minutes(10));
-        if(!result){
+        if (!result) {
             throw new RegistrationClosedException();
         }
 
-        if(trip == null)
-        {
+        if (trip == null) {
             trip = new Trip();
             trip.setInsDate(new Date());
             trip.setTripDate(ticketModel.getTripDateTime());
             trip.setTickets(new ArrayList<Ticket>());
             trip.setTrain(schedule.getTrain());
-        }
-        else {
+        } else {
 
             int ticketsCount = ticketsRepository.getTicketsCountByTripId(trip.getId());
-            if(ticketsCount >= schedule.getTrain().getPlacesAmount()){
+            if (ticketsCount >= schedule.getTrain().getPlacesAmount()) {
                 throw new NoFreePlacesException();
             }
             List<Ticket> tickets = ticketsRepository.findByTripIdAndPassengerFirstNameAndPassengerLastNameAndPassengerBirthDate(trip.getId(),
                     ticketModel.getFirstName(), ticketModel.getLastName(),
                     ticketModel.getBirthDate());
-            if(tickets.size() > 0){
+            if (tickets.size() > 0) {
                 throw new PassenegerRegisteredException();
             }
         }
@@ -129,7 +127,7 @@ public class TicketsServiceImpl implements TicketsService {
 
         ReportModel reportModel = new ReportModel();
         List<Ticket> tickets = ticketsRepository.findTicketsByInsDate(dateTimeFrom.toDate(), dateTimeTo.toDate());
-        for(Ticket ticket: tickets){
+        for (Ticket ticket : tickets) {
             TicketReportModel ticketReportModel = new TicketReportModel();
             ticketReportModel.setTicketDate(ticket.getInsDate());
             ticketReportModel.setFirstName(ticket.getPassenger().getFirstName());

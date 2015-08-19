@@ -29,7 +29,7 @@ public class TrainsServiceImpl implements TrainsService {
 
     public List<TrainModel> getAllTrains() {
         Iterable<Train> trains = trainsRepository.findAll();
-        List<TrainModel> trainModels = new ArrayList<TrainModel>();
+        List<TrainModel> trainModels = new ArrayList<>();
         for (Train item : trains) {
             trainModels.add(new TrainModel(item));
         }
@@ -44,20 +44,19 @@ public class TrainsServiceImpl implements TrainsService {
         String trainNumber = trainModel.getTrainNumber();
         int placesAmount = trainModel.getPlacesAmount();
 
-        if(trainId == 0){
+        if (trainId == 0) {
             train = new Train();
             train.setSchedules(new ArrayList<Schedule>());
             train.setInsDate(new Date());
             train.setId(trainId);
-        }
-        else {
+        } else {
             train = trainsRepository.getTrainWithSchedules(trainId);
         }
 
         train.setTrainNumber(trainNumber);
         train.setPlacesAmount(placesAmount);
         train.setUpdDate(new Date());
-        if(trainModel.getStations() != null){
+        if (trainModel.getStations() != null) {
             for (StationModel stationModel : trainModel.getStations()) {
                 Station station = stationsRepository.findOne(stationModel.getId());
                 Schedule schedule = findSchedule(train, stationModel);
@@ -73,9 +72,9 @@ public class TrainsServiceImpl implements TrainsService {
         trainsRepository.save(train);
     }
 
-    public TrainModel getTrain(int trainId){
+    public TrainModel getTrain(int trainId) {
         Train train = null;
-        if(trainId != 0){
+        if (trainId != 0) {
             train = trainsRepository.getTrainWithSchedules(trainId);
         }
         Iterable<Station> stations = stationsRepository.findAll();
@@ -84,12 +83,13 @@ public class TrainsServiceImpl implements TrainsService {
         for (Station item : stations) {
             StationModel stationModel = new StationModel(item);
             trainModel.getStations().add(stationModel);
-            if(train != null && train.getSchedules() != null){
-                for (Schedule schedule: train.getSchedules()){
-                    if(schedule.getStation().getId() == item.getId()){
-                        stationModel.setIsSelected(schedule.getIsTrainStop());
-                        stationModel.setTrainTimeFromDate(schedule.getTrainTime());
-                    }
+            if (train == null || train.getSchedules() == null) {
+                continue;
+            }
+            for (Schedule schedule : train.getSchedules()) {
+                if (schedule.getStation().getId() == item.getId()) {
+                    stationModel.setIsSelected(schedule.getIsTrainStop());
+                    stationModel.setTrainTimeFromDate(schedule.getTrainTime());
                 }
             }
         }
@@ -98,24 +98,22 @@ public class TrainsServiceImpl implements TrainsService {
 
     public List<ScheduleModel> findTrainsByParams(int fromStationId,
                                                   int toStationId, String fromTime, String toTime) {
-        if(fromStationId == 0 || toStationId == 0){
-            return new ArrayList<ScheduleModel>();
+        if (fromStationId == 0 || toStationId == 0) {
+            return new ArrayList<>();
         }
         LocalTime fromDateTime = (fromTime != null && !fromTime.isEmpty())
                 ? new LocalTime(fromTime) : new LocalTime("00:00");
-        LocalTime toDateTime = (toTime != null  && !toTime.isEmpty())
+        LocalTime toDateTime = (toTime != null && !toTime.isEmpty())
                 ? new LocalTime(toTime) : new LocalTime("23:59");
         List<Schedule> schedules = trainsRepository.getTrainsByParams(fromStationId, toStationId);
-        List<ScheduleModel> scheduleModels = new ArrayList<ScheduleModel>(schedules.size());
+        List<ScheduleModel> scheduleModels = new ArrayList<>(schedules.size());
 
-        for(Schedule schedule: schedules){
-            if(!schedule.getIsTrainStop() || schedule.getTrainTime() == null)
-            {
+        for (Schedule schedule : schedules) {
+            if (!schedule.getIsTrainStop() || schedule.getTrainTime() == null) {
                 continue;
             }
             LocalTime fromEnt = new LocalTime(schedule.getTrainTime());
-            if(fromEnt.isBefore(fromDateTime) || fromEnt.isAfter(toDateTime))
-            {
+            if (fromEnt.isBefore(fromDateTime) || fromEnt.isAfter(toDateTime)) {
                 continue;
             }
             ScheduleModel scheduleModel = new ScheduleModel(schedule);
@@ -129,9 +127,9 @@ public class TrainsServiceImpl implements TrainsService {
         return trainsRepository.getTrainsCountWithTrainNumber(trainNumber) == 0;
     }
 
-    private Schedule findSchedule(Train train, StationModel stationModel){
-        for (Schedule existSchedule: train.getSchedules()){
-            if(existSchedule.getStation().getId() == stationModel.getId()){
+    private Schedule findSchedule(Train train, StationModel stationModel) {
+        for (Schedule existSchedule : train.getSchedules()) {
+            if (existSchedule.getStation().getId() == stationModel.getId()) {
                 return existSchedule;
             }
         }

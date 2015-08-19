@@ -22,7 +22,7 @@ public class StationsServiceImpl implements StationsService {
 
     public List<StationModel> getAllStations() {
         Iterable<Station> stations = stationsRepository.findAll();
-        List<StationModel> stationModels = new ArrayList<StationModel>();
+        List<StationModel> stationModels = new ArrayList<>();
         for (Station item : stations) {
             stationModels.add(new StationModel(item));
         }
@@ -35,12 +35,11 @@ public class StationsServiceImpl implements StationsService {
         int stationId = stationModel.getId();
         String stationName = stationModel.getStationName();
         Station station;
-        if(stationId == 0){
+        if (stationId == 0) {
             station = new Station();
             station.setInsDate(new Date());
             station.setId(stationId);
-        }
-        else {
+        } else {
             station = stationsRepository.findOne(stationId);
         }
         station.setStationName(stationName);
@@ -56,10 +55,10 @@ public class StationsServiceImpl implements StationsService {
     public StationModel getStationSchedule(int stationId) {
         Station station = stationsRepository.getStationWithSchedules(stationId);
         StationModel stationModel = new StationModel(station);
-        List<ScheduleModel> scheduleModels = new ArrayList<ScheduleModel>();
-        if(station.getSchedules() != null){
-            for (Schedule schedule: station.getSchedules()){
-                if(schedule.getTrain() != null && schedule.getIsTrainStop() && schedule.getTrainTime() != null){
+        List<ScheduleModel> scheduleModels = new ArrayList<>();
+        if (station.getSchedules() != null) {
+            for (Schedule schedule : station.getSchedules()) {
+                if (schedule.getTrain() != null && schedule.getIsTrainStop() && schedule.getTrainTime() != null) {
                     scheduleModels.add(new ScheduleModel(schedule));
                 }
             }

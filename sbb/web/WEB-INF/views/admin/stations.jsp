@@ -43,7 +43,9 @@
     </table>
 
       <script>
+
           $(document).ready(function(){
+
               $('#stations-table').DataTable({
                   "paging": false,
                   "info": false,
@@ -63,6 +65,7 @@
                   ]
               } );
           })
+
       </script>
 
 </tiles:putAttribute>

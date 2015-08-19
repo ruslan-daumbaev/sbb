@@ -15,8 +15,9 @@ public class ErrorsController {
     private static Logger log = LogManager.getLogger(ErrorsController.class);
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public String handleResourceNotFoundException() {
-        log.error("Resource not found");
+    public String handleResourceNotFoundException(ResourceNotFoundException exception) {
+        log.error(String.format("Resource '%s' (id = %s) not found", exception.getResourceName(), exception.getId()),
+                exception);
         return "service/notfound";
     }
 

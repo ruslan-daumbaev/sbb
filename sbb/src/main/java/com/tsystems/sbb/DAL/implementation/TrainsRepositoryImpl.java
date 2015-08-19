@@ -11,28 +11,9 @@ import java.util.List;
 
 @Repository
 public class TrainsRepositoryImpl implements TrainsRepositoryCustom {
+
     @PersistenceContext
     private EntityManager entityManager;
-
-    public Train getTrainWithSchedules(int trainId) {
-        try{
-            return entityManager.createQuery("select t from Train t left join fetch t.schedules where t.id=:trainId", Train.class).
-                setParameter("trainId", trainId).getSingleResult();
-        }
-        catch (NoResultException e){
-            throw new ResourceNotFoundException();
-        }
-    }
-
-    public Train getTrainWithTrips(int trainId) {
-        try{
-            return entityManager.createQuery("select t from Train t left join fetch t.trips where t.id=:trainId", Train.class).
-                setParameter("trainId", trainId).getSingleResult();
-        }
-        catch (NoResultException e){
-            throw new ResourceNotFoundException();
-        }
-    }
 
     public List<Schedule> getTrainsByParams(int fromStationId,
                                             int toStationId){

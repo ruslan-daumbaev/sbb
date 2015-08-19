@@ -18,10 +18,6 @@ public class TicketModel extends PassengerModel {
 
     public TicketModel(){}
 
-    public TicketModel(Ticket ticket){
-        //tripDate = ticket.getTrip().getTripDate();
-    }
-
     public String getTrainNumber() {
         return trainNumber;
     }

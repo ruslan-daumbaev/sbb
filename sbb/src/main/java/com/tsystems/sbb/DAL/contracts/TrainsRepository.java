@@ -16,4 +16,7 @@ public interface TrainsRepository extends CrudRepository<Train, Integer>, Trains
 
     @Query("select count (t) from Train t where t.trainNumber=?1")
     int getTrainsCountWithTrainNumber(String trainNumber);
+
+    @Query("select t from Train t left join fetch t.schedules where t.id=?1")
+    Train getTrainWithSchedules(int trainId);
 }
