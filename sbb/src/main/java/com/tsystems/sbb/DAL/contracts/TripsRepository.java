@@ -14,6 +14,6 @@ public interface TripsRepository extends CrudRepository<Trip, Integer> {
     @Query("select t from Trip t join fetch t.train tr where t.id =?1")
     Trip getTripDetails(int tripId);
 
-    @Query("select t from Trip t join fetch t.train tr where t.tripDate >=?1 order by t.insDate")
+    @Query("select t from Trip t join fetch t.train tr where t.tripDate >=?1 order by t.tripDate")
     List<Trip> getCurrentTrips(Date fromDate);
 }

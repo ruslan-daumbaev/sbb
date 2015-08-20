@@ -39,6 +39,7 @@
                  class="form-control input-common" id="birthDateString"/>
         </div>
         <label id="confirm-errors" class="control-label validation-error"></label>
+        <input type="hidden" id="csrfToken" name="${_csrf.parameterName}" value="${_csrf.token}" />
       </form>
     </div>
 
@@ -154,6 +155,7 @@
           var lastName = $('#lastName').val();
           var birthDateString = $('#birthDateString').val();
           var tripDate = $('#tripDate').val();
+          var csrfToken = $('#csrfToken').val();
 
           $.ajax({
             url: '${pageContext.request.contextPath}/confirmTicket',
@@ -165,7 +167,8 @@
               "firstName": firstName,
               "lastName": lastName,
               "birthDateString": birthDateString,
-              "tripDate": tripDate
+              "tripDate": tripDate,
+              "_csrf": csrfToken
             },
             dataType: 'json',
             success: function(data) {

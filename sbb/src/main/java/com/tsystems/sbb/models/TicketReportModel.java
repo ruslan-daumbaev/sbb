@@ -7,6 +7,7 @@ public class TicketReportModel {
     private String trainNumber;
     private String firstName;
     private String lastName;
+    private String birthDate;
 
     public Date getTicketDate() {
         return ticketDate;
@@ -38,5 +39,13 @@ public class TicketReportModel {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 }

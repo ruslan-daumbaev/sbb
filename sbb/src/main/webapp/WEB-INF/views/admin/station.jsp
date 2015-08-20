@@ -13,16 +13,17 @@
       <!-- /.col-lg-12 -->
     </div>
 
+    <form:form id="station-data-form" method="post" servletRelativeAction="/admin/saveStation" modelAttribute="stationModel">
     <div>
       <p>
-        <button id="saveStationButton" type="button" class="btn btn-outline btn-primary">Save</button>
+        <button id="saveStationButton" type="submit" class="btn btn-outline btn-primary">Save</button>
         <a href="<c:url value="/admin/stations"/>" id="cancelButton" type="button" class="btn btn-outline btn-default">Cancel</a>
       </p>
     </div>
 
     <div >
       <div >
-        <form:form id="station-data-form" method="post" servletRelativeAction="/admin/saveStation" modelAttribute="stationModel">
+
           <div class="form-group ">
             <label for="stationName" class="control-label">Station name:</label>
             <form:input type="text" path="stationName"
@@ -31,29 +32,17 @@
                     required="required"/>
             <form:hidden path="id"/>
           </div>
+          <sec:csrfInput />
 
-          <div class="form-group ">
-
-
-          </div>
-        </form:form>
       </div>
     </div>
+    </form:form>
   <script>
-    $( "#saveStationButton" ).click(function() {
-      $( "#station-data-form" ).submit();
-    });
+//    $( "#saveStationButton" ).click(function() {
+//      $( "#station-data-form" ).submit();
+//    });
 
     $(document).ready(function(){
-      $('.time-input').timepicker({
-        timeFormat: 'HH:mm',
-        startTime: new Date(0,0,0,0,0,0),
-        minTime: '00:00',
-        maxHour: 23,
-        maxMinutes: 59,
-        interval: 10
-      });
-
       $('#station-data-form').validate({
         rules: {
           stationName: {
@@ -62,7 +51,7 @@
           }
         },
         submitHandler: function(form) {
-          return false;
+          return true;
         }
       });
 

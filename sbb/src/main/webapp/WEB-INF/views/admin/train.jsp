@@ -125,7 +125,7 @@
                       }
                   },
                   submitHandler: function(form) {
-                      return false;
+                      return true;
                   }
               });
           });

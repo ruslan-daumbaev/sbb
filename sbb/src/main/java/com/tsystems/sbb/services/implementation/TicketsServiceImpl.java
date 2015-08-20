@@ -132,6 +132,8 @@ public class TicketsServiceImpl implements TicketsService {
             ticketReportModel.setTicketDate(ticket.getInsDate());
             ticketReportModel.setFirstName(ticket.getPassenger().getFirstName());
             ticketReportModel.setLastName(ticket.getPassenger().getLastName());
+            DateTime birthDate = new DateTime(ticket.getPassenger().getBirthDate());
+            ticketReportModel.setBirthDate(birthDate.toString(dtf));
             ticketReportModel.setTrainNumber(ticket.getTrip().getTrain().getTrainNumber());
             reportModel.addTicket(ticketReportModel);
         }

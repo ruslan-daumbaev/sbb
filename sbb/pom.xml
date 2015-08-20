@@ -6,14 +6,14 @@
 
     <groupId>com.tsystems.sbb</groupId>
     <artifactId>sbb</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+    <packaging>war</packaging>
     <properties>
         <hibernate-core-version>4.3.6.Final</hibernate-core-version>
         <spring-framework.version>4.2.0.RELEASE</spring-framework.version>
         <spring-security.version>4.0.2.RELEASE</spring-security.version>
         <spring-data.version>1.8.2.RELEASE</spring-data.version>
         <tiles.version>3.0.5</tiles.version>
-        <plugin.war.warName>sbb.war</plugin.war.warName>
     </properties>
 
     <dependencies>
@@ -43,6 +43,12 @@
             <artifactId>spring-security-config</artifactId>
             <version>${spring-security.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
@@ -146,15 +152,6 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
-                <configuration>
-                    <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
-                    <warName>${plugin.war.warName}</warName>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
@@ -164,5 +161,6 @@
             </plugin>
 
         </plugins>
+        <finalName>sbb</finalName>
     </build>
 </project>

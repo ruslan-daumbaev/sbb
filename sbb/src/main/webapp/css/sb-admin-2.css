@@ -410,7 +410,7 @@ table.dataTable thead .sorting:after {
 .wait-indicator{
     margin-top: 100px;
     height: 100px;
-    background-image: url("./../images/wait-indicator.gif");
+    background-image: url("../images/wait-indicator.gif");
     background-repeat: no-repeat;
     background-position: center;
 }

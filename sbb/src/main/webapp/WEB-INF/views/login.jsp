@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-
   <title>SBB Administration Login</title>
 
   <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
@@ -39,17 +39,17 @@
           <h3 class="panel-title">Please Sign In</h3>
         </div>
         <div class="panel-body">
-          <spring:url var="loginUrl" value="j_spring_security_check" />
-          <form role="form" action="<c:url value='${loginUrl}'/>" method="post">
+
+          <form role="form" name="loginForm" action="<c:url value='j_spring_security_check' />" method="post">
             <fieldset>
               <div class="form-group">
-                <input class="form-control" placeholder="Login" name="j_username" type="text" autofocus required>
+                <input class="form-control" placeholder="Login" name="username" type="text" autofocus required>
               </div>
               <div class="form-group">
-                <input class="form-control" placeholder="Password" name="j_password" type="password" value="" required>
+                <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
               </div>
-              <!-- Change this to a button or input when using this as a form -->
               <input type="submit" class="btn btn-lg btn-success btn-block" value="Login"/>
+              <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </fieldset>
           </form>
         <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">

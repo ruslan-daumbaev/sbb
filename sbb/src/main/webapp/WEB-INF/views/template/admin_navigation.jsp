@@ -26,8 +26,14 @@
         </li>
         <li class="divider"></li>
         <li>
+          <a href="#" id="logoutLink">Logout</a>
           <spring:url var="logoutUrl" value="j_spring_security_logout" />
-          <a href="${pageContext.request.contextPath}/${logoutUrl}">Logout</a>
+          <form action="${pageContext.request.contextPath}/logout" method="post" id="logoutForm">
+            <input type="hidden"
+                   name="${_csrf.parameterName}"
+                   value="${_csrf.token}" />
+          </form>
+
         </li>
       </ul>
       <!-- /.dropdown-user -->
@@ -52,4 +58,9 @@
     </div>
     <!-- /.sidebar-collapse -->
   </div>
+  <script>
+    $('#logoutLink').click(function(){
+      $('#logoutForm').submit();
+    });
+  </script>
 </nav>

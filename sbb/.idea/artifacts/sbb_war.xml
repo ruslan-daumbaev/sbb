@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="sbb">
-    <output-path>$PROJECT_DIR$/out/artifacts/sbb</output-path>
+  <artifact type="war" name="sbb:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="sbb.war">
       <element id="artifact" artifact-name="sbb:war exploded" />
     </root>
